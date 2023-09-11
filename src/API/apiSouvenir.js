@@ -1,4 +1,4 @@
-const API_SOUVENIR = "https://my-json-server.typicode.com/nadila98dev /apiSouvenir"
+const API_SOUVENIR = "https://my-json-server.typicode.com/nadila98dev/apiSouvenir"
 
 import axios from "axios"
 import React from "react"
