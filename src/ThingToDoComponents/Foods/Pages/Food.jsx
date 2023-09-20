@@ -4,19 +4,22 @@ import Footer from "../../../Components/Footer/Footer";
 
 import FoodCard from "../Components/FoodCard";
 import axiosInstance from "../../../API/apiCall";
-// import FoodsData from "/src/Database/foodsData.json";
+
 
 const Food = () => {
   const [foods, setFoods] = useState([]);
+
   const callApi = async () => {
     axiosInstance.items(4).then((res) => {
-      console.log(res);
       setFoods(res);
     });
   };
+
   useEffect(() => {
     callApi();
   }, []);
+
+
   return (
     <div className="flex flex-col min-h-screen ">
       <div className='w-screen h-screen flex flex-col items-center bg-[url("/Assets/foods/background-food-page.png")] bg-cover bg-no-repeat bg-center bg-fixed'>
@@ -71,6 +74,7 @@ const Food = () => {
               title={food.name}
               src={food.src}
               description={food.description}
+              id = {food.id}
             />
           ))}
         </section>

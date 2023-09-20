@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react';
 import './menusmall.css'
 import { useNavigate } from 'react-router-dom'
 
 const MenuSmall = () => {
     const navigateToMainPage = useNavigate ()
+    const navigateToSavedPage = useNavigate ()
+    const navigateToSearchPage = useNavigate ()
 
     // practical tips
     const navigateToPracticalTipsPage = useNavigate ()
@@ -26,6 +28,12 @@ const MenuSmall = () => {
     const navigateToDrinksPageJogja = useNavigate()
     //attraction
     const navigateToAttractionPageJogja = useNavigate()
+
+    const [showSpan, setShowSpan] = useState(false);
+    useEffect(() => {
+      const favoriteItems = JSON.parse(localStorage.getItem('products')) || [];
+      setShowSpan(favoriteItems.length > 0);
+    }, []);
 
   return (
     <div className='flex flex-col max-w-screen h-fit items-center
@@ -137,7 +145,8 @@ const MenuSmall = () => {
         <div className='fixed z-[1600] bottom-10 flex justify-center items-center
             lg:hidden
             '>
-            <button className='bg-white text-button text-[24px] rounded-l-lg  w-[3rem] h-[3rem] text-center relative left-1 drop-shadow-md flex justify-center items-center'>
+            <button onClick={() => navigateToSearchPage('/search-page')}
+             className='bg-white text-button text-[24px] rounded-l-lg  w-[3rem] h-[3rem] text-center relative left-1 drop-shadow-md flex justify-center items-center'>
             <i className='bx bx-search'></i>
             </button>
 
@@ -149,8 +158,12 @@ const MenuSmall = () => {
                 <i className='bx bx-x'></i>
             </button>
 
-            <button className='bg-white text-button text-[24px] rounded-r-lg  w-[3rem] h-[3rem] text-center relative right-1 drop-shadow-md flex justify-center items-center'> 
+            <button onClick={() => navigateToSavedPage('/saved-page')}
+            className='bg-white text-button text-[24px] rounded-r-lg  w-[3rem] h-[3rem] text-center relative right-1 drop-shadow-md flex justify-center items-center'> 
             <i className='bx bx-heart'></i>
+            {showSpan && (
+                <span className='absolute text-[80px] bottom-[1px] right-[7px]'>.</span>
+            )}
             </button>
         </div>
     </div>

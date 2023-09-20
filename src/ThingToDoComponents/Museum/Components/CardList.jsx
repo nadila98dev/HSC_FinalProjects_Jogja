@@ -18,7 +18,7 @@ function CardList({ ...props }) {
           className="w-full h-60 object-cover hover:scale-105 duration-300"
         />
         <div className="flex justify-end relative bottom-12 xl:bottom-[52px] h-0">
-          <ButtonLove />
+          <ButtonLove id={id} />
         </div>
       </div>
       <div className="h-[90px]">

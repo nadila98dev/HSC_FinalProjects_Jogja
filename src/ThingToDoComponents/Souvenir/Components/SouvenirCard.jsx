@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import SouvenirButton from './SouvenirButton'
 import ButtonLove from '../../../Components/Atoms/ButtonLove'
 
-const SouvenirCard = ({item, pic, title, desc, price}) => {
+const SouvenirCard = ({item, pic, title, desc, price , id}) => {
 
     
   return (
@@ -13,7 +13,7 @@ const SouvenirCard = ({item, pic, title, desc, price}) => {
       <div className='relative overflow-hidden rounded-lg'>
         <img className='object-cover rounded-lg w-full h-48 hover:scale-105 duration-300' src={pic} alt='' /> {/* Use curly braces to interpolate the pic property */}
         <div className='flex justify-end relative bottom-12 xl:bottom-[52px] h-0'>
-          <ButtonLove />
+          <ButtonLove id={id} />
         </div>
       </div>
       <div className='p-4'>

@@ -74,6 +74,7 @@ const Drinks = () => {
               title={drinks.name}
               src={drinks.src}
               description={drinks.description}
+              id={drinks.id}
             />
           ))}
         </section>
