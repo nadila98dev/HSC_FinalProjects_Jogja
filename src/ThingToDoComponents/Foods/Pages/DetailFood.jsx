@@ -5,7 +5,7 @@ import BotButton from "../../../Components/Landing/Landing-bot/BotButton";
 
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
-import axiosFood from "../../../API/apiFood";
+
 import axiosInstance from "../../../API/apiCall";
 
 const DetailFood = () => {

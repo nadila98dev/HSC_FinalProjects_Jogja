@@ -25,6 +25,7 @@ const SouvenirContainer = () => {
           pic={item.src}
           title={item.name}
           price={item.price}
+          id={item.id}
         />
       ))}
     </div>

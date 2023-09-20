@@ -26,6 +26,7 @@ const IndexCard = () => {
             imageSrc={card.src}
             title={card.name}
             description={card.description}
+            id={card.id}
           />
         ))}
       </div>

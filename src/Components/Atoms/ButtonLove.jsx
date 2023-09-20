@@ -1,11 +1,25 @@
-import React, { useState } from "react";
+import React, { useState , useEffect } from "react";
+import { addProductToLocalStorage , removeProductFromLocalStorage } from "../../Utils/Products";
+import { setIsSolidToLocalStorage , getIsSolidFromLocalStorage } from '../../Utils/activatedButton'
 
-const ButtonLove = () => {
+const ButtonLove = ({ id }) => {
   const [isSolid, setIsSolid] = useState(false);
+
+  useEffect(() => {
+    // Ambil nilai isSolid dari localStorage saat komponen dimuat
+    const storedIsSolid = getIsSolidFromLocalStorage(id);
+    if (storedIsSolid !== null) {
+      setIsSolid(storedIsSolid);
+    }
+  }, [id]);
+
   const toggleIcon = () => {
     setIsSolid((prevIsSolid) => !prevIsSolid);
-  };
+    const product = { id, isSolid: !isSolid };
 
+    isSolid ? removeProductFromLocalStorage(id) : addProductToLocalStorage(product);
+    setIsSolidToLocalStorage(id, !isSolid);
+  };
   return (
     <div>
       <button
