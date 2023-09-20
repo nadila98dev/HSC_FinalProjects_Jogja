@@ -62,6 +62,7 @@ const ArtCardContainer = () => {
               pic={item.src}
               name={item.name}
               description={item.description}
+              id={item.id}
             />
           ))}
         </div>

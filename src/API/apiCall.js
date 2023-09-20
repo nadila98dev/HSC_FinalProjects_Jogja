@@ -23,6 +23,10 @@ const axiosInstance = {
     category: async(id) => await axios.get('/db.json').then((res) => res.data.category).catch((err) => console.log(err)),
     items: async(id) => await axios.get('/db.json').then((res) =>  res.data.items.filter((item) => item.category_id === id)).catch((err) => { console.log(err)}),
     detail: async (slug) => await axios.get('/db.json').then((res) => res.data.items.filter((item) => item.slug == slug)).catch((err) => { console.log(err)}),
+    itemById: async (id) => await axios.get('/db.json').then((res) => {
+        const item = res.data.items.find((item) => item.id === id);
+        return item || null;
+    }).catch((err) => { console.log(err) }),
 }
 
 export default axiosInstance
