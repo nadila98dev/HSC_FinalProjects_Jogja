@@ -8,6 +8,9 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import ReuseNav from "../../../Components/ReuseableNav/ReuseNav";
 import BotButton from "../../../Components/Landing/Landing-bot/BotButton";
 import Footer from "/src/Components/Footer/Footer";
+import AddToCartButton from "../../../Components/Atoms/AddToCartButton";
+
+
 import axiosInstance from "../../../API/apiCall";
 
 const DetailSouvenir = () => {
@@ -102,10 +105,7 @@ const DetailSouvenir = () => {
           </div>
           <div className="mt-4 max-w-7x1 nx-auto px-4 sm:px-6 md:px-8">
             <Link to={"/cart-page/"}>
-              <button className="w[180px] bg-button flex items-center px-4 py-2 rounded-xl">
-                <p className="text-white me-1 font-Poppins">Add to Cart</p>
-                <i className="bx bx-cart-alt text-[30px] text-white ml-3"></i>
-              </button>
+              <AddToCartButton />
             </Link>
           </div>
         </div>
