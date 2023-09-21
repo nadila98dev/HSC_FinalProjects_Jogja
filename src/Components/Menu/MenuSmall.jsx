@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './menusmall.css'
 import { useNavigate } from 'react-router-dom'
+import FooterSocials from '../Footer/Socials/FooterSocials';
 
 const MenuSmall = () => {
     const navigateToMainPage = useNavigate ()
@@ -141,6 +142,31 @@ const MenuSmall = () => {
                     </div>
             </div>
         </div>
+
+        <div className='mb-5 w-[100%]'>
+            <div className='px-5 menu__title pb-2  '>
+                <h1 className='text-2xl'>Personal</h1>
+            </div>
+            <div className=' bg-button2 flex flex-col gap-3 px-5 py-3 font-Poppins'>
+                <div onClick={() => navigateToMainPage('/')} 
+                className='flex justify-between items-center menu__text'>
+                    <p>Login</p>
+                    <i className='bx bx-right-arrow-alt text-button text-2xl font-bold'></i>
+                </div>
+                <div onClick={() => navigateToMainPage('/')} 
+                className='flex justify-between items-center menu__text'>
+                    <p>My Account</p>
+                    <i className='bx bx-right-arrow-alt text-button text-2xl font-bold'></i>
+                </div>
+                <div onClick={() => navigateToMainPage('/')} 
+                className='flex justify-between items-center menu__text'>
+                    <p>My Cart</p>
+                    <i className='bx bx-right-arrow-alt text-button text-2xl font-bold'></i>
+                </div>
+            </div>
+        </div>
+
+        <FooterSocials />
 
         <div className='fixed z-[1600] bottom-10 flex justify-center items-center
             lg:hidden

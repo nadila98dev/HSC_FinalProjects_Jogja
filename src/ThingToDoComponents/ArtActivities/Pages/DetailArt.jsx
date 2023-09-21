@@ -102,7 +102,7 @@ const DetailArt = () => {
           </div>
         </div>
       </div>
-      <ArtContact />
+      <ArtContact map={detail.map} />
       <div className="flex justify-center items-center">
         <BotButton />
       </div>
