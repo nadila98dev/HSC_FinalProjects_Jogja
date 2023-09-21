@@ -6,7 +6,6 @@ import Footer from "/src/Components/Footer/Footer";
 import AttractionContact from "../Component/AttractionContact";
 import BotButton from "../../../Components/Landing/Landing-bot/BotButton";
 import axiosInstance from "../../../API/apiCall";
-import { map } from "leaflet";
 
 const DetailAttraction = () => {
   const navigationToAttractionPage = useNavigate();
