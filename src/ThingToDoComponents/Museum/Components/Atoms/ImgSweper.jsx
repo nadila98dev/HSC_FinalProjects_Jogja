@@ -5,7 +5,7 @@ function ImgSweper({ image }) {
     <>
       <img
         src={image}
-        className="w-full lg:min-h-[96vh] object-cover rounded-2xl drop-shadow-xl"
+        className="w-full lg:w-[50vw] lg:h-[450px] object-cover drop-shadow-xl"
         alt={"Image" + image}
       />
     </>

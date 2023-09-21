@@ -11,20 +11,17 @@ const CarouselCard = ({ imageSrc, title, item }) => {
     <Link to={`/things-to-do/attraction-jogja/${item}`}>
       <div className="flex justify-center p-4">
         <div className="bg-white rounded-xl shadow-lg overflow-hidden relative">
-          <div className="border-2 border-black rounded-md ml-5 mr-5 mt-6">
+          <div className="rounded-lg ml-5 mr-5 mt-6">
             <img
               src={imageSrc}
               alt={title}
-              className="h-[280px] w-full object-cover object-center"
+              className="h-[280px] w-full object-cover object-center rounded-lg"
             />
-            <div className="flex justify-end h-0 relative bottom-12 xl:bottom-[52px]">
-              <ButtonLove />
-            </div>
           </div>
 
           <div className="py-4 px-8">
             <h3>
-              <p className="block mb-3 font-semibold lg:text-xl sm:text-sm">
+              <p className="block mb-3 font-semibold lg:text-[18px] sm:text-sm">
                 {title}
               </p>
             </h3>

@@ -39,6 +39,7 @@ import DetailDrinks from "./ThingToDoComponents/Drinks/Pages/DetailDrinks";
 
 // Attraction
 import AttractionPage from "./Pages/Things-to-do/AttractionPage/AttractionPage";
+import DetailAttraction from "./ThingToDoComponents/Attraction/pages/DetailAttraction";
 
 // Auth
 import LoginPage from "./Pages/Login";
@@ -106,6 +107,10 @@ function App() {
             path="/things-to-do/attraction-jogja"
             element={<AttractionPage />}
           ></Route>
+          <Route
+            path="/things-to-do/attraction-jogja/:id"
+            element={<DetailAttraction />}
+          />
 
           {/* ========= Souvenir =========== */}
           <Route
