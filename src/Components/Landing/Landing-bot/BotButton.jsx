@@ -30,13 +30,15 @@ const BotButton = () => {
           <i className='bx bx-menu'></i>
       </button>
 
-      <button onClick={() => navigateToSavedPage('/saved-page')}
-       className='bg-white text-button text-[24px] rounded-r-lg  w-[3rem] h-[3rem] text-center relative right-1 drop-shadow-md flex items-center justify-center'> 
-        <i className='bx bx-heart'></i>
-        {showSpan && (
-          <span className='absolute text-[80px] bottom-[1px] right-[7px]'>.</span>
-        )}
-      </button>
+      <div>
+        <button onClick={() => navigateToSavedPage('/saved-page')}
+        className='bg-white text-button text-[24px] rounded-r-lg  w-[3rem] h-[3rem] text-center relative right-1 drop-shadow-md flex items-center justify-center'> 
+          <i className='bx bx-heart'></i>
+          {showSpan && (
+            <div className='absolute top-[12px] right-[12px] w-[8px] h-[8px] bg-button rounded-[50%]'></div>
+          )}
+        </button>
+      </div>
     </div>
   )
 }
