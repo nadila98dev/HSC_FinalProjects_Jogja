@@ -11,6 +11,11 @@ const Login = () => {
             Register
           </Link>
         </p>
+        <Link to="/">
+          <div className='mt-3 bg-button w-[36px] p-2 rounded-md cursor-pointer'>
+            <i className='bx bx-home text-[20px] text-white' ></i>
+          </div>
+        </Link>
       </AuthLayout>
     );
   };
