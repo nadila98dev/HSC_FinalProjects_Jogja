@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { BsTrash3 } from "react-icons/bs";
 
-const CartCard = () => {
+const CartCard = ({item, img, product, price}) => {
   const [quantity, setQuantity] = useState(1);
 
   const decrementQuantity = () => {
@@ -18,7 +18,7 @@ const CartCard = () => {
     <div className="flex px-2 mt-1 md:px-10 shadow-md">
       <div className="mx-auto mt-4">
         <div className="flex justify-between w-auto  mb-5">
-          <h3>Title Product</h3>
+          <h3>{product}</h3>
           <button>
             <BsTrash3 size={20} />
           </button>
@@ -27,16 +27,16 @@ const CartCard = () => {
         <div className="flex flex-col items-center mb-4 bg-white rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
           <img
             className="object-cover w-full h-30 md:h-40 md:w-48 rounded-t-lg md:rounded-none md:rounded-l-lg"
-            src="/Assets/souvenir/kain-lurik.jpg"
+            src="{img}"
             alt=""
           />
           <div className="flex flex-col justify-between p-4 leading-normal">
             <h4 className="mb-2 text-1xl font-bold tracking-tight text-gray-900 dark:text-white">
-              Product Name
+              {product}
             </h4>
           </div>
           <div className="grid grid-cols-1 px-6 mt-4">
-            <p>Rp. 300000</p>
+            <p>Rp. {price}</p>
             <div className="mt-2 flex justify-center items-center border-gray-100">
               <span
                 onClick={decrementQuantity}
