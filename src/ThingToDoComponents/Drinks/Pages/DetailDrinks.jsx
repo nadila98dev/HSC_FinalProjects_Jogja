@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import ReuseNav from "../../../Components/ReuseableNav/ReuseNav";
 import Footer from "../../../Components/Footer/Footer";
 import BotButton from "../../../Components/Landing/Landing-bot/BotButton";
+import ShareButton from "../../../Components/Atoms/ShareButton";
 
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
@@ -56,10 +57,7 @@ const DetailDrinks = () => {
               <div>
                 <span className="font-Poppins">Drinks</span>
               </div>
-              <button className="flex items-center bg-button2 w-[100px] px-4 py-2 rounded-xl">
-                <p className="text-button me-1 font-Poppins">Share </p>
-                <i className="bx bx-share-alt text-[20px] text-button"></i>
-              </button>
+              <ShareButton />
             </div>
 
             <div className="mb-10">

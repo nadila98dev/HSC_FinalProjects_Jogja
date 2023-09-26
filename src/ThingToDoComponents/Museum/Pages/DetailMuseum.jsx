@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
+
 import ReuseNav from "/src/Components/ReuseableNav/ReuseNav";
 import Footer from "/src/Components/Footer/Footer";
 import BotButton from "../../../Components/Landing/Landing-bot/BotButton";
 import AddToCartButton from "../../../Components/Atoms/AddToCartButton";
+import ShareButton from "../../../Components/Atoms/ShareButton";
 
 // Import Swiper styles
 import "swiper/css";
@@ -64,10 +66,7 @@ export default function DetailMuseum() {
                   Museum
                 </span>
               </div>
-              <button className="bg-button2 w-[100px] flex items-center px-4 py-2 rounded-xl">
-                <p className="text-button me-1 font-Poppins">Share </p>
-                <i className="bx bx-share-alt text-[20px] text-button"></i>
-              </button>
+              <ShareButton />
             </div>
 
             <div>
