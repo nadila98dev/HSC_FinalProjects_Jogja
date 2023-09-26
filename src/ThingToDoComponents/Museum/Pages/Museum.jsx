@@ -15,7 +15,6 @@ export default function Museum() {
   useEffect(() => {
     callApi();
   }, []);
-  console.log(museum);
   return (
     <div className="flex flex-col min-h-screen ">
       <div className="bg-[#f1f8ff]  h-full flex flex-col justify-center mx-auto">

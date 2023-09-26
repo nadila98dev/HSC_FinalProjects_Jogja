@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 import ReuseNav from "/src/Components/ReuseableNav/ReuseNav";
 import Footer from "/src/Components/Footer/Footer";
 import AttractionContact from "../Component/AttractionContact";
 import BotButton from "../../../Components/Landing/Landing-bot/BotButton";
+import ShareButton from "../../../Components/Atoms/ShareButton";
 import axiosInstance from "../../../API/apiCall";
 
 const DetailAttraction = () => {
@@ -46,12 +47,7 @@ const DetailAttraction = () => {
         <div className="flex-col justify-start md:items-start w-full py-8">
           <div className="flex flex-row px-4 sm:px-6 md:px-8 justify-between space-x-4">
             <h2 className="text-2x1 text-semibold">Attraction</h2>
-            <div className="flex flex-row space-x-4">
-              <button className="flex items-center bg-button2 w-[100px] px-4 py-2 rounded-xl">
-                  <p className="text-button me-1 font-Poppins">Share </p>
-                  <i className="bx bx-share-alt text-[20px] text-button"></i>
-                </button>
-            </div>
+            <ShareButton />
           </div>
           <div className="max-w-7x1 nx-auto px-4 sm:px-6 md:px-8">
             <h1 className="my-4 text-5xl font-bold text-start font-lora">
