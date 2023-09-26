@@ -1,15 +1,22 @@
 import React, { useEffect, useState } from "react";
 import CartCard from "./CartCard/CartCard";
+import NothingItem from "../SavedPage/NothingItem";
+
+import { getProductsFromLocalStorage } from '../../Utils/Products'
+
+
 
 const CartContainer = () => {
 
     // Inisialisasi untuk menyimpan cart items
-    const [cartItems, setCartItems] = useState([]);
+    const [cartItems, setCartItems] = useState(false);
 
     // meload item cart dari penyimpanan lokal pada components
     useEffect(() => {
-      const storedCartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
-      setCartItems(storedCartItems);
+      const storedCartItems = getProductsFromLocalStorage();
+      if(storedCartItems > 0) {
+        setCartItems(true);
+      }
     }, []);
 
     const clearCart = () => {
@@ -28,9 +35,13 @@ const CartContainer = () => {
       <div className="mx-auto mt-4 border-t border-gray-300 w-[96%]"></div>
       <div className="mt-5 grid grid-cols-1 md:grid-cols-2">
         <div className="flex flex-col px-5">
-        {cartItems.map((item, index) => (
-            <CartCard key={index} item={item} />
-          ))}
+        {cartItems ? (
+          <CartCard />
+        ): (
+         <div></div>
+        )
+        
+        }
         </div>
         <div className="flex flex-col mt-5 w-full sm:w-[90%] h-[90%] justify-center px-5 sm:px-10 shadow-lg">
           <h3 className="font-bold">Pricing & Shipping Fee</h3>
