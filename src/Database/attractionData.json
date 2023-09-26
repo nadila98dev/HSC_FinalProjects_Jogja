@@ -4,6 +4,7 @@
     "pic": "/Assets/attraction/tugu.jpg",
     "name": "Tugu Yogyakarta",
     "position": {"lat": -7.7829218 , "lng": 110.3645008},
+    "link":"/things-to-do/attraction-jogja/tugu-yogyakarta",
     "description": "Tugu Jogja, also known as Tugu Pal or Tugu Yogyakarta, is an  iconic monument located in the heart of Yogyakarta, Indonesia. This monument serves as a symbol of the city and holds great historical and cultural significance."
   },
   {
@@ -11,6 +12,7 @@
     "pic": "/Assets/attraction/malioboro-jogja.jpg",
     "name": "Malioboro",
     "position": {"lat": -7.7925711 , "lng": 110.3612296},
+    "link":"/things-to-do/attraction-jogja/malioboro",
     "description": "Malioboro is a bustling and iconic street located in the heart of Yogyakarta, Indonesia. It is renowned for its vibrant atmosphere, rich cultural heritage, and diverse shopping and dining experiences."
   },
   {
@@ -18,6 +20,7 @@
     "pic": "/Assets/attraction/goajomblang.jpg",
     "name": "Goa Jomblang",
     "position": {"lat": -8.0281509 , "lng": 110.6357558},
+    "link":"/things-to-do/attraction-jogja/goa-jomblang",
     "description": "Goa Jomblang is a remarkable natural cave located in the Gunungkidul region of Yogyakarta, Indonesia. This cave is renowned for its otherworldly beauty and unique geological features."
   },
   {
@@ -25,6 +28,7 @@
     "pic": "/Assets/attraction/bukitpunguk.jpg",
     "name": "Bukit Punguk",
     "position": {"lat": -7.9583642 , "lng": 110.4381873},
+    "link":"/things-to-do/attraction-jogja/bukit-punguk",
     "description": "Bukit Panguk is a picturesque hill located in Bantul, Yogyakarta, Indonesia. This hill offers breathtaking panoramic views of the surrounding landscape and has become a popular destination for nature lovers and photography enthusiasts."
   },
   {
@@ -32,6 +36,7 @@
     "pic": "/Assets/attraction/bukit paralayang.jpg",
     "name": "Bukit Paralayang",
     "position": {"lat": -8.0268498 , "lng": 110.3433373},
+    "link":"/things-to-do/attraction-jogja/bukit-paralayang",
     "description": "Bukit Paralayang Jogja, also known as Paragliding Hill Jogja, is a scenic hill located in Yogyakarta, Indonesia, that has become a popular spot for paragliding enthusiasts and tourists seeking breathtaking panoramic views."
   },
   {
@@ -39,6 +44,7 @@
     "pic": "/Assets/attraction/candiratuboko.jpg",
     "name": "Candi Ratu Boko",
     "position": {"lat": -7.7705363 , "lng": 110.4868409},
+    "link":"/things-to-do/attraction-jogja/candi-ratu-boko",
     "description": "Bukit Paralayang Jogja, also known as Paragliding Hill Jogja, is a scenic hill located in Yogyakarta, Indonesia, that has become a popular spot for paragliding enthusiasts and tourists seeking breathtaking panoramic views."
   },
   {
@@ -46,6 +52,7 @@
     "pic": "/Assets/attraction/tamansari.jpg",
     "name": "Taman Sari",
     "position": {"lat": -7.810062 , "lng": 110.3548447},
+    "link":"/things-to-do/attraction-jogja/taman-sari",
     "description": "Taman Sari, also known as the Water Castle, is a historic cultural complex located in Yogyakarta, Indonesia. This unique site is famous for its intricate architecture, serene water features, and its role as a royal pleasure garden."
   },
   {
@@ -53,6 +60,7 @@
     "pic": "/Assets/attraction/prambanan.jpg",
     "name": "Candi Prambanan",
     "position": {"lat": -7.7520153 , "lng": 110.4888925},
+    "link":"/things-to-do/attraction-jogja/candi-prambanan",
     "description": "Prambanan is a magnificent Hindu temple complex located in Central Java, Indonesia, near the city of Yogyakarta. This UNESCO World Heritage site is renowned for its exquisite architecture and historical significance."
   },
   {
@@ -60,6 +68,7 @@
     "pic": "/Assets/attraction/Desa Wisata Nglinggo.jpg",
     "name": "Desa Wisata Nglinggo",
     "position": {"lat": -7.6476627 , "lng": 110.1393031},
+    "link":"/things-to-do/attraction-jogja/desa-wisata-nglinggo",
     "description": "Nglinggon Village in Kulon Progo, Yogyakarta, is a picturesque tourist destination celebrated for its natural beauty, traditional Javanese culture, and serene rural atmosphere."
   },
   {
@@ -67,6 +76,7 @@
     "pic": "/Assets/attraction/Jurang-Tembelan.jpg",
     "name": "Jurang Tembelan",
     "position": {"lat": -7.940018 , "lng": 110.4272508},
+    "link":"/things-to-do/attraction-jogja/jurang-tembelan",
     "description": "Jurang Tembelan, located in Yogyakarta, Indonesia, is a natural wonder known for its dramatic cliffs, lush greenery, and serene surroundings."
   }
 ]
