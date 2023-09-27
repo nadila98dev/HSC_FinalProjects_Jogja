@@ -13,6 +13,7 @@ import ShareButton from "../../../Components/Atoms/ShareButton";
 
 
 import axiosInstance from "../../../API/apiCall";
+import { addToCart } from "../../../Utils/Carts";
 
 const DetailSouvenir = () => {
   const navigateToSouvenirPage = useNavigate();
@@ -28,6 +29,17 @@ const DetailSouvenir = () => {
   useEffect(() => {
     callApi();
   }, []);
+
+  const handleAddClick = () => {
+    const newItem = {
+      id: detail.id,
+      src: detail.src,
+      name: detail.name,
+      price: detail.price
+    }
+    addToCart(newItem);
+    alert(`item${newItem.name} telah ditambahkan ke keranjang`)
+  }
 
   return (
     <div className="min-h-screen">
@@ -66,7 +78,7 @@ const DetailSouvenir = () => {
           </div>
           <div className="mt-4 max-w-7x1 nx-auto px-4 sm:px-6 md:px-8">
             <Link to={"/cart-page/"}>
-              <AddToCartButton />
+              <AddToCartButton id={detail.id} onClick={handleAddClick} />
             </Link>
           </div>
         </div>

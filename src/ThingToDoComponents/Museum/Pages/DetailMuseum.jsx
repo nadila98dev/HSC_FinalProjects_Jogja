@@ -16,6 +16,7 @@ import ImgSweper from "../Components/Atoms/ImgSweper";
 import axiosInstance from "../../../API/apiMuseum";
 
 import { useNavigate } from "react-router-dom";
+import { addToCart } from "../../../Utils/Carts";
 
 export default function DetailMuseum() {
   // Route
@@ -34,6 +35,17 @@ export default function DetailMuseum() {
   useEffect(() => {
     callApi();
   }, []);
+
+  const handleAddClick = () => {
+    const newItem = {
+      slug: detail.slug,
+      src: detail.src,
+      name: detail.name,
+      price: detail.price
+    }
+    addToCart(newItem);
+    alert(`item${newItem.name} telah ditambahkan ke keranjang`)
+  }
 
   return (
     <div className="flex flex-col min-h-screen pb-5">
@@ -81,7 +93,7 @@ export default function DetailMuseum() {
                   Ticket Price: Rp. {detail?.price}
                 </span>
               <div className="mt-5">
-                <AddToCartButton />
+                <AddToCartButton slug={detail.slug} onClick={handleAddClick}/>
               </div>
             </div>
           </section>
