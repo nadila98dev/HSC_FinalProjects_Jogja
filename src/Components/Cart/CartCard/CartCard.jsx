@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import { BsTrash3 } from "react-icons/bs";
+import RemoveButton from "../../Atoms/RemoveButton";
 
 const CartCard = ({cartData, setCartData }) => {
   const [quantity, setQuantity] = useState(1);
-  
+  const removeItemFromCart = (itemId) => {
+    const updatedCartData = cartData.filter((item) => item.id !== itemId);
+    setCartData(updatedCartData);
+  }
 
   const decrementQuantity = () => {
     if (quantity > 1) {
@@ -19,12 +23,10 @@ const CartCard = ({cartData, setCartData }) => {
     <div>
       {cartData.map((item) => (
         <div key={item.id} className="flex px-2 mt-1 md:px-10 shadow-md">
-        <div className="mx-auto mt-4">
-          <div className="flex justify-between w-auto  mb-5">
+        <div className="mx-auto mt-5">
+          <div className="flex justify-between w-auto">
             <h3>{item.name}</h3>
-            <button>
-              <BsTrash3 size={20} />
-            </button>
+            <RemoveButton itemId={item.id} onRemove={() => removeItemFromCart(item.id)}/>
           </div>
           <hr className="w-full border-gray-100 mb-5" />
           <div className="flex flex-col items-center mb-4 bg-white rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
@@ -49,7 +51,7 @@ const CartCard = ({cartData, setCartData }) => {
                   -{" "}
                 </span>
                 <input
-                  className="h-8 w-8 border bg-white text-center text-xs outline-none"
+                  className="h-9 w-[40px] border bg-white text-center text-xs flex items-center justify-center outline-none"
                   type="number"
                   value={quantity}
                   min="1"

@@ -23,11 +23,12 @@ export default function DetailMuseum() {
   const navigateToMuseumPage = useNavigate();
 
   const [detail, setDetail] = useState({});
-  const { slug } = useParams();
+  const { id } = useParams();
 
   const callApi = async () => {
-    axiosInstance.detail(slug).then((res) => {
+    axiosInstance.detail(id).then((res) => {
       const data = res[0];
+
       setDetail(data);
     });
   };
@@ -38,7 +39,7 @@ export default function DetailMuseum() {
 
   const handleAddClick = () => {
     const newItem = {
-      slug: detail.slug,
+      id: detail.id,
       src: detail.src,
       name: detail.name,
       price: detail.price
@@ -93,7 +94,7 @@ export default function DetailMuseum() {
                   Ticket Price: Rp. {detail?.price}
                 </span>
               <div className="mt-5">
-                <AddToCartButton slug={detail.slug} onClick={handleAddClick}/>
+                <AddToCartButton id={detail.id} onClick={handleAddClick}/>
               </div>
             </div>
           </section>

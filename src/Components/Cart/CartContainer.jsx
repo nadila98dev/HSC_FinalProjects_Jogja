@@ -28,13 +28,13 @@ const CartContainer = () => {
         </button>
       </div>
       <div className="mx-auto mt-4 border-t border-gray-300 w-[96%]"></div>
-      <div className="mt-5 grid grid-cols-1 md:grid-cols-2">
+      <div className="mt-5 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2">
         <div className="flex flex-col px-5">
         <CartCard 
         cartData = {cartData} setCartData = {setCartData} 
         />
         </div>
-        <div className="flex flex-col mt-5 w-full sm:w-[90%] h-[90%] justify-center px-5 sm:px-10 shadow-lg">
+        <div className="flex flex-col justify-center mt-5 ml-5 pl-5 w-full sm:w-[90%] h-[90%]  px-5 sm:px-10 shadow-lg">
           <h3 className="font-bold">Pricing & Shipping Fee</h3>
           <hr className="w-full border-gray-100 mt-4" />
           <div className="flex flex-wrap justify-between mt-5">
