@@ -8,6 +8,7 @@ import blackLogo from '/src/assets/wonderful-jogja-logo-black-2.svg'
 import photo1 from '/Assets/menu/menu-jogja-photo1.png'
 import photo2 from '/Assets/menu/menu-jogja-photo2.png'
 import photo3 from '/Assets/menu/menu-jogja-photo3.png'
+import photo4 from '/Assets/menu/menu-jogja-photo4.png'
 
 function MenuLarge() {
 
@@ -36,6 +37,10 @@ function MenuLarge() {
   const navigateToFoodPageJogja = useNavigate()
   // Drinks
   const navigateToDrinksPageJogja = useNavigate()
+
+  // ============= Personal
+  const navigateToCartPageJogja = useNavigate()
+  const navigateToLoginPageJogja = useNavigate()
 
 
   const [activeSubMenu, setActiveSubMenu] = useState('thingsToDo');
@@ -73,6 +78,12 @@ function MenuLarge() {
             onMouseLeave={handleMenuLeave}
             >
               Practical tips</h1>
+            <h1
+            className='menu__Large'
+            onMouseEnter={() => handleMenuHover('personal')}
+            onMouseLeave={handleMenuLeave}
+            >
+              Personal</h1>
 
             <div className='flex absolute gap-3 items-center bg-button2 rounded-xl w-[230px] cursor-pointer drop-shadow-md bottom-14'
             onClick={() => navigateToMainPage('/')}>
@@ -192,6 +203,33 @@ function MenuLarge() {
               }
             </>
           )}
+          {activeSubMenu === 'personal' && (
+            <>
+              {
+                <div className='font-Poppins gap-8 flex flex-col text-xl'>
+                  {/* ============== SEMENTARA KE MAIN PAGE DULU ======================= */}
+                  <div className='flex justify-between items-center menu__text cursor-pointer'
+                    onClick={() => navigateToLoginPageJogja('/login')} 
+                  >
+                    <p>Login</p>
+                    <i className='bx bx-right-arrow-alt text-button text-2xl font-bold'></i>
+                  </div>
+                  <div className='flex justify-between items-center menu__text cursor-pointer'
+                    onClick={() => navigateToLoginPageJogja('/login')} 
+                  >
+                    <p>My Account</p>
+                    <i className='bx bx-right-arrow-alt text-button text-2xl font-bold'></i>
+                  </div>
+                  <div className='flex justify-between items-center menu__text cursor-pointer'
+                    onClick={() => navigateToCartPageJogja('/cart-page')} 
+                  >
+                    <p>My Cart</p>
+                    <i className='bx bx-right-arrow-alt text-button text-2xl font-bold'></i>
+                  </div>
+                </div>
+              }
+            </>
+          )}
         </div>
 
         <div className='w-[33.34%] overflow-hidden flex justify-center items-center'>
@@ -213,6 +251,13 @@ function MenuLarge() {
             <>
               {
                 <img className='w-[100%] h-[100%]' src={photo3} alt="" />
+              }
+            </>
+          )}
+          {activeSubMenu === 'personal' && (
+            <>
+              {
+                <img className='w-[100%] h-[100%]' src={photo4} alt="" />
               }
             </>
           )}

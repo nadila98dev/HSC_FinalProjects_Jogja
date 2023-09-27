@@ -20,7 +20,7 @@ const Drinks = () => {
   }, []);
   return (
     <div className="flex flex-col min-h-screen ">
-      <div className='w-screen h-screen flex flex-col items-center bg-[url("/Assets/drinks/background-drinks-page.jpg")] bg-cover bg-no-repeat bg-center bg-fixed'>
+      <div className='w-screen h-screen flex flex-col items-center bg-[url("/Assets/drinks/background-drink-page.png")] bg-cover bg-no-repeat bg-center bg-fixed'>
         <Navbar />
         <div className="w-screen sm:w-[70vw] h-[90vh] flex justify-center items-center px-10 pb-[7rem] flex-col">
           <h1 className="text-white text-5xl lg:text-[72px] italic text-center">
@@ -74,6 +74,7 @@ const Drinks = () => {
               title={drinks.name}
               src={drinks.src}
               description={drinks.description}
+              id={drinks.id}
             />
           ))}
         </section>

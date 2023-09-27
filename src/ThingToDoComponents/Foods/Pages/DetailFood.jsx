@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
+
 import ReuseNav from "../../../Components/ReuseableNav/ReuseNav";
 import Footer from "../../../Components/Footer/Footer";
 import BotButton from "../../../Components/Landing/Landing-bot/BotButton";
+import ShareButton from "../../../Components/Atoms/ShareButton";
 
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
-import axiosFood from "../../../API/apiFood";
+
 import axiosInstance from "../../../API/apiCall";
 
 const DetailFood = () => {
@@ -45,46 +47,32 @@ const DetailFood = () => {
           <p className="font-Poppins">Back to Food Page</p>
         </div>
       </div>
-      <div className="lg:flex lg:items-center lg:justify-center mb-4">
-        <img
-          src={detail.src}
-          alt=""
-          className="w-full lg:min-h-[96vh] object-cover rounded-2xl drop-shadow-xl"
-        />
-      </div>
-      <div className="w-screen h-fit bg-[#F1F8FF] pt-5">
-        <section className="px-5 md:w-[75%] md:mx-auto ">
-          <div className="flex flex-1  justify-between items-center mb-5">
-            <div>
-              <span className="font-Poppins">Food</span>
+      <div className="lg:flex">
+        <div className="lg:flex lg:items-center lg:justify-center mb-4">
+          <img
+            src={detail.src}
+            alt=""
+            className="w-full lg:w-[50vw] lg:h-[400px] object-cover drop-shadow-xl"
+          />
+        </div>
+        <div className="w-screen h-fit bg-[#F1F8FF] pt-5 px-5 lg:h-[400px] lg:w-[50vw]">
+          <section className="px-5 md:w-[75%] lg:w-full ">
+            <div className="flex flex-1  justify-between items-center mb-5">
+              <div>
+                <span className="font-Poppins">Food</span>
+              </div>
+              <ShareButton />
             </div>
-            <button className="bg-button2 w-[100px] flex items-center px-4 py-2 rounded-xl">
-              <p className="text-button me-1 font-Poppins">Share </p>
-              <i className="bx bx-share-alt text-[20px] text-button"></i>
-            </button>
-            <button className="flex items-center bg-button2 w-[100px] px-4 py-2 rounded-xl">
-              <p className="text-button me-1 font-Poppins">Save </p>
-              <i className="bx bx-heart text-[20px] text-button"></i>
-            </button>
-          </div>
 
-          <div>
-            <h1 className="mb-5 font-bold text-4xl font-Lora">{detail.name}</h1>
-            <span className="mb-5 text-[16px] font-semibold">
-              <span>Rp.</span> {detail.price}
-            </span>
-            <p className="mt-2 text-[18px] text-justify">
-              {" "}
-              {detail.description}
-            </p>
-            <div className="flex justify-center items-center my-5 ">
-              <button className="bg-button w-[160px] flex items-center px-4 py-2 rounded-xl">
-                <p className="text-white me-1 font-Poppins">Order Food </p>
-                <i className="bx bx-cart-alt text-[22px] text-white ml-1"></i>
-              </button>
+            <div className="mb-10">
+              <h1 className="mb-5 font-bold text-4xl font-Lora">{detail.name}</h1>
+              <p className="mt-2 text-[18px] text-justify">
+                {" "}
+                {detail.description}
+              </p>
             </div>
-          </div>
-        </section>
+          </section>
+        </div>
       </div>
       <div className="flex justify-center items-center">
         <BotButton />

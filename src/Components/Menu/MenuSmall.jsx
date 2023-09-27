@@ -1,9 +1,15 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react';
 import './menusmall.css'
 import { useNavigate } from 'react-router-dom'
+import FooterSocials from '../Footer/Socials/FooterSocials';
 
 const MenuSmall = () => {
     const navigateToMainPage = useNavigate ()
+    const navigateToSavedPage = useNavigate ()
+    const navigateToSearchPage = useNavigate ()
+
+    const navigateToCartPageJogja = useNavigate()
+    const navigateToLoginPageJogja = useNavigate()
 
     // practical tips
     const navigateToPracticalTipsPage = useNavigate ()
@@ -26,6 +32,12 @@ const MenuSmall = () => {
     const navigateToDrinksPageJogja = useNavigate()
     //attraction
     const navigateToAttractionPageJogja = useNavigate()
+
+    const [showSpan, setShowSpan] = useState(false);
+    useEffect(() => {
+      const favoriteItems = JSON.parse(localStorage.getItem('products')) || [];
+      setShowSpan(favoriteItems.length > 0);
+    }, []);
 
   return (
     <div className='flex flex-col max-w-screen h-fit items-center
@@ -134,11 +146,37 @@ const MenuSmall = () => {
             </div>
         </div>
 
+        <div className='mb-5 w-[100%]'>
+            <div className='px-5 menu__title pb-2  '>
+                <h1 className='text-2xl'>Personal</h1>
+            </div>
+            <div className=' bg-button2 flex flex-col gap-3 px-5 py-3 font-Poppins'>
+                <div onClick={() => navigateToLoginPageJogja('/login')} 
+                className='flex justify-between items-center menu__text'>
+                    <p>Login</p>
+                    <i className='bx bx-right-arrow-alt text-button text-2xl font-bold'></i>
+                </div>
+                <div onClick={() => navigateToLoginPageJogja('/login')} 
+                className='flex justify-between items-center menu__text'>
+                    <p>My Account</p>
+                    <i className='bx bx-right-arrow-alt text-button text-2xl font-bold'></i>
+                </div>
+                <div onClick={() => navigateToCartPageJogja('/cart-page')} 
+                className='flex justify-between items-center menu__text'>
+                    <p>My Cart</p>
+                    <i className='bx bx-right-arrow-alt text-button text-2xl font-bold'></i>
+                </div>
+            </div>
+        </div>
+
+        <FooterSocials />
+
         <div className='fixed z-[1600] bottom-10 flex justify-center items-center
             lg:hidden
             '>
-            <button className='bg-white text-button text-[24px] rounded-l-lg  w-[3rem] h-[3rem] text-center relative left-1 drop-shadow-md flex justify-center items-center'>
-            <i className='bx bx-search'></i>
+            <button onClick={() => navigateToCartPageJogja('/cart-page')}
+             className='bg-white text-button text-[24px] rounded-l-lg  w-[3rem] h-[3rem] text-center relative left-1 drop-shadow-md flex justify-center items-center'>
+            <i className='bx bx-cart'></i>
             </button>
 
             <button 
@@ -149,8 +187,12 @@ const MenuSmall = () => {
                 <i className='bx bx-x'></i>
             </button>
 
-            <button className='bg-white text-button text-[24px] rounded-r-lg  w-[3rem] h-[3rem] text-center relative right-1 drop-shadow-md flex justify-center items-center'> 
+            <button onClick={() => navigateToSavedPage('/saved-page')}
+            className='bg-white text-button text-[24px] rounded-r-lg  w-[3rem] h-[3rem] text-center relative right-1 drop-shadow-md flex justify-center items-center'> 
             <i className='bx bx-heart'></i>
+            {showSpan && (
+                <span className='absolute text-[80px] bottom-[1px] right-[7px]'>.</span>
+            )}
             </button>
         </div>
     </div>

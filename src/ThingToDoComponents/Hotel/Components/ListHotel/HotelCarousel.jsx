@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import ButtonLove from "../../../../Components/Atoms/ButtonLove";
 
 import "./hotelCarousel.css";
 
@@ -65,9 +66,10 @@ function HotelCarousel({ items }) {
                       alt={hotel.name}
                     />
                   </Link>
-                  <button className="relative rounded-r-lg p-3 w-13 h-12 bg-button2 text-button top-48">
-                    <AiOutlineHeart size={25} />
-                  </button>
+                  <div className="relative top-[193px] w-fit bg-button2 rounded-tr-lg overflow-hidden">
+                    <ButtonLove id={hotel.id}/>
+                  </div>
+
                   <div className="shadow-xl p-4 space-y-4 relative bg-white w-[180px] h-[180px] rounded-r-lg top-48">
                     <p className="text-end text-[14px]">{hotel.price}/night</p>
                     <h2>{hotel.name}</h2>

@@ -4,8 +4,9 @@ import { useNavigate, useParams } from "react-router-dom";
 import ContactHotel from "../Components/ContactHotel";
 import ReuseNav from "/src/Components/ReuseableNav/ReuseNav";
 import Footer from "/src/Components/Footer/Footer";
+import ShareButton from "../../../Components/Atoms/ShareButton";
 
-// import ImgDetail from "/Assets/hotel/gambar1.jpg";
+
 import axiosInstance from "../../../API/apiCall";
 
 const DetailHotel = () => {
@@ -19,7 +20,6 @@ const DetailHotel = () => {
       setDetail(data);
     });
   };
-  console.log(detail);
   useEffect(() => {
     callApi();
   }, []);
@@ -54,16 +54,7 @@ const DetailHotel = () => {
             <h2 className="font-semibold text-base font-Poppins">
               Accommodation{" "}
             </h2>
-            <div className="flex gap-2">
-              <div className="flex gap-1 items-center font-normal font-Poppins text-button bg-button2 px-4 py-2 rounded-xl drop-shadow-lg cursor-pointer hover:brightness-75">
-                <span>Share</span>
-                <i className="bx bx-share-alt text-[20px] text-button"></i>
-              </div>
-              <div className="flex gap-1 items-center font-normal font-Poppins text-button bg-button2 px-4 py-2 rounded-xl drop-shadow-lg cursor-pointer hover:brightness-75">
-                <span>Save</span>
-                <i className="bx bx-heart text-[20px] text-button"></i>
-              </div>
-            </div>
+            <ShareButton />
           </div>
           <div className="lg:flex lg:gap-5 lg:w-[900px] lg:justify-between">
             <div>

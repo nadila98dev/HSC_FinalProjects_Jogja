@@ -1,4 +1,4 @@
-import React from 'react'
+import React , { useState , useEffect} from 'react'
 import { useNavigate } from 'react-router-dom';
 import 'boxicons';
 
@@ -8,6 +8,12 @@ function ReuseNavRight() {
     const navigateToMenuJogja = useNavigate ()  
     const navigateToSavedPageJogja = useNavigate () 
     const navigateToSearchPageJogja = useNavigate () 
+
+    const [showDot, setShowDot] = useState(false);
+    useEffect(() => {
+      const favoriteItems = JSON.parse(localStorage.getItem('products')) || [];
+      setShowDot(favoriteItems.length > 0);
+    }, []);
 
   return (
     <div className='flex gap-[1rem] w-fit h-[40px] 
@@ -30,6 +36,9 @@ function ReuseNavRight() {
             onClick={() => navigateToSavedPageJogja('/saved-page')}
             className='p-[8px] text-2xl w-[40px] flex items-center justify-center rounded-lg hover:bg-button2 transition duration-300 ease-in-out cursor-pointer text-[#000]'>
                 <i className='bx bx-heart'></i>
+                {showDot && (
+                    <div className='w-0 h-0 text-button text-[80px] relative bottom-[52px] right-[14px]'>.</div>
+                )}
         </div>
         <div 
             onClick={() => navigateToMenuJogja('/menu-jogja')}

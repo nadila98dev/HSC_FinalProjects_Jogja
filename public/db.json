@@ -47,6 +47,7 @@
             },
             "src": "/Assets/art-activities/PendhapaArt.jpg",
             "slug": "pendhapa-art-space",
+            "map": "/Assets/jogja-map/bantul.svg",
             "address": "Jl. Ring Road Selatan Tegal Krapyak RT.01 Panggungharjo, Sewon, Bantul, Yogyakarta",
             "description": "Pendhapa Art Space atau lebih dikenal dengan sebutan PAS awalnya adalah bangunan perluasan untuk proses kreatif dari Studio Satiaji Sculpture & Artwork milik Dunadi (pematung). Studio tersebut bergerak di bidang produksi pembuatan karya seni tiga dimensi. Pendhapa Art Space mulai dibangun bertahap dan dirancang sendiri pada tahun 2006 oleh Dunadi (perupa tiga dimensi dan pemilik PAS), pada awalnya Pendhapa Art Space bernama Pendopo Sapto Aji dan merupakan gedung serbaguna yang mulai dibuka untuk umum pada tahun 2011, dan berkembang menjadi art space pada tahun 2013. Tahun 2015 memulai menginisiasi program seni secara mandiri bernama STARTUP."
         },
@@ -60,6 +61,7 @@
             },
             "src": "/Assets/art-activities/LeksaGaneshaBatik2.jpg",
             "slug": "leksa-ganesha-batik-gallery",
+            "map": "/Assets/jogja-map/bantul.svg",
             "address": "Jl. Parangtritis KM 8,5 Gatak, Timbulharjo, Sewon 55797 Indonesia",
             "description": "Benteng Vredeburg adalah saksi sejarah betapa kuatnya pengaruh Belanda dalam menjajah Indonesia. Karena posisinya yang strategis di tengah kota, tepatnya di depan Keraton Yogyakarta, Benteng Vredeburg telah merekam peristiwa-peristiwa penting dan telah mengalami perubahan fungsi dari waktu ke waktu."
         },
@@ -73,6 +75,7 @@
             },
             "src": "/Assets/art-activities/GajahGalleryYogyakarta.jpg",
             "slug": "gajah-gallery-yogyakarta",
+            "map": "/Assets/jogja-map/bantul.svg",
             "address": "Jln. Bugisan Selatan, Keloran, Bantul Yogyakarta 55181",
             "description": "Sejak 1996, Gajah Gallery telah menjadi badan pelopor di ranah seni rupa Asia Tenggara, mewakilkan seniman kawakan seperti Yunizar, Ashley Bickerton, Suzann Victor, Li Jin, dan juga seniman muda seperti Erizal As. Setelah 20 tahun berada dalam kancah seni rupa, Gajah Gallery meresmikan cabang di Yogyakarta, pusat seni Indonesia. Gajah Gallery Yogyakarta bercita- cita untuk membina pertukaran seni antara Singapura dan Indonesia, dan juga memperkenalkan dan mengembangkan nama seniman regional dalam ranah internasional."
         },
@@ -86,6 +89,7 @@
             },
             "src": "/Assets/art-activities/YantoCraft.jpg",
             "slug": "yanto-craft",
+            "map": "/Assets/jogja-map/gunungkidul.svg",
             "address": "Jl. Lintas selatan gunungkidul Jalan gua Maria tritis, Yogyakarta 55871 Indonesia",
             "description": "Yanto Craft is a craft and arts shop that displays or exhibits its crafts made from clay such as masks, flower vases, etc. Here you can also buy these crafts at affordable prices. The complexity of crafts has its own value."
         },
@@ -99,6 +103,7 @@
             },
             "src": "/Assets/art-activities/LanggengArt Foundation.jpg",
             "slug": "langgeng-art-foundation",
+            "map": "/Assets/jogja-map/yogyakarta.svg",
             "address": "Jln. Suryodiningratan 37, 55141 Indonesia",
             "description": "Langgeng Art Foundation adalah sebuah Yayasan yang bergerak di bidang seni. Didirikan oleh seorang kolektor karya seni yang cukup kondang di Yogyakarta. Galeri ini kerap menjadi tempat art exhibition para seniman-seniman lokal maupun luar kota. Juga tempat manggung band-band indie. Di lantai atas saya melihat ada beberapa sketsa dan karya seni rupa yang dipamerkan."
         },
@@ -112,6 +117,7 @@
             },
             "src": "/Assets/art-activities/LanaGallery.jpg",
             "slug": "lana-gallery",
+            "map": "/Assets/jogja-map/yogyakarta.svg",
             "address": "Jl. Menukan no. 276, 55153 Indonesia",
             "description": "Lana Gallery. Galeri seni yang terletak di Jl. Menukan, dan menghadirkan beragam koleksi seni yang menarik"
         },
@@ -125,6 +131,7 @@
             },
             "src": "/Assets/art-activities/JogjaGallery.jpg",
             "slug": "jogja-gallery",
+            "map": "/Assets/jogja-map/yogyakarta.svg",
             "address": "Jl. Pekapalan No. 7 Alun-Alun Utara, 55131 Indonesia",
             "description": "Jogja Gallery adalah sebuah galeri seni visual di Yogyakarta yang berdiri sejak 19 September 2006, diresmikan oleh Sri Sultan Hamengku Buwono X dan berlokasi di Jl. Perkapalan No. 7, alun-alun utara, Yogyakarta."
         },
@@ -138,6 +145,7 @@
             },
             "src": "/Assets/art-activities/BatikMasterClass.jpg",
             "slug": "batik-master-class",
+            "map": "/Assets/jogja-map/bantul.svg",
             "address": "Bener, RT.02/RW.02, Bugisan, Kec. Prambanan, Kabupaten Klaten, Jawa Tengah 57454",
             "description": "We'll start this experience fist of all introducing about Batik and some tools which we will use, and also the way to do properly. Then We will learn how to make batik until the end of the process led by the local people, and also we can take the result of painting batik as the souvenir."
         },
@@ -151,6 +159,7 @@
             },
             "src": "/Assets/art-activities/SemarGallery.jpg",
             "slug": "semar-gallery",
+            "map": "/Assets/jogja-map/bantul.svg",
             "address": "Jl. Parangtritis Km 7 Cabean, Bantul 55188 Indonesia",
             "description": "Galeri Semar yang mengkhususkan diri dalam pembangunan kembali dan perbaikan rumah kayu tradisional khususnya rumah Jawa."
         },
@@ -164,6 +173,7 @@
             },
             "src": "/Assets/art-activities/kersan-art.jpg",
             "slug": "kersan-art-studio",
+            "map": "/Assets/jogja-map/bantul.svg",
             "address": "Jl. AS. Samawaat no 154, Ds Kersan, Tirtonirmolo, Kasihan, Tirtonirmolo, Kasihan, Bantul, Daerah Istimewa Yogyakarta 55184",
             "description": "Kersan Art Studio was founded in 2009 with a goal of encouraging communication between different artists. Appropriately, the studio is situated in a peaceful and spacious building with an open-air common area in the middle. During my visit, there were several people having a meeting in the common area, while it was also possible to meet a some of the artists whose work was being displayed. Kersan is an excellent place to enjoy abstract art in a friendly and open environment."
         },
@@ -177,6 +187,7 @@
             },
             "src": "/Assets/art-activities/Cemeti_Art.jpg",
             "slug": "cemeti-art-house",
+            "map": "/Assets/jogja-map/yogyakarta.svg",
             "address": "Jl. Mayjen D.I. Panjaitan No. 41, Mantrijeron, Kota Yogyakarta",
             "description": "Cemeti Art House is one of the oldest and most respected art spaces in the city. It was founded in 1988 and was one of the first galleries to help develop the careers of young artists, rather than merely provide a physical space for their art. Founded by a Dutch-Indonesian couple, Cemeti was also one of the first collectives to promote Indonesian artists abroad. At the same time, they also regularly welcome foreign artists to come and display their work in Jogja. Conveniently located on Jl. Mayjen D.I. Panjaitan, the space is easy to find for anyone who finds themselves in Mantrijeron."
         },
@@ -190,6 +201,7 @@
             },
             "src": "/Assets/art-activities/Bentara-Budaya.jpeg",
             "slug": "bentara-budaya",
+            "map": "/Assets/jogja-map/yogyakarta.svg",
             "address": "Jln. Suroto 2, Kotabaru, Gondokusuman, Kota Yogyakarta, Daerah Istimewa Yogyakarta 55224",
             "description": "Located about a 10 minute walk from the Tugu Monument, Bentara Budaya is one of the city’s oldest art spaces. Founded in 1982, Bentara Budaya provides a platform for wood carvers and ceramic artists in addition to painters. The gallery also has sister organizations in Jakarta and Bali."
         },
@@ -203,6 +215,7 @@
             },
             "src": "/Assets/art-activities/Bale_banjar.jpg",
             "slug": "bale-banjar-sangkring",
+            "map": "/Assets/jogja-map/bantul.svg",
             "address": "Jl. Nitiprayan No.88 RT. 01 / RW. 20, Ngestiharjo, Kasihan, Ngestiharjo, Bantul, Daerah Istimewa Yogyakarta 55184",
             "description": "If the name ‘Bale Banjar’ sounds Balinese to you, then you’re not mistaken. Also, simply known as Sangkring Art Space, the gallery was founded by Balinese artist Putu Sutawijaya in 2007. ‘Bale banjar’ is the Balinese term for ‘local community association,’ and Sangkring’s founder has expressed traditional Balinese life and rituals as one of the main inspirations for his art. The art displayed at Sangkring Art Space, however, is anything but traditional."
         },
@@ -216,6 +229,7 @@
             },
             "src": "/Assets/art-activities/SURVIVE_Garage.jpg",
             "slug": "survive-garage",
+            "map": "/Assets/jogja-map/bantul.svg",
             "address": "Jl. Nitiprayan, Ngestiharjo, Kasihan, Bantul, Daerah Istimewa Yogyakarta 55184",
             "description": "SURVIVE! Garage is a respected art space and shop that also regularly hosts events. It’s one of the best places to purchase affordable art made by some of the city’s prominent local artists. If you can’t fit the artwork in your luggage, they also sell a great selection of t-shirts."
         },
@@ -237,7 +251,7 @@
             "id": 16,
             "category_id": 6,
             "name": "Benteng Vredeburg",
-            "slug": "benteng-vredeburg.jpg",
+            "slug": "benteng-vredeburg",
             "src": "/Assets/museum/vredeburg.jpg",
             "price": 70000,
             "address": "Jl. Margo Mulyo No.6, Ngupasan",
@@ -412,6 +426,7 @@
             "category_id": 2,
             "name": "Tugu Yogyakarta",
             "slug": "tugu-yogyakarta",
+            "map": "/Assets/jogja-map/yogyakarta.svg",
             "position": {"lat": -7.7829218 , "lng": 110.3645008},
             "description": "Tugu Jogja, also known as Tugu Pal or Tugu Yogyakarta, is an  iconic monument located in the heart of Yogyakarta, Indonesia. This monument serves as a symbol of the city and holds great historical and cultural significance."
           },
@@ -421,6 +436,7 @@
             "category_id": 2,
             "name": "Malioboro",
             "slug": "malioboro",
+            "map": "/Assets/jogja-map/yogyakarta.svg",
             "position": {"lat": -7.7925711 , "lng": 110.3612296},
             "description": "Malioboro is a bustling and iconic street located in the heart of Yogyakarta, Indonesia. It is renowned for its vibrant atmosphere, rich cultural heritage, and diverse shopping and dining experiences."
           },
@@ -430,6 +446,7 @@
             "category_id": 2,
             "name": "Goa Jomblang",
             "slug": "goa-jomblang",
+            "map": "/Assets/jogja-map/gunungkidul.png",
             "position": {"lat": -8.0281509 , "lng": 110.6357558},
             "description": "Goa Jomblang is a remarkable natural cave located in the Gunungkidul region of Yogyakarta, Indonesia. This cave is renowned for its otherworldly beauty and unique geological features."
           },
@@ -439,6 +456,7 @@
             "category_id": 2,
             "name": "Bukit Punguk",
             "slug": "bukit-punguk",
+            "map": "/Assets/jogja-map/bantul.svg",
             "position": {"lat": -7.9583642 , "lng": 110.4381873},
             "description": "Bukit Panguk is a picturesque hill located in Bantul, Yogyakarta, Indonesia. This hill offers breathtaking panoramic views of the surrounding landscape and has become a popular destination for nature lovers and photography enthusiasts."
           },
@@ -448,6 +466,7 @@
             "category_id": 2,
             "name": "Bukit Paralayang",
             "slug": "bukit-paralayang",
+            "map": "/Assets/jogja-map/gunungkidul.svg",
             "position": {"lat": -8.0268498 , "lng": 110.3433373},
             "description": "Bukit Paralayang Jogja, also known as Paragliding Hill Jogja, is a scenic hill located in Yogyakarta, Indonesia, that has become a popular spot for paragliding enthusiasts and tourists seeking breathtaking panoramic views."
           },
@@ -457,6 +476,7 @@
             "category_id": 2,
             "name": "Candi Ratu Boko",
             "slug": "candi-ratu-boko",
+            "map": "/Assets/jogja-map/sleman.svg",
             "position": {"lat": -7.7705363 , "lng": 110.4868409},
             "description": "Bukit Paralayang Jogja, also known as Paragliding Hill Jogja, is a scenic hill located in Yogyakarta, Indonesia, that has become a popular spot for paragliding enthusiasts and tourists seeking breathtaking panoramic views."
           },
@@ -466,6 +486,7 @@
             "category_id": 2,
             "name": "Taman Sari",
             "slug": "taman-sari",
+            "map": "/Assets/jogja-map/yogyakarta.svg",
             "position": {"lat": -7.810062 , "lng": 110.3548447},
             "description": "Taman Sari, also known as the Water Castle, is a historic cultural complex located in Yogyakarta, Indonesia. This unique site is famous for its intricate architecture, serene water features, and its role as a royal pleasure garden."
           },
@@ -475,6 +496,7 @@
             "category_id": 2,
             "name": "Candi Prambanan",
             "slug": "candi-prambanan",
+            "map": "/Assets/jogja-map/sleman.svg",
             "position": {"lat": -7.7520153 , "lng": 110.4888925},
             "description": "Prambanan is a magnificent Hindu temple complex located in Central Java, Indonesia, near the city of Yogyakarta. This UNESCO World Heritage site is renowned for its exquisite architecture and historical significance."
           },
@@ -484,6 +506,7 @@
             "category_id": 2,
             "name": "Desa Wisata Nglinggo",
             "slug": "desa-wisata-nglinggo",
+            "map": "/Assets/jogja-map/kulonprogo.svg",
             "position": {"lat": -7.6476627 , "lng": 110.1393031},
             "description": "Nglinggon Village in Kulon Progo, Yogyakarta, is a picturesque tourist destination celebrated for its natural beauty, traditional Javanese culture, and serene rural atmosphere."
           },
@@ -493,6 +516,7 @@
             "category_id": 2,
             "name": "Jurang Tembelan",
             "slug": "jurang-tembelan",
+            "map": "/Assets/jogja-map/bantul.svg",
             "position": {"lat": -7.940018 , "lng": 110.4272508},
             "description": "Jurang Tembelan, located in Yogyakarta, Indonesia, is a natural wonder known for its dramatic cliffs, lush greenery, and serene surroundings."
           },
