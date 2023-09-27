@@ -81,7 +81,7 @@ function App() {
             element={<MuseumPageJogja />}
           ></Route>
           <Route
-            path="/things-to-do/museum-jogja/:slug"
+            path="/things-to-do/museum-jogja/:id"
             element={<DetailMuseum />}
           />
           {/* ========= hotel =========== */}
