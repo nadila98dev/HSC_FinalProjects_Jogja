@@ -166,6 +166,7 @@ function App() {
           {/* ============ Auth ============ */}
           <Route path="/login" element={<LoginPage />}>{" "}</Route>
           <Route path="/register" element={<RegisterPage />}>{" "}</Route>
+          <Route path="/loading" element={<LoadingPage />}></Route>
         </Routes>
       </Router>
     </>
