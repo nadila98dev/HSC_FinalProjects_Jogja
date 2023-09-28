@@ -10,7 +10,7 @@ const NavbarLang = () => {
 
   return (
     <div className='lg:hidden'>
-        <a href="#">
+        {/* <a href="#"> */}
             <div className='flex gap-2 justify-center items-center'>
                 <p className='text-button
                   sm:text-xl font-semibold
@@ -22,7 +22,7 @@ const NavbarLang = () => {
                   <i className='bx bx-globe'></i>
                 </div>
             </div>
-        </a>
+        {/* </a> */}
     </div>
   )
 }
