@@ -17,7 +17,7 @@ const CarJogja = () => {
                 <p className='text-white text-[12px] text-center mt-5 lg:w-[50vw] lg:text-[16px]'>Traveling to Jogja by car provides the flexibility to explore the scenic landscapes and cultural attractions of Central Java at your own pace.</p>
             </div>
         </div>
-        <div className='flex justify-end px-10'>
+        <div className='flex justify-end px-5 md:px-10'>
             <div className='flex gap-2 items-center bg-button2 rounded-xl w-[300px] cursor-pointer drop-shadow-md my-5'
                 onClick={() => navigateToPracticalTipsPage('/practical-tips-page')}>
                 <button 

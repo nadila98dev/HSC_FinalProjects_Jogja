@@ -24,7 +24,7 @@ const NavbarRight = () => {
           } ${isHeadroomPinned ? 'headroom--pinned' : ''}`}
         >
 
-        <a href="">
+        <a href="#">
             <div className='flex justify-center items-center rounded-lg hover:bg-button2 transition duration-300 ease-in-out  px-2'>
                 <p className='font-bold text-button'>EN</p>
                 <div className='w-[40px] p-[8px] text-2xl h-[40px] flex justify-center items-center transition duration-300 ease-in-out icon'>
