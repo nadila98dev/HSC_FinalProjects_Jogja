@@ -2,7 +2,6 @@ import React from 'react'
 import {TiLocation} from 'react-icons/ti'   
 import {BsFillSunFill} from 'react-icons/bs'   
 import {HiOutlineMailOpen} from 'react-icons/hi'   
-import MapPic from '/src/assets/art-activities/map-jogja.jpg'
 
 const AttractionContact = ({map}) => {
     return (
