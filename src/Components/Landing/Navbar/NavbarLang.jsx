@@ -1,5 +1,6 @@
 import React , { useState } from 'react'
 import './navbarlang.css'
+import { Link } from 'react-router-dom';
 
 
 const NavbarLang = () => {
@@ -10,19 +11,16 @@ const NavbarLang = () => {
 
   return (
     <div className='lg:hidden'>
-        <a href="#">
-            <div className='flex gap-2 justify-center items-center'>
-                <p className='text-button
-                  sm:text-xl font-semibold
-                '>EN</p>
+        <Link to={'/search-page'}>
+            <div className='flex gap-2 justify-center items-center px-2 py-1 hover:bg-button2 rounded-lg cursor-pointer'>
                 <div className={`text-2xl icon1 text-white
                   ${isHeadroomHovered ? 'headroom-hovered' : ''
                   } ${isHeadroomPinned ? 'headroom--pinned' : ''}`}
                 >
-                  <i className='bx bx-globe'></i>
+                  <i className='bx bx-search-alt'></i>
                 </div>
             </div>
-        </a>
+        </Link>
     </div>
   )
 }

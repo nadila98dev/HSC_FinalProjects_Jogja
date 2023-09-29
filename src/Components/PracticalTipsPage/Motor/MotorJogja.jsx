@@ -17,7 +17,7 @@ const MotorJogja = () => {
                 <p className='text-white text-[12px] text-center mt-5 lg:w-[50vw] lg:text-[16px]'>When traveling to Jogja with motorcycles, always wear helmets, follow traffic rules, and be cautious on the road to ensure a safe and enjoyable journey.</p>
             </div>
         </div>
-        <div className='flex justify-end px-10'>
+        <div className='flex justify-end px-5 md:px-10'>
             <div className='flex gap-2 items-center bg-button2 rounded-xl w-[300px] cursor-pointer drop-shadow-md my-5'
                 onClick={() => navigateToPracticalTipsPage('/practical-tips-page')}>
                 <button 
@@ -37,43 +37,43 @@ const MotorJogja = () => {
                 <div>
                     <h3 className='mb-2 text-[18px] '>Safety Gear</h3>
                     <ul>
-                        <li><i class='bx bx-chevron-right font-bold text-[20px] relative top-[3px]'></i>Always wear appropriate safety gear, including helmets, gloves, and protective clothing, to ensure your safety while riding.</li>
+                        <li><i className='bx bx-chevron-right font-bold text-[20px] relative top-[3px]'></i>Always wear appropriate safety gear, including helmets, gloves, and protective clothing, to ensure your safety while riding.</li>
                     </ul>
                 </div>
                 <div>
                     <h3 className='mb-2 text-[18px]'>License</h3>
                     <ul>
-                        <li><i class='bx bx-chevron-right font-bold text-[20px] relative top-[3px]'></i>Carry a valid motorcycle license and necessary documents, such as vehicle registration and insurance.</li>
+                        <li><i className='bx bx-chevron-right font-bold text-[20px] relative top-[3px]'></i>Carry a valid motorcycle license and necessary documents, such as vehicle registration and insurance.</li>
                     </ul>
                 </div>
                 <div>
                     <h3 className='mb-2 text-[18px]'>Road Rules</h3>
                     <ul>
-                        <li><i class='bx bx-chevron-right font-bold text-[20px] relative top-[3px]'></i>Familiarize yourself with Indonesian road rules and traffic signs, and adhere to speed limits and local driving customs.</li>
+                        <li><i className='bx bx-chevron-right font-bold text-[20px] relative top-[3px]'></i>Familiarize yourself with Indonesian road rules and traffic signs, and adhere to speed limits and local driving customs.</li>
                     </ul>
                 </div>
                 <div>
                     <h3 className='mb-2 text-[18px]'>Motorcycle Condition</h3>
                     <ul>
-                        <li><i class='bx bx-chevron-right font-bold text-[20px] relative top-[3px]'></i>Ensure your motorcycle is in good condition, with functioning brakes, lights, and tires.</li>
+                        <li><i className='bx bx-chevron-right font-bold text-[20px] relative top-[3px]'></i>Ensure your motorcycle is in good condition, with functioning brakes, lights, and tires.</li>
                     </ul>
                 </div>
                 <div>
                     <h3 className='mb-2 text-[18px]'>Maintenance</h3>
                     <ul>
-                        <li><i class='bx bx-chevron-right font-bold text-[20px] relative top-[3px]'></i>Perform regular maintenance checks on your motorcycle throughout the journey to avoid breakdowns.</li>
+                        <li><i className='bx bx-chevron-right font-bold text-[20px] relative top-[3px]'></i>Perform regular maintenance checks on your motorcycle throughout the journey to avoid breakdowns.</li>
                     </ul>
                 </div>
                 <div>
                     <h3 className='mb-2 text-[18px]'>Emergency Kit</h3>
                     <ul>
-                        <li><i class='bx bx-chevron-right font-bold text-[20px] relative top-[3px]'></i>Carry an emergency kit with essential supplies, such as a flashlight, basic tools, and a first-aid kit.</li>
+                        <li><i className='bx bx-chevron-right font-bold text-[20px] relative top-[3px]'></i>Carry an emergency kit with essential supplies, such as a flashlight, basic tools, and a first-aid kit.</li>
                     </ul>
                 </div>
                 <div>
                     <h3 className='mb-2 text-[18px]'>Local Etiquette</h3>
                     <ul>
-                        <li><i class='bx bx-chevron-right font-bold text-[20px] relative top-[3px]'></i>Be respectful of local customs and cultures, particularly when visiting rural areas and villages.</li>
+                        <li><i className='bx bx-chevron-right font-bold text-[20px] relative top-[3px]'></i>Be respectful of local customs and cultures, particularly when visiting rural areas and villages.</li>
                     </ul>
                 </div>
             </div>
