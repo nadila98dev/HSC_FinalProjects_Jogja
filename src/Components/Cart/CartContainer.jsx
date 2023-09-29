@@ -13,10 +13,17 @@ const CartContainer = () => {
   }, []);
 
   // Hitung subtotal
+  // const calculateSubtotal = () => {
+  //   return cartData.reduce((total, item) => total + item.price * item.quantity, 0);
+  // };
   const subtotal = cartData.reduce((total, item) => total + item.price, 0);
+
   // Biaya pengiriman (Shipping Fee)
-  const shippingFee = 1000; // Ganti dengan biaya pengiriman yang sesuai
+  const shippingFee = 1000;
+
+  
   // Total
+  // const subtotal = calculateSubtotal();
   const total = subtotal + shippingFee;
 
   return (

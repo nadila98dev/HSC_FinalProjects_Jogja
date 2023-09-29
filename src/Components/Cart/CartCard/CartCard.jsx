@@ -29,7 +29,7 @@ const CartCard = ({cartData, setCartData }) => {
             <RemoveButton itemId={item.id} onRemove={() => removeItemFromCart(item.id)}/>
           </div>
           <hr className="w-full border-gray-100 mb-5" />
-          <div className="flex flex-col items-center mb-4 bg-white rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+          <div className="flex flex-col items-center mb-4 bg-white rounded-lg md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
             <img
               className="object-cover w-full h-30 md:h-40 md:w-48 rounded-t-lg md:rounded-none md:rounded-l-lg"
               src={item.src}
