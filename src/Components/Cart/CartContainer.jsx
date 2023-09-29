@@ -26,6 +26,13 @@ const CartContainer = () => {
   // const subtotal = calculateSubtotal();
   const total = subtotal + shippingFee;
 
+  const formatCurrency = (amount) => {
+    return new Intl.NumberFormat("id-ID", {
+      style: "currency",
+      currency: "IDR",
+    }).format(amount);
+  };
+  
   return (
     <section>
       <div className="flex flex-wrap mt-5 justify-between px-10">
@@ -44,11 +51,11 @@ const CartContainer = () => {
           <hr className="w-full border-gray-100 mt-4" />
           <div className="flex flex-wrap justify-between mt-5">
             <p>Subtotal</p>
-            <p>Rp. {subtotal}</p>
+            <p>{formatCurrency(subtotal)}</p>
           </div>
           <div className="flex flex-wrap justify-between mt-5">
             <p>Shipping Fee</p>
-            <p>Rp. {shippingFee}</p>
+            <p>{formatCurrency(shippingFee)}</p>
           </div>
           <div className="flex flex-wrap justify-start mt-5 mb-5">
             <input
@@ -61,7 +68,7 @@ const CartContainer = () => {
           </div>
           <div className="flex flex-wrap justify-between mt-5 mb-5 font-bold">
             <p>Total</p>
-            <p>Rp. {total}</p>
+            <p>{formatCurrency(total)}</p>
           </div>
           <button className="w-full bg-button text-white text-[18px] py-3 mb-5 rounded-md">
             {" "}

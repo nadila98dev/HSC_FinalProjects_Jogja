@@ -19,6 +19,13 @@ const CartCard = ({cartData, setCartData }) => {
     setQuantity(quantity + 1);
   };
 
+  const formatCurrency = (amount) => {
+    return new Intl.NumberFormat("id-ID", {
+      style: "currency",
+      currency: "IDR",
+    }).format(amount);
+  };
+
   return (
     <div>
       {cartData.map((item) => (
@@ -41,7 +48,7 @@ const CartCard = ({cartData, setCartData }) => {
               </h4>
             </div>
             <div className="grid grid-cols-1 px-6 mt-4">
-              <p>Rp. {item.price}</p>
+              <p>{formatCurrency(item.price)}</p>
               <div className="mt-2 flex justify-center items-center border-gray-100">
                 <span
                   onClick={decrementQuantity}
