@@ -6,7 +6,7 @@ const BotButton = () => {
 
   const navigateToMenuJogja = useNavigate ()  
   const navigateToSavedPage = useNavigate ()
-  const navigateToSearchPage = useNavigate ()
+  const navigateToLoginPage = useNavigate ()
 
   const [showSpan, setShowSpan] = useState(false);
   useEffect(() => {
@@ -18,8 +18,8 @@ const BotButton = () => {
     <div className='fixed z-[1500] bottom-10 flex justify-center items-center
       lg:hidden
     '>
-      <button onClick={() => navigateToSearchPage('/search-page')} className='bg-white text-button text-[24px] rounded-l-lg  w-[3rem] h-[3rem] text-center relative left-1 drop-shadow-md flex items-center justify-center'>
-      <i className='bx bx-search'></i>
+      <button onClick={() => navigateToLoginPage('/login')} className='bg-white text-button text-[24px] rounded-l-lg  w-[3rem] h-[3rem] text-center relative left-1 drop-shadow-md flex items-center justify-center'>
+      <i className='bx bx-user'></i>
       </button>
 
       <button 

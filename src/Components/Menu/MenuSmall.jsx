@@ -6,7 +6,6 @@ import FooterSocials from '../Footer/Socials/FooterSocials';
 const MenuSmall = () => {
     const navigateToMainPage = useNavigate ()
     const navigateToSavedPage = useNavigate ()
-    const navigateToSearchPage = useNavigate ()
 
     const navigateToCartPageJogja = useNavigate()
     const navigateToLoginPageJogja = useNavigate()
@@ -174,9 +173,9 @@ const MenuSmall = () => {
         <div className='fixed z-[1600] bottom-10 flex justify-center items-center
             lg:hidden
             '>
-            <button onClick={() => navigateToCartPageJogja('/cart-page')}
+            <button onClick={() => navigateToLoginPageJogja('/login')}
              className='bg-white text-button text-[24px] rounded-l-lg  w-[3rem] h-[3rem] text-center relative left-1 drop-shadow-md flex justify-center items-center'>
-            <i className='bx bx-cart'></i>
+            <i className='bx bx-user'></i>
             </button>
 
             <button 
