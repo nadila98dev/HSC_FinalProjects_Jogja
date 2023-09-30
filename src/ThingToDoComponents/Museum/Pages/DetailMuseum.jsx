@@ -42,7 +42,8 @@ export default function DetailMuseum() {
       id: detail.id,
       src: detail.src,
       name: detail.name,
-      price: detail.price
+      price: detail.price,
+      quantity: detail.quantity
     }
     addToCart(newItem);
     alert(`item${newItem.name} telah ditambahkan ke keranjang`)
@@ -94,7 +95,7 @@ export default function DetailMuseum() {
                   Ticket Price: Rp. {detail?.price}
                 </span>
               <div className="mt-5">
-                <AddToCartButton id={detail.id} onClick={handleAddClick}/>
+                <AddToCartButton id={detail.id}  onClick={handleAddClick}/>
               </div>
             </div>
           </section>

@@ -35,7 +35,8 @@ const DetailSouvenir = () => {
       id: detail.id,
       src: detail.src,
       name: detail.name,
-      price: detail.price
+      price: detail.price,
+      quantity: detail.quantity
     }
     addToCart(newItem);
     alert(`item${newItem.name} telah ditambahkan ke keranjang`)
