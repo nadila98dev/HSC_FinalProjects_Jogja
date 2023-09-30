@@ -57,11 +57,13 @@ const DetailAttraction = lazy(() => import('./ThingToDoComponents/Attraction/pag
 // import DetailAttraction from "./ThingToDoComponents/Attraction/pages/DetailAttraction";
 
 // Auth
-import LoginPage from "./Pages/Login";
+const LoginPage = lazy(() => import('./Pages/Login'))
 import RegisterPage from "./Pages/Regiter";
+const AccountPage = lazy(() => import('./Pages/AccountPage'))
+const IdentityProfile = lazy(() => import('./Components/Account/IdentityProfile'))
 
 import "./App.css";
-import CartPage from "./Pages/CartPage";
+const CartPage = lazy(() => import('./Pages/CartPage'))
 
 const LoadingPage = lazy(() => import('./Pages/LoadingPage'));
 
@@ -161,12 +163,14 @@ function App() {
           />
 
           {/* ========= Cart =========== */}
-          <Route path="/cart-page/" element={<CartPage />}>{" "}</Route>
+          <Route path="/cart-page/" element={<Suspense fallback={<LoadingPage />}><CartPage /></Suspense>}></Route>
 
           {/* ============ Auth ============ */}
-          <Route path="/login" element={<LoginPage />}>{" "}</Route>
-          <Route path="/register" element={<RegisterPage />}>{" "}</Route>
+          <Route path="/login" element={<Suspense fallback={<LoadingPage />}><LoginPage /></Suspense>}></Route>
+          <Route path="/register" element={<RegisterPage />}></Route>
           <Route path="/loading" element={<LoadingPage />}></Route>
+          <Route path="/account" element={<Suspense fallback={<LoadingPage />}><AccountPage /></Suspense>}></Route>
+          <Route path="/account/my-profile" element={<Suspense fallback={<LoadingPage />}><IdentityProfile /></Suspense>}></Route>
         </Routes>
       </Router>
     </>
