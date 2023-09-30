@@ -8,7 +8,7 @@ const CartContainer = () => {
   const [cartData, setCartData] = useState([]);
   const [total, setTotal] = useState(0);
   const [subtotal, setSubtotal] = useState(0);
-  // Biaya pengiriman (Shipping Fee)
+  // Biaya pengiriman (Shipping Fee) Deklarasi harus di awal atau diatas function
   const shippingFee = 10000;
   useEffect(() => {
     const cartItems = getCartItems();
