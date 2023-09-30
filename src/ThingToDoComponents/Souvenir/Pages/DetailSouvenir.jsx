@@ -78,9 +78,7 @@ const DetailSouvenir = () => {
             <h3 className="mt-4 text-2xl">Rp. {detail.price}</h3>
           </div>
           <div className="mt-4 max-w-7x1 nx-auto px-4 sm:px-6 md:px-8">
-            <Link to={"/cart-page/"}>
               <AddToCartButton id={detail.id} onClick={handleAddClick} />
-            </Link>
           </div>
         </div>
       </div>

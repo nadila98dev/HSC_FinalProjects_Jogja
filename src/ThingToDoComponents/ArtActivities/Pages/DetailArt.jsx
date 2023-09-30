@@ -48,7 +48,9 @@ const DetailArt = () => {
         </div>
         <div className="flex-col justify-start md:items-start w-full py-8 pt-20 bg-background1">
           <div className="flex flex-row px-4 sm:px-6 md:px-8 justify-between space-x-4">
-            <h2 className="text-2x1 text-semibold">Art Activities</h2>
+          <span className="font-Poppins">
+                  Art Activities
+                </span>
             <ShareButton />
           </div>
           <div className="max-w-7x1 nx-auto px-4 sm:px-6 md:px-8">

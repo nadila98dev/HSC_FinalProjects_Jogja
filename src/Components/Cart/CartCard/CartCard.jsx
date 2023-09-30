@@ -9,35 +9,30 @@ const CartCard = ({cartData, setCartData }) => {
     setCartData(updatedCartData);
   }
 
-  const decrementQuantity = () => {
-    if(quantity > 1){
-      const updatedCartData = cartData.map((item) => {
-        if(item.id === item.id){
-          return {
-            ...item,
-            quantity: item.quantity - 1
-          }
-          return item;
-        }
-      });
-      setCartData(updatedCartData);
-      setQuantity(quantity - 1);
-
-    }
-  };
-
-  const incrementQuantity = () => {
-    const updatedCartData = cartData.map((item) => {
-      if(item.id === item.id) {
+  const decrementQuantity = (itemId) => {
+    const updateCartData = cartData.map((item) => {
+      if(item.id === itemId && item.quantity > 1){
         return {
           ...item,
-          quantity: item.quantity + 1
-        }
-        return item;
+          quantity: item.quantity - 1,
+        };
       }
+      return item;
     });
-    setCartData(updatedCartData);
-    setQuantity(quantity + 1);
+    setCartData(updateCartData);
+    };
+
+  const incrementQuantity = (itemId) => {
+    const updateCartData = cartData.map((item) => {
+      if(item.id === itemId){
+        return{
+          ...item,
+          quantity: item.quantity + 1,
+        };
+      }
+      return item;
+    });
+    setCartData(updateCartData);
   };
 
   const formatCurrency = (amount) => {
@@ -72,7 +67,7 @@ const CartCard = ({cartData, setCartData }) => {
               <p>{formatCurrency(item.price)}</p>
               <div className="mt-2 flex justify-center items-center border-gray-100">
                 <span
-                  onClick={decrementQuantity}
+                  onClick={() => decrementQuantity(item.id)}
                   className="cursor-pointer rounded-l bg-gray-100 py-1 px-3.5 duration-100 hover:bg-button hover:text-white"
                 >
                   {" "}
@@ -81,12 +76,12 @@ const CartCard = ({cartData, setCartData }) => {
                 <input
                 className="h-9 w-[40px] border bg-white text-center text-xs flex items-center justify-center outline-none"
                 type="number"
-                value={quantity} // Ensure item.quantity is set correctly
+                value={item.quantity}
                 min="1"
                 readOnly
                 />
                 <span
-                  onClick={incrementQuantity}
+                  onClick={() => incrementQuantity(item.id)}
                   className="cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-button hover:text-white"
                 >
                   {" "}
