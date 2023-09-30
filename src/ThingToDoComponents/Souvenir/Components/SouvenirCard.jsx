@@ -9,7 +9,7 @@ const SouvenirCard = ({item, pic, title, desc, price , id}) => {
     
   return (
     <div className='w-full p-4'>
-    <div className='bg-white rounded-lg shadow-md'>
+    <div className='bg-white rounded-lg'>
       <div className='relative overflow-hidden rounded-lg'>
         <img className='object-cover rounded-lg w-full h-48 hover:scale-105 duration-300' src={pic} alt='' /> {/* Use curly braces to interpolate the pic property */}
         <div className='flex justify-end relative bottom-12 xl:bottom-[52px] h-0'>

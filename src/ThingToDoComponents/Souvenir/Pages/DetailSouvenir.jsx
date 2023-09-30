@@ -86,8 +86,8 @@ const DetailSouvenir = () => {
             <p className="mt-4 max-w-3x1 space-y-6">{detail.description}</p>
             <h3 className="mt-4 text-2xl">Rp. {detail.price}</h3>
           </div>
-          <div className="mt-4 max-w-7x1 flex justify-center items-center sm:justify-start sm:items-start px-4 sm:px-6 md:px-8">
-            <AddToCartButton id={detail.id} onClick={handleAddClick} />
+          <div className="mt-4 max-w-7x1 nx-auto px-4 sm:px-6 md:px-8">
+              <AddToCartButton id={detail.id} onClick={handleAddClick} />
           </div>
           <Popup
             message={popupMessage}
