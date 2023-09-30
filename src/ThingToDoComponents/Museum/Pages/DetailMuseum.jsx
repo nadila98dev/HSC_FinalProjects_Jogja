@@ -68,10 +68,10 @@ export default function DetailMuseum() {
         </div>
       </div>
       <div className="lg:flex">
-        <div className="lg:flex lg:items-center lg:justify-center mb-4">
+        <div className="lg:flex lg:items-center lg:justify-center">
           <ImgSweper image={detail?.src} />
         </div>
-        <div className="w-screen h-fit bg-[#F1F8FF] pt-5 px-5 lg:h-[450px] lg:w-[50vw]">
+        <div className="w-screen h-fit bg-[#F1F8FF] py-5 px-5 lg:h-[500px] lg:w-[50vw] justify-center items-center flex">
           <section className="px-5 md:w-[75%] lg:w-full ">
             <div className="flex flex-1  justify-between items-center mb-5">
               <div>

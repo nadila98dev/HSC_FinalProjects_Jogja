@@ -49,19 +49,19 @@ const DetailHotel = () => {
         <img src={detail.src} className="" />
       </div>
       <div>
-        <div className="bg-[#F1F8FF] pb-5 px-3 pt-10 flex flex-col justify-center items-center h-fit">
-          <div className="flex flex-col justify-between gap-4 items-center md:w-[75vw] md:gap-2 md:flex-row">
+        <div className="bg-[#F1F8FF] pb-5 pt-10 flex flex-col justify-center items-center h-fit">
+          <div className="flex justify-between gap-4 items-center md:gap-2 w-screen px-10">
             <h2 className="font-semibold text-base font-Poppins">
               Accommodation{" "}
             </h2>
             <ShareButton />
           </div>
-          <div className="lg:flex lg:gap-5 lg:w-[900px] lg:justify-between">
+          <div className="lg:flex lg:gap-5 lg:w-screen lg:justify-center">
             <div>
-              <div className="mt-8 text-2xl font-medium font-Lora flex justify-start">
+              <div className="mt-8 text-2xl font-medium font-Lora flex justify-start px-10">
                 <h1>{detail.name}</h1>
               </div>
-              <div className="mt-3 text-[12px] text-justify font-normal font-Poppins md:w-[75vw] lg:w-[25rem] lg:text-[14px] lg:mt-6">
+              <div className="mt-3 px-10 text-[12px] text-justify font-normal font-Poppins md:w-[75vw] lg:w-[25rem] xl:w-[40rem] lg:text-[14px] lg:mt-6">
                 <p>
                   Jogja Hotel Tampere rooms invite you to perfect rest and
                   enjoyment! Our selection of rooms offers a mystical atmosphere
