@@ -1,5 +1,9 @@
 import React, {useState} from 'react'
 import { useNavigate } from 'react-router-dom'
+import {
+  getEmailFromLocalStorage,
+  getPasswordFromLocalStorage,
+} from '../../Utils/userDatas';
 
 
 import './menularge.css'
@@ -41,9 +45,13 @@ function MenuLarge() {
   // ============= Personal
   const navigateToCartPageJogja = useNavigate()
   const navigateToLoginPageJogja = useNavigate()
+  const navigateToAccountPage = useNavigate()
+
 
 
   const [activeSubMenu, setActiveSubMenu] = useState('thingsToDo');
+  const storedEmail = getEmailFromLocalStorage();
+  const storedPassword = getPasswordFromLocalStorage();
 
   const handleMenuHover = (submenu) => {
     setActiveSubMenu(submenu);
@@ -52,6 +60,23 @@ function MenuLarge() {
   const handleMenuLeave = (submenu) => {
     if (activeSubMenu === submenu) {
       setActiveSubMenu(null);
+    }
+  };
+
+  const handleLoginClick = () => {
+    if (storedEmail && storedPassword) {
+      navigateToAccountPage('/account'); 
+    } else {
+      navigateToLoginPageJogja('/login'); 
+    }
+  };
+
+  
+const handleCartClick = () => {
+    if (storedEmail && storedPassword) {
+      navigateToCartPageJogja('/cart-page'); 
+    } else {
+      navigateToLoginPageJogja('/login'); 
     }
   };
 
@@ -215,13 +240,13 @@ function MenuLarge() {
                     <i className='bx bx-right-arrow-alt text-button text-2xl font-bold'></i>
                   </div>
                   <div className='flex justify-between items-center menu__text cursor-pointer'
-                    onClick={() => navigateToLoginPageJogja('/login')} 
+                    onClick={handleLoginClick} 
                   >
                     <p>My Account</p>
                     <i className='bx bx-right-arrow-alt text-button text-2xl font-bold'></i>
                   </div>
                   <div className='flex justify-between items-center menu__text cursor-pointer'
-                    onClick={() => navigateToCartPageJogja('/cart-page')} 
+                    onClick={handleCartClick} 
                   >
                     <p>My Cart</p>
                     <i className='bx bx-right-arrow-alt text-button text-2xl font-bold'></i>
