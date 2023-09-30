@@ -10,12 +10,33 @@ const CartCard = ({cartData, setCartData }) => {
   }
 
   const decrementQuantity = () => {
-    if (quantity > 1) {
+    if(quantity > 1){
+      const updatedCartData = cartData.map((item) => {
+        if(item.id === item.id){
+          return {
+            ...item,
+            quantity: item.quantity - 1
+          }
+          return item;
+        }
+      });
+      setCartData(updatedCartData);
       setQuantity(quantity - 1);
+
     }
   };
 
   const incrementQuantity = () => {
+    const updatedCartData = cartData.map((item) => {
+      if(item.id === item.id) {
+        return {
+          ...item,
+          quantity: item.quantity + 1
+        }
+        return item;
+      }
+    });
+    setCartData(updatedCartData);
     setQuantity(quantity + 1);
   };
 
@@ -58,11 +79,11 @@ const CartCard = ({cartData, setCartData }) => {
                   -{" "}
                 </span>
                 <input
-                  className="h-9 w-[40px] border bg-white text-center text-xs flex items-center justify-center outline-none"
-                  type="number"
-                  value={quantity}
-                  min="1"
-                  readOnly
+                className="h-9 w-[40px] border bg-white text-center text-xs flex items-center justify-center outline-none"
+                type="number"
+                value={quantity} // Ensure item.quantity is set correctly
+                min="1"
+                readOnly
                 />
                 <span
                   onClick={incrementQuantity}

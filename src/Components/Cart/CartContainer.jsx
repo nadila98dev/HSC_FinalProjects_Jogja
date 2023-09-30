@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import CartCard from "./CartCard/CartCard";
 import NothingItem from "../SavedPage/NothingItem";
 
@@ -6,25 +6,34 @@ import { getCartItems } from "../../Utils/Carts";
 
 const CartContainer = () => {
   const [cartData, setCartData] = useState([]);
-
+  const [total, setTotal] = useState(0);
+  const [subtotal, setSubtotal] = useState(0);
+  // Biaya pengiriman (Shipping Fee) Deklarasi harus di awal atau diatas function
+  const shippingFee = 10000;
   useEffect(() => {
     const cartItems = getCartItems();
     setCartData(cartItems);
   }, []);
 
-  // Hitung subtotal
-  // const calculateSubtotal = () => {
-  //   return cartData.reduce((total, item) => total + item.price * item.quantity, 0);
-  // };
-  const subtotal = cartData.reduce((total, item) => total + item.price, 0);
+  const calculateSubtotal = useCallback(() => {
+      return cartData.reduce((total, item) => total + item.price * item.quantity, 0);
+    }, [cartData]);
+  
+    useEffect(() => {
+      const updatedSubtotal = calculateSubtotal();
+  
+      const updatedTotal = updatedSubtotal + shippingFee; 
+  
+      setSubtotal(updatedSubtotal);
+      setTotal(updatedTotal);
+    }, [cartData, calculateSubtotal, shippingFee]);
+  
 
-  // Biaya pengiriman (Shipping Fee)
-  const shippingFee = 1000;
 
   
   // Total
   // const subtotal = calculateSubtotal();
-  const total = subtotal + shippingFee;
+  // const total = subtotal + shippingFee;
 
   const formatCurrency = (amount) => {
     return new Intl.NumberFormat("id-ID", {
