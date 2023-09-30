@@ -8,9 +8,8 @@ const RemoveButton = ({itemId, onRemove}) => {
         removeFromCart(itemId);
 
         if(onRemove) {
-            onRemove();
+            onRemove(itemId);
         }
-        window.location.reload();
     };
 
   return (

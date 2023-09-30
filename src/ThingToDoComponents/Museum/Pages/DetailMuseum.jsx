@@ -5,6 +5,7 @@ import Footer from "/src/Components/Footer/Footer";
 import BotButton from "../../../Components/Landing/Landing-bot/BotButton";
 import AddToCartButton from "../../../Components/Atoms/AddToCartButton";
 import ShareButton from "../../../Components/Atoms/ShareButton";
+import Popup from "../../../Components/PopUp/Popup";
 
 // Import Swiper styles
 import "swiper/css";
@@ -24,6 +25,8 @@ export default function DetailMuseum() {
 
   const [detail, setDetail] = useState({});
   const { id } = useParams();
+  const [showPopup, setShowPopup] = useState(false);
+  const [popupMessage, setPopupMessage] = useState("");
 
   const callApi = async () => {
     axiosInstance.detail(id).then((res) => {
@@ -46,7 +49,9 @@ export default function DetailMuseum() {
       quantity: detail.quantity
     }
     addToCart(newItem);
-    alert(`item${newItem.name} telah ditambahkan ke keranjang`)
+    const message = `The ticket for ${newItem.name} has been added to the cart.`;
+    setPopupMessage(message);
+    setShowPopup(true);
   }
 
   return (
@@ -97,6 +102,13 @@ export default function DetailMuseum() {
               <div className="mt-5">
                 <AddToCartButton id={detail.id}  onClick={handleAddClick}/>
               </div>
+              <Popup
+                  message={popupMessage}
+                  onClose={() => {
+                    setShowPopup(false);
+                  }}
+                  showPopup={showPopup}
+                />
             </div>
           </section>
         </div>
