@@ -10,7 +10,7 @@ import BotButton from "../../../Components/Landing/Landing-bot/BotButton";
 import Footer from "/src/Components/Footer/Footer";
 import AddToCartButton from "../../../Components/Atoms/AddToCartButton";
 import ShareButton from "../../../Components/Atoms/ShareButton";
-
+import Popup from "../../../Components/PopUp/Popup";
 
 import axiosInstance from "../../../API/apiCall";
 import { addToCart } from "../../../Utils/Carts";
@@ -19,6 +19,9 @@ const DetailSouvenir = () => {
   const navigateToSouvenirPage = useNavigate();
   const [detail, setDetail] = useState({});
   const { id } = useParams();
+
+  const [showPopup, setShowPopup] = useState(false);
+  const [popupMessage, setPopupMessage] = useState("");
 
   const callApi = async () => {
     axiosInstance.detail(id).then((res) => {
@@ -39,8 +42,10 @@ const DetailSouvenir = () => {
       quantity: detail.quantity
     }
     addToCart(newItem);
-    alert(`item${newItem.name} telah ditambahkan ke keranjang`)
-  }
+    const message = `The ticket for ${newItem.name} has been added to the cart.`;
+    setPopupMessage(message);
+    setShowPopup(true);
+  };
 
   return (
     <div className="min-h-screen">
@@ -61,7 +66,11 @@ const DetailSouvenir = () => {
       </div>
       <div className="grid lg:grid-cols-2 m-auto ">
         <div className="object-cover grid-cols-4 shrink-0 lg:grid-cols-12 min-w-fit flex justify-end items-end">
-          <img className="w-full lg:w-[700px] lg:h-[400px]" src={detail.src} alt="Souvenir" />
+          <img
+            className="w-full lg:w-[700px] lg:h-[400px]"
+            src={detail.src}
+            alt="Souvenir"
+          />
         </div>
         <div className="flex-col justify-start md:items-start w-full py-8 lg:w-[700px]">
           <div className="flex px-4 sm:px-6 md:px-8 justify-between">
@@ -77,11 +86,16 @@ const DetailSouvenir = () => {
             <p className="mt-4 max-w-3x1 space-y-6">{detail.description}</p>
             <h3 className="mt-4 text-2xl">Rp. {detail.price}</h3>
           </div>
-          <div className="mt-4 max-w-7x1 nx-auto px-4 sm:px-6 md:px-8">
-            <Link to={"/cart-page/"}>
-              <AddToCartButton id={detail.id} onClick={handleAddClick} />
-            </Link>
+          <div className="mt-4 max-w-7x1 flex justify-center items-center sm:justify-start sm:items-start px-4 sm:px-6 md:px-8">
+            <AddToCartButton id={detail.id} onClick={handleAddClick} />
           </div>
+          <Popup
+            message={popupMessage}
+            onClose={() => {
+              setShowPopup(false);
+            }}
+            showPopup={showPopup}
+          />
         </div>
       </div>
       <div className="flex justify-center items-center">
