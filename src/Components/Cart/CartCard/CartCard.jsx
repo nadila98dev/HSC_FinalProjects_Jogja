@@ -26,7 +26,7 @@ const CartCard = ({cartData, setCartData }) => {
       if(item.id === itemId){
         return{
           ...item,
-          quantity: item.quantity + 1,
+          quantity: item.quantity + 1, 
         };
       }
       return item;

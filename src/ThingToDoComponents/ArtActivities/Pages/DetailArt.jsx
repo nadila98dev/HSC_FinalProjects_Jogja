@@ -50,7 +50,7 @@ const DetailArt = () => {
           <div className="flex flex-row px-4 sm:px-6 md:px-8 justify-between space-x-4">
           <span className="font-Poppins">
                   Art Activities
-                </span>
+                </span>        
             <ShareButton />
           </div>
           <div className="max-w-7x1 nx-auto px-4 sm:px-6 md:px-8">
