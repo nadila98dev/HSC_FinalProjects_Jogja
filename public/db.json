@@ -376,6 +376,7 @@
             "name":"Javanese Apem Cake",
             "slug": "javanese-apem-cake",
             "price":10000,
+            "quantity":1,
             "description":"Apem (also known as appam in its native India) is a food made from rice flour that is left overnight by mixing eggs, coconut milk, sugar and tape and a little salt then burned or steamed. The Ngapem tradition was started by the Kanoman Palace in Cirebon, since the time of Sunan Gunung Jati as a form of spreading Islam in Java."
             
         },
@@ -387,6 +388,7 @@
             "name":"Javanese Noodles",
             "slug": "javanase-noodles",
             "price":"20000",
+            "quantity":1,
             "description":"Javanese noodles or Javanese noodles are boiled noodles cooked with Javanese spices from Java, Indonesia. Most Javanese noodles are boiled noodles, so abroad (Malaysia and Singapore) Javanese noodles are known as me rebus, but there are actually variations of fried noodles from Javanese noodles."
         },
         {
@@ -397,6 +399,7 @@
             "name":"Geplak Bantul Cake",
             "slug": "geplek-bantul-cake",
             "price":5000,
+            "quantity":1,
             "description":"Jogja Geplak is one of the traditional snacks originating from Jogja. This snack is famous for its chewy texture and delicious sweetness. Made from natural ingredients such as shredded coconut, coconut sugar, and water, Geplak is a popular dish that is often found in various events or as souvenirs typical of Jogja."
         },
         {
@@ -407,6 +410,7 @@
             "name":"Gudeg",
             "slug": "gudek",
             "price":25000,
+            "quantity":1,
             "description":"Gudeg has been known by the people of Indonesia, especially as a typical food from Yogyakarta City. This popularity is also what makes Yogyakarta known as Gudeg City. Gudeg is a traditional food made from young jackfruit (jackfruit) boiled for several hours with coconut sugar and coconut milk. Equipped with various additional spices."
         },
         {
@@ -417,6 +421,7 @@
             "name":"Sate Klathak",
             "slug": "sate-klathak",
             "price":30000,
+            "quantity":1,
             "description":"Sate Klatak is a type of typical food originating from Bantul Regency made from mutton. With the specification of skewers made of iron bicycle bars. How to cook by burning and only seasoned with salt. How to cook each portion or menu generally consists of 2 skewers to 4 skewers."
         },
         {
@@ -427,6 +432,7 @@
             "name":"Soto Kadipiro",
             "slug": "soto-kadipiro",
             "price":35000,
+            "quantity":1,
             "description":"Soto Kadipiro was originally sold under Karto Wijoyo. Around 1928 he settled in the Kadipiro area. Until now, it has been the third generation, namely Sri Sundari's mother (59). Named Soto Kadipiro because it takes the name of the place, namely Kadipiro. Soto Kadipiro became legendary because it maintained the deliciousness of soto for more than 90 years."
         },
         {
