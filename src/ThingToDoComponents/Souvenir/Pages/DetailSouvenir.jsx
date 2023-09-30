@@ -58,11 +58,11 @@ const DetailSouvenir = () => {
           <p className="font-Poppins">Back to Souvenir Page</p>
         </div>
       </div>
-      <div className="grid md:grid-cols-2 m-auto ">
-        <div className="object-cover grid-cols-4 shrink-0 lg:grid-cols-12 min-w-fit">
-          <img className="w-full" src={detail.src} alt="Souvenir" />
+      <div className="grid lg:grid-cols-2 m-auto ">
+        <div className="object-cover grid-cols-4 shrink-0 lg:grid-cols-12 min-w-fit flex justify-end items-end">
+          <img className="w-full lg:w-[700px] lg:h-[400px]" src={detail.src} alt="Souvenir" />
         </div>
-        <div className="flex-col justify-start md:items-start w-full py-8 ">
+        <div className="flex-col justify-start md:items-start w-full py-8 lg:w-[700px]">
           <div className="flex px-4 sm:px-6 md:px-8 justify-between">
             <p>Souvenir</p>
             <ShareButton />

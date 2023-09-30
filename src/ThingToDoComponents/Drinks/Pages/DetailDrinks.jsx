@@ -51,7 +51,7 @@ const DetailDrinks = () => {
             className="w-full lg:w-[50vw] lg:h-[500px] object-cover drop-shadow-xl"
           />
         </div>
-        <div className="w-screen h-fit bg-[#F1F8FF] pt-5 px-5 lg:h-[500px] lg:w-[50vw]">
+        <div className="w-screen h-fit bg-[#F1F8FF] pt-5 px-5 lg:h-[500px] lg:w-[50vw] flex flex-col justify-center items-center">
           <section className="px-5 md:w-[75%] lg:w-full ">
             <div className="flex flex-1  justify-between items-center mb-5">
               <div>
