@@ -1,17 +1,23 @@
-import React from "react";
-
+import React , {useState} from "react";
+import PopupWarning from "../PopUp/PopupWarning";
 
 const   AddToCartButton = ({id, onClick}) => {
- const handleAddClick = () => {
-  const isIteminCart = localStorage.getItem(`cartItem_${id}`);
-  if(isIteminCart === 'true'){
-    alert('Pesanan sudah ada di keranjang anda');
-  } else {
-    localStorage.setItem(`cartItem_${id}`, 'true');
-    onClick();
+
+  const [showWarning, setShowWarning] = useState(false);
+  const [warningMessage, setWarningMessage] = useState("")
+
+  const handleAddClick = () => {
+    const isIteminCart = localStorage.getItem(`cartItem_${id}`);
+    if(isIteminCart === 'true'){
+      setShowWarning(true);
+      const message = `The item is already in your cart`;
+      setWarningMessage(message);
+
+    } else {
+      localStorage.setItem(`cartItem_${id}`, 'true');
+      onClick();
+    }
   }
- }
-  
 
   return (
     <div className="flex gap-[2px] " onClick={handleAddClick}>
@@ -26,6 +32,9 @@ const   AddToCartButton = ({id, onClick}) => {
       <div className="px-3 py-2 xl:px-4 xl:py-2 bg-button2 flex justify-center items-center text-button rounded-tr-lg rounded-br-lg rounded-tl-sm rounded-bl-sm cursor-pointer">
           <p>Add to Cart</p>
       </div>
+      <PopupWarning 
+      message={warningMessage}
+      showWarning={showWarning}/>
     </div>
   )
 }

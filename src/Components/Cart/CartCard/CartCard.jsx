@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { BsTrash3 } from "react-icons/bs";
 import RemoveButton from "../../Atoms/RemoveButton";
 
 const CartCard = ({cartData, setCartData }) => {
@@ -45,11 +44,11 @@ const CartCard = ({cartData, setCartData }) => {
   return (
     <div>
       {cartData.map((item) => (
-        <div key={item.id} className="flex px-2 mt-1 md:px-10 shadow-md">
+        <div key={item.id} className="flex px-2 mt-1 md:px-10 shadow-lg">
         <div className="mx-auto mt-5">
           <div className="flex justify-between w-auto">
             <h3>{item.name}</h3>
-            <RemoveButton itemId={item.id} onRemove={() => removeItemFromCart(item.id)}/>
+            <RemoveButton itemId={item.id} onRemove={removeItemFromCart}/>
           </div>
           <hr className="w-full border-gray-100 mb-5" />
           <div className="flex flex-col items-center mb-4 bg-white rounded-lg md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
@@ -65,7 +64,7 @@ const CartCard = ({cartData, setCartData }) => {
             </div>
             <div className="grid grid-cols-1 px-6 mt-4">
               <p>{formatCurrency(item.price)}</p>
-              <div className="mt-2 flex justify-center items-center border-gray-100">
+              <div className="mt-2 flex justify-center items-center border-gray-100 gap-1">
                 <span
                   onClick={() => decrementQuantity(item.id)}
                   className="cursor-pointer rounded-l bg-gray-100 py-1 px-3.5 duration-100 hover:bg-button hover:text-white"
