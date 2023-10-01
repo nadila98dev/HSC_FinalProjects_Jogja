@@ -5,6 +5,7 @@ import Footer from "/src/Components/Footer/Footer";
 import BotButton from "../../../Components/Landing/Landing-bot/BotButton";
 import AddToCartButton from "../../../Components/Atoms/AddToCartButton";
 import ShareButton from "../../../Components/Atoms/ShareButton";
+import Popup from "../../../Components/PopUp/Popup";
 
 // Import Swiper styles
 import "swiper/css";
@@ -24,6 +25,8 @@ export default function DetailMuseum() {
 
   const [detail, setDetail] = useState({});
   const { id } = useParams();
+  const [showPopup, setShowPopup] = useState(false);
+  const [popupMessage, setPopupMessage] = useState("");
 
   const callApi = async () => {
     axiosInstance.detail(id).then((res) => {
@@ -42,10 +45,13 @@ export default function DetailMuseum() {
       id: detail.id,
       src: detail.src,
       name: detail.name,
-      price: detail.price
+      price: detail.price,
+      quantity: detail.quantity
     }
     addToCart(newItem);
-    alert(`item${newItem.name} telah ditambahkan ke keranjang`)
+    const message = `The ticket for ${newItem.name} has been added to the cart.`;
+    setPopupMessage(message);
+    setShowPopup(true);
   }
 
   return (
@@ -68,10 +74,10 @@ export default function DetailMuseum() {
         </div>
       </div>
       <div className="lg:flex">
-        <div className="lg:flex lg:items-center lg:justify-center mb-4">
+        <div className="lg:flex lg:items-center lg:justify-center">
           <ImgSweper image={detail?.src} />
         </div>
-        <div className="w-screen h-fit bg-[#F1F8FF] pt-5 px-5 lg:h-[450px] lg:w-[50vw]">
+        <div className="w-screen h-fit bg-[#F1F8FF] py-5 px-5 lg:h-[500px] lg:w-[50vw] justify-center items-center flex">
           <section className="px-5 md:w-[75%] lg:w-full ">
             <div className="flex flex-1  justify-between items-center mb-5">
               <div>
@@ -94,8 +100,15 @@ export default function DetailMuseum() {
                   Ticket Price: Rp. {detail?.price}
                 </span>
               <div className="mt-5">
-                <AddToCartButton id={detail.id} onClick={handleAddClick}/>
+                <AddToCartButton id={detail.id}  onClick={handleAddClick}/>
               </div>
+              <Popup
+                  message={popupMessage}
+                  onClose={() => {
+                    setShowPopup(false);
+                  }}
+                  showPopup={showPopup}
+                />
             </div>
           </section>
         </div>

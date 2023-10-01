@@ -5,7 +5,7 @@ import Visit from '/src/assets/visit.svg'
 
 const ContactHotel = () => {
     return (
-        <div className='w-screen flex flex-col gap-5 items-center justify-center my-8 md:flex-row md:gap-5 lg:gap-2'>
+        <div className='flex flex-col gap-5 items-center justify-center my-8 sm:flex-row md:gap-5 lg:gap-2'>
             <div className='h-[380px] text-center bg-button2 rounded-xl  pb-5 lg:w-[200px] lg:h-[250px] flex flex-col items-center justify-center'>
                 <img className='lg:w-[150px]' src={Clear} alt="" />
                 <h2 className=' font-Lora font-semibold'>season</h2>

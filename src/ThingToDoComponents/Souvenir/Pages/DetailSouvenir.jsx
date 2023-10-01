@@ -10,7 +10,7 @@ import BotButton from "../../../Components/Landing/Landing-bot/BotButton";
 import Footer from "/src/Components/Footer/Footer";
 import AddToCartButton from "../../../Components/Atoms/AddToCartButton";
 import ShareButton from "../../../Components/Atoms/ShareButton";
-
+import Popup from "../../../Components/PopUp/Popup";
 
 import axiosInstance from "../../../API/apiCall";
 import { addToCart } from "../../../Utils/Carts";
@@ -19,6 +19,9 @@ const DetailSouvenir = () => {
   const navigateToSouvenirPage = useNavigate();
   const [detail, setDetail] = useState({});
   const { id } = useParams();
+
+  const [showPopup, setShowPopup] = useState(false);
+  const [popupMessage, setPopupMessage] = useState("");
 
   const callApi = async () => {
     axiosInstance.detail(id).then((res) => {
@@ -35,11 +38,14 @@ const DetailSouvenir = () => {
       id: detail.id,
       src: detail.src,
       name: detail.name,
-      price: detail.price
+      price: detail.price,
+      quantity: detail.quantity
     }
     addToCart(newItem);
-    alert(`item${newItem.name} telah ditambahkan ke keranjang`)
-  }
+    const message = `The ticket for ${newItem.name} has been added to the cart.`;
+    setPopupMessage(message);
+    setShowPopup(true);
+  };
 
   return (
     <div className="min-h-screen">
@@ -58,11 +64,15 @@ const DetailSouvenir = () => {
           <p className="font-Poppins">Back to Souvenir Page</p>
         </div>
       </div>
-      <div className="grid md:grid-cols-2 m-auto ">
-        <div className="object-cover grid-cols-4 shrink-0 lg:grid-cols-12 min-w-fit">
-          <img className="w-full" src={detail.src} alt="Souvenir" />
+      <div className="grid lg:grid-cols-2 m-auto ">
+        <div className="object-cover grid-cols-4 shrink-0 lg:grid-cols-12 min-w-fit flex justify-end items-end">
+          <img
+            className="w-full lg:w-[700px] lg:h-[400px]"
+            src={detail.src}
+            alt="Souvenir"
+          />
         </div>
-        <div className="flex-col justify-start md:items-start w-full py-8 ">
+        <div className="flex-col justify-start md:items-start w-full py-8 lg:w-[700px]">
           <div className="flex px-4 sm:px-6 md:px-8 justify-between">
             <p>Souvenir</p>
             <ShareButton />
@@ -77,10 +87,15 @@ const DetailSouvenir = () => {
             <h3 className="mt-4 text-2xl">Rp. {detail.price}</h3>
           </div>
           <div className="mt-4 max-w-7x1 nx-auto px-4 sm:px-6 md:px-8">
-            <Link to={"/cart-page/"}>
               <AddToCartButton id={detail.id} onClick={handleAddClick} />
-            </Link>
           </div>
+          <Popup
+            message={popupMessage}
+            onClose={() => {
+              setShowPopup(false);
+            }}
+            showPopup={showPopup}
+          />
         </div>
       </div>
       <div className="flex justify-center items-center">

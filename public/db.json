@@ -245,7 +245,8 @@
                 "lat": -7.78106,
                 "lng": 110.3602408
             },
-            "description": "The Affandi Museum is a historical museum located in Yogyakarta Province, precisely on Jalan Kab. Sleman"
+            "description": "The Affandi Museum is a historical museum located in Yogyakarta Province, precisely on Jalan Kab. Sleman",
+            "quantity": 1
         },
         {
             "id": 16,
@@ -259,7 +260,8 @@
                 "lat": -7.80028465,
                 "lng": 110.36635102726859
             },
-            "description": "Vredeburg Fort is a historical witness to how strong the Dutch influence was in colonizing Indonesia. Due to its strategic position in the middle of the city, precisely in front of the Yogyakarta Palace, Fort Vredeburg has recorded important events and has undergone changes in function over time."
+            "description": "Vredeburg Fort is a historical witness to how strong the Dutch influence was in colonizing Indonesia. Due to its strategic position in the middle of the city, precisely in front of the Yogyakarta Palace, Fort Vredeburg has recorded important events and has undergone changes in function over time.",
+            "quantity": 1
         },
         {
             "id": 17,
@@ -273,7 +275,8 @@
                 "lng": 110.36441291543042
             },
             "address": "Jalan Trikora No. 6 Yogyakarta",
-            "description": "Sonobudoyo Museum is a museum of Javanese history and culture, including classical Javanese architectural buildings. This museum holds a collection of Javanese culture and history which is considered the most complete after the National Museum of the Republic of Indonesia in Jakarta. Apart from ceramics from the Neolithic era and bronze statues from the 8th century, this museum also stores several forms of wayang kulit, various ancient weapons (including keris and Javanese masks)."
+            "description": "Sonobudoyo Museum is a museum of Javanese history and culture, including classical Javanese architectural buildings. This museum holds a collection of Javanese culture and history which is considered the most complete after the National Museum of the Republic of Indonesia in Jakarta. Apart from ceramics from the Neolithic era and bronze statues from the 8th century, this museum also stores several forms of wayang kulit, various ancient weapons (including keris and Javanese masks).",
+            "quantity": 1
         },
         {
             "id": 18,
@@ -287,7 +290,8 @@
                 "lat": -7.8009251,
                 "lng": 110.3676488
             },
-            "description": "Taman Pintar Yogyakarta combines museums and science so that it can break the public stigma that museums don't only talk about the past, museums can also talk about the future."
+            "description": "Taman Pintar Yogyakarta combines museums and science so that it can break the public stigma that museums don't only talk about the past, museums can also talk about the future.",
+            "quantity": 1
         },
         {
             "id": 19,
@@ -301,7 +305,8 @@
                 "lat": -7.6004719,
                 "lng": 110.4491062
             },
-            "description": "This museum was created to tell about existing volcanoes, especially Merapi. You can observe various types of volcanoes and their eruptions in the world through the museum panels. Apart from that, you can see artifacts from the 2006 Merapi eruption in the form of motorbike carcasses, household utensils, as well as photos of the 2010 eruption, complementing photos of eruptions from various volcanoes in Chile, Italy, Hawaii, USA, and so on."
+            "description": "This museum was created to tell about existing volcanoes, especially Merapi. You can observe various types of volcanoes and their eruptions in the world through the museum panels. Apart from that, you can see artifacts from the 2006 Merapi eruption in the form of motorbike carcasses, household utensils, as well as photos of the 2010 eruption, complementing photos of eruptions from various volcanoes in Chile, Italy, Hawaii, USA, and so on.",
+            "quantity": 1
         },
         {
             "id": 20,
@@ -315,7 +320,8 @@
                 "lat": -7.7496238,
                 "lng": 110.36963439175416
             },
-            "description": "The Yogya Return Monument Museum, commonly known as the Jogja Return Monument, abbreviated as Monjali, is a museum of the history of the Indonesian independence struggle in the Special Region of Yogyakarta and is managed by the Ministry of Tourism and Creative Economy."
+            "description": "The Yogya Return Monument Museum, commonly known as the Jogja Return Monument, abbreviated as Monjali, is a museum of the history of the Indonesian independence struggle in the Special Region of Yogyakarta and is managed by the Ministry of Tourism and Creative Economy.",
+            "quantity": 1
         },
         {
             "id": 21,
@@ -329,7 +335,8 @@
                 "lat": -7.80820795,
                 "lng": 110.36378395221467
             },
-            "description": "The Yogyakarta Palace, as one of the main pillars of the founding of the Republic of Indonesia, certainly has a long history of struggle from the Colonial era until now. This long history is certainly useful for the future of the younger generation to be able to know and understand the struggles that have been carried out. Therefore, the Yogyakarta Palace as a cultural institution and national struggle is obliged to document its struggle to the public by building a tourist museum as a center for documenting the history of the struggle of the Yogyakarta Palace."
+            "description": "The Yogyakarta Palace, as one of the main pillars of the founding of the Republic of Indonesia, certainly has a long history of struggle from the Colonial era until now. This long history is certainly useful for the future of the younger generation to be able to know and understand the struggles that have been carried out. Therefore, the Yogyakarta Palace as a cultural institution and national struggle is obliged to document its struggle to the public by building a tourist museum as a center for documenting the history of the struggle of the Yogyakarta Palace.",
+            "quantity": 1
         },
         {
             "id": 22,
@@ -343,7 +350,8 @@
                 "lat": -7.59764835,
                 "lng": 110.42339618812312
             },
-            "description": "The Ullen Sentalu Museum tells a lot about the civilization of the Mataram Kingdom which was divided into 4 palaces in Solo and Yogyakarta, namely Kasunanan Surakarta, Sultanate of Yogyakarta, Praja Mangkunegaran, and Kadipaten Pakualaman."
+            "description": "The Ullen Sentalu Museum tells a lot about the civilization of the Mataram Kingdom which was divided into 4 palaces in Solo and Yogyakarta, namely Kasunanan Surakarta, Sultanate of Yogyakarta, Praja Mangkunegaran, and Kadipaten Pakualaman.",
+            "quantity": 1
         },
         {
             "id": 23,
@@ -357,7 +365,8 @@
                 "lat": -7.7897642000000005,
                 "lng": 110.41619378089325
             },
-            "description": "The Indonesian Air Force Dirgantara Mandala Central Museum is a museum initiated by the Indonesian Air Force which contains historical collections, most of which are aircraft that have served within the Indonesian Air Force."
+            "description": "The Indonesian Air Force Dirgantara Mandala Central Museum is a museum initiated by the Indonesian Air Force which contains historical collections, most of which are aircraft that have served within the Indonesian Air Force.",
+            "quantity": 1
         },
         {
             "id":24,
@@ -367,6 +376,7 @@
             "name":"Javanese Apem Cake",
             "slug": "javanese-apem-cake",
             "price":10000,
+            "quantity":1,
             "description":"Apem (also known as appam in its native India) is a food made from rice flour that is left overnight by mixing eggs, coconut milk, sugar and tape and a little salt then burned or steamed. The Ngapem tradition was started by the Kanoman Palace in Cirebon, since the time of Sunan Gunung Jati as a form of spreading Islam in Java."
             
         },
@@ -378,6 +388,7 @@
             "name":"Javanese Noodles",
             "slug": "javanase-noodles",
             "price":"20000",
+            "quantity":1,
             "description":"Javanese noodles or Javanese noodles are boiled noodles cooked with Javanese spices from Java, Indonesia. Most Javanese noodles are boiled noodles, so abroad (Malaysia and Singapore) Javanese noodles are known as me rebus, but there are actually variations of fried noodles from Javanese noodles."
         },
         {
@@ -388,6 +399,7 @@
             "name":"Geplak Bantul Cake",
             "slug": "geplek-bantul-cake",
             "price":5000,
+            "quantity":1,
             "description":"Jogja Geplak is one of the traditional snacks originating from Jogja. This snack is famous for its chewy texture and delicious sweetness. Made from natural ingredients such as shredded coconut, coconut sugar, and water, Geplak is a popular dish that is often found in various events or as souvenirs typical of Jogja."
         },
         {
@@ -398,6 +410,7 @@
             "name":"Gudeg",
             "slug": "gudek",
             "price":25000,
+            "quantity":1,
             "description":"Gudeg has been known by the people of Indonesia, especially as a typical food from Yogyakarta City. This popularity is also what makes Yogyakarta known as Gudeg City. Gudeg is a traditional food made from young jackfruit (jackfruit) boiled for several hours with coconut sugar and coconut milk. Equipped with various additional spices."
         },
         {
@@ -408,6 +421,7 @@
             "name":"Sate Klathak",
             "slug": "sate-klathak",
             "price":30000,
+            "quantity":1,
             "description":"Sate Klatak is a type of typical food originating from Bantul Regency made from mutton. With the specification of skewers made of iron bicycle bars. How to cook by burning and only seasoned with salt. How to cook each portion or menu generally consists of 2 skewers to 4 skewers."
         },
         {
@@ -418,6 +432,7 @@
             "name":"Soto Kadipiro",
             "slug": "soto-kadipiro",
             "price":35000,
+            "quantity":1,
             "description":"Soto Kadipiro was originally sold under Karto Wijoyo. Around 1928 he settled in the Kadipiro area. Until now, it has been the third generation, namely Sri Sundari's mother (59). Named Soto Kadipiro because it takes the name of the place, namely Kadipiro. Soto Kadipiro became legendary because it maintained the deliciousness of soto for more than 90 years."
         },
         {
@@ -686,7 +701,8 @@
             "name":"Blangkon Jogja",
             "slug": "blangkon-jogja",
             "price":150000,
-            "description":"Blangkon Jogja is a traditional Javanese headdress originating from Yogyakarta, Indonesia. This iconic headwear is a symbol of Javanese culture and heritage, often worn during special occasions and traditional ceremonies."
+            "description":"Blangkon Jogja is a traditional Javanese headdress originating from Yogyakarta, Indonesia. This iconic headwear is a symbol of Javanese culture and heritage, often worn during special occasions and traditional ceremonies.",
+            "quantity": 1
             
         },
         {   
@@ -696,8 +712,9 @@
             "imageAlt":"Kain Lurik",
             "name":"Kain Lurik Jogja",
             "slug": "kain-lurik-jogja",
-            "price":"200000",
-            "description":"Kain Lurik Jogja is a traditional handwoven fabric from Yogyakarta, Indonesia. It is known for its distinctive striped patterns, typically consisting of alternating colored stripes against a plain background."
+            "price":200000,
+            "description":"Kain Lurik Jogja is a traditional handwoven fabric from Yogyakarta, Indonesia. It is known for its distinctive striped patterns, typically consisting of alternating colored stripes against a plain background.",
+            "quantity": 1
         },
         {
             "id":56,
@@ -707,7 +724,8 @@
             "name":"Kaos Jogja",
             "slug": "kaos-jogja",
             "price":75000,
-            "description":"Kaos Jogja refers to T-shirts and apparel inspired by the vibrant culture and artistic spirit of Yogyakarta, Indonesia. These T-shirts often feature unique and creative designs that showcase elements of Javanese tradition, such as batik motifs, wayang kulit (shadow puppetry), or iconic landmarks like the Kraton (Sultan's Palace)."
+            "description":"Kaos Jogja refers to T-shirts and apparel inspired by the vibrant culture and artistic spirit of Yogyakarta, Indonesia. These T-shirts often feature unique and creative designs that showcase elements of Javanese tradition, such as batik motifs, wayang kulit (shadow puppetry), or iconic landmarks like the Kraton (Sultan's Palace).",
+            "quantity": 1
         },
         {
             "id":57,
@@ -717,7 +735,8 @@
             "name":"Kerajinan Batik Kayu Jogja",
             "slug": "kerajinan-batik-kayu-jogja",
             "price":300000,
-            "description":"Kerajinan Batik Kayu Jogja refers to the traditional craft of wooden batik artistry originating from Yogyakarta, Indonesia. Skilled artisans intricately carve wooden panels with intricate batik patterns, replicating the exquisite designs found in traditional Javanese batik textiles. These wooden batik pieces are often used as decorative wall hangings, ornaments, or functional items like trays and coasters. "
+            "description":"Kerajinan Batik Kayu Jogja refers to the traditional craft of wooden batik artistry originating from Yogyakarta, Indonesia. Skilled artisans intricately carve wooden panels with intricate batik patterns, replicating the exquisite designs found in traditional Javanese batik textiles. These wooden batik pieces are often used as decorative wall hangings, ornaments, or functional items like trays and coasters. ",
+            "quantity": 1
         },
         {
             "id":58,
@@ -727,7 +746,8 @@
             "name":"Keris (Traditional Dagger)",
             "slug": "keris-tradition-dagger",
             "price":1000000,
-            "description":"A keris is a Javanese ceremonial dagger with a distinctive wavy blade. While antique ones can be quite expensive, you can find decorative and smaller versions suitable for souvenirs."
+            "description":"A keris is a Javanese ceremonial dagger with a distinctive wavy blade. While antique ones can be quite expensive, you can find decorative and smaller versions suitable for souvenirs.",
+            "quantity": 1
         },
         {
             "id":59,
@@ -737,7 +757,8 @@
             "name":"Yogyakarta Silver Crafts",
             "slug": "yogyakarta-silver-crafts",
             "price":500000,
-            "description":"Kerajinan Perak Jogja refers to the exquisite silver craftwork originating from Yogyakarta, Indonesia. Skilled artisans in Yogyakarta create intricate and ornate silver jewelry, home decor items, and ceremonial pieces using traditional silver-smithing techniques."
+            "description":"Kerajinan Perak Jogja refers to the exquisite silver craftwork originating from Yogyakarta, Indonesia. Skilled artisans in Yogyakarta create intricate and ornate silver jewelry, home decor items, and ceremonial pieces using traditional silver-smithing techniques.",
+            "quantity": 1
         },
         {
             "id":60,
@@ -747,7 +768,8 @@
             "name":"Wayang Kulit (Shadow Puppets)",
             "slug": "wayang-kulit-shadow-puppets",
             "price":500000,
-            "description":"These intricately designed leather puppets are used in traditional Javanese shadow puppetry shows. They make for unique and decorative souvenirs."
+            "description":"These intricately designed leather puppets are used in traditional Javanese shadow puppetry shows. They make for unique and decorative souvenirs.",
+            "quantity": 1
         },
         {
             "id":61,
@@ -757,7 +779,8 @@
             "name":"Gamelan Miniatures",
             "slug": "gamelan-miniatures",
             "price":625000,
-            "description":"Gamelan is traditional Javanese music played on an ensemble of percussion instruments. You can find miniature gamelan sets, which are beautifully crafted and make for great decorative items."
+            "description":"Gamelan is traditional Javanese music played on an ensemble of percussion instruments. You can find miniature gamelan sets, which are beautifully crafted and make for great decorative items.",
+            "quantity": 1
         },
         {
             "id":62,
@@ -767,7 +790,8 @@
             "name":"Batik Fabric",
             "slug": "batik-fabric",
             "price":150000,
-            "description":"Batik is a traditional Indonesian textile art that involves wax-resist dyeing. You can buy batik fabrics, clothing, or accessories like scarves and bags."
+            "description":"Batik is a traditional Indonesian textile art that involves wax-resist dyeing. You can buy batik fabrics, clothing, or accessories like scarves and bags.",
+            "quantity": 1
         },
         {
             "id":63,
@@ -777,7 +801,8 @@
             "name":"Wooden Crafts",
             "slug": "wooden-crafts",
             "price":15000,
-            "description":"Hand-carved wooden items such as masks, statues, and puppets are popular souvenirs. Look for items made from teak wood, which is abundant in the region."
+            "description":"Hand-carved wooden items such as masks, statues, and puppets are popular souvenirs. Look for items made from teak wood, which is abundant in the region.",
+            "quantity": 1
         },
         {
             "id":64,
@@ -787,7 +812,8 @@
             "name":"Batu Akik (Gemstones)",
             "slug": "batu-akik",
             "price":2000000,
-            "description":"Indonesia is known for its gemstones, and you can find a variety of them in Jogja's markets. Look for agate stones or other gems that catch your eye."
+            "description":"Indonesia is known for its gemstones, and you can find a variety of them in Jogja's markets. Look for agate stones or other gems that catch your eye.",
+            "quantity": 1
         },
         {
             "id":65,
@@ -797,7 +823,8 @@
             "name":"Bamboo and Rattan Products",
             "slug": "bamboo-and-rattan-products",
             "price":300000,
-            "description":"Handwoven baskets, bags, and other products made from bamboo and rattan are available in the markets of Jogja."
+            "description":"Handwoven baskets, bags, and other products made from bamboo and rattan are available in the markets of Jogja.",
+            "quantity": 1
         },
         {
             "id":66,
@@ -807,7 +834,8 @@
             "name":"Spices and Herbs",
             "slug": "spices-and-herbs",
             "price":100000,
-            "description":"Indonesian cuisine is known for its flavorful spices. Consider bringing home some local spices like sambal (chili paste), Indonesian vanilla, or kopi tubruk (traditional Javanese coffee)."
+            "description":"Indonesian cuisine is known for its flavorful spices. Consider bringing home some local spices like sambal (chili paste), Indonesian vanilla, or kopi tubruk (traditional Javanese coffee).",
+            "quantity": 1
         },
         {
             "id":67,
@@ -817,7 +845,8 @@
             "name":"Sandal Jepit (Traditional Sandals)",
             "slug": "sandal-jepit",
             "price":50000,
-            "description":"These are simple rubber sandals often worn by locals. They are comfortable and make for practical souvenirs."
+            "description":"These are simple rubber sandals often worn by locals. They are comfortable and make for practical souvenirs.",
+            "quantity": 1
         },
         {
             "id":68,
@@ -827,7 +856,8 @@
             "name":"Jogja Art Prints and Paintings",
             "slug": "jogja-art-prints-and-paintings",
             "price":1500000,
-            "description":"Many local artists create beautiful paintings and art prints inspired by the culture and scenery of Jogja. These can be excellent additions to your home decor."
+            "description":"Many local artists create beautiful paintings and art prints inspired by the culture and scenery of Jogja. These can be excellent additions to your home decor.",
+            "quantity": 1
         }
     ]
 }

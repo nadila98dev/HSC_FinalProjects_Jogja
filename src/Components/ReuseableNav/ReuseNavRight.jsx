@@ -1,6 +1,10 @@
 import React , { useState , useEffect} from 'react'
 import { useNavigate } from 'react-router-dom';
 import 'boxicons';
+import {
+  getEmailFromLocalStorage,
+  getPasswordFromLocalStorage,
+} from '../../Utils/userDatas';
 
 
 function ReuseNavRight() {
@@ -9,12 +13,24 @@ function ReuseNavRight() {
     const navigateToSavedPageJogja = useNavigate () 
     const navigateToSearchPageJogja = useNavigate () 
     const navigateToLoginPage = useNavigate()
+    const navigateToAccountPage = useNavigate()
 
     const [showDot, setShowDot] = useState(false);
+      const storedEmail = getEmailFromLocalStorage();
+      const storedPassword = getPasswordFromLocalStorage();
+
     useEffect(() => {
       const favoriteItems = JSON.parse(localStorage.getItem('products')) || [];
       setShowDot(favoriteItems.length > 0);
     }, []);
+
+    const handleLoginClick = () => {
+      if (storedEmail && storedPassword) {
+        navigateToAccountPage('/account'); 
+      } else {
+        navigateToLoginPage('/login'); 
+      }
+    };
 
   return (
     <div className='flex gap-[1rem] w-fit h-[40px] 
@@ -26,7 +42,7 @@ function ReuseNavRight() {
                 <i className='bx bx-search-alt'></i>
         </div>
 
-        <div onClick={() => navigateToLoginPage ('/login')}
+        <div onClick={handleLoginClick}
                 className='w-[40px] p-[8px] text-2xl h-[40px] flex justify-center items-center rounded-lg hover:bg-button2 transition duration-300 ease-in-out cursor-pointer  text-[#000]'>
                 <i className='bx bx-user'></i>
         </div>

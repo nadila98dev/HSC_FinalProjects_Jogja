@@ -2,6 +2,10 @@ import React , { useState , useEffect} from 'react'
 import { useNavigate } from 'react-router-dom';
 import './navbarright.css'
 import 'boxicons';
+import {
+    getEmailFromLocalStorage,
+    getPasswordFromLocalStorage,
+  } from '../../../../Utils/userDatas';
 
 const NavbarRight = () => {
     const [isHeadroomHovered, setIsHeadroomHovered] = useState(false);
@@ -11,12 +15,24 @@ const NavbarRight = () => {
     const navigateToSavedPageJogja = useNavigate ()  
     const navigateToSearchPageJogja = useNavigate ()
     const navigateToLoginPage = useNavigate()
+    const navigateToAccountPage = useNavigate()
 
     const [showDot, setShowDot] = useState(false);
+    const storedEmail = getEmailFromLocalStorage();
+    const storedPassword = getPasswordFromLocalStorage();
+
     useEffect(() => {
       const favoriteItems = JSON.parse(localStorage.getItem('products')) || [];
       setShowDot(favoriteItems.length > 0);
     }, []);
+
+    const handleLoginClick = () => {
+      if (storedEmail && storedPassword) {
+        navigateToAccountPage('/account'); 
+      } else {
+        navigateToLoginPage('/login'); 
+      }
+    };
 
   return (
     <div className={`flex gap-[1rem] w-fit h-[40px] 
@@ -32,7 +48,7 @@ const NavbarRight = () => {
         </div>
 
         <div 
-            onClick={() => navigateToLoginPage('/login')}
+            onClick={handleLoginClick}
             className='p-[8px] h-[40px] flex justify-center items-center text-2xl rounded-lg hover:bg-button2 transition duration-300 ease-in-out cursor-pointer icon'>
                 <i className='bx bx-user'></i>
         </div>
