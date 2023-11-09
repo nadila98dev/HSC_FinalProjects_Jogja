@@ -8,7 +8,7 @@ import {
   getUsernameFromLocalStorage,
   removeEmailFromLocalStorage,
   removePasswordFromLocalStorage,
-  removeUsernameFromLocalStorage
+  removeUsernameFromLocalStorage,
 } from "../../Utils/userDatas";
 
 const UserProfile = () => {
@@ -18,7 +18,7 @@ const UserProfile = () => {
   const handleLogout = () => {
     removeEmailFromLocalStorage();
     removePasswordFromLocalStorage();
-    removeUsernameFromLocalStorage()
+    removeUsernameFromLocalStorage();
   };
 
   return (
@@ -34,7 +34,6 @@ const UserProfile = () => {
         <h3 className="font-medium text-sm text-button mb-4 flex justify-center">
           {userEmail}
         </h3>
-        <h1 className="text-2xl font-semibold mb-2 text-button">Account</h1>
         <Link to={"/account/my-profile"}>
           <ButtonAccount variant="bg-button w-full flex justify-between items-center">
             <span>
@@ -45,11 +44,22 @@ const UserProfile = () => {
             </span>
           </ButtonAccount>
         </Link>
-        <Link to={'/cart-page'}>
+        <Link to={"/cart-page"}>
           <ButtonAccount variant="bg-button w-full flex justify-between">
             <span>
               {" "}
               <i className="bx bx-cart"></i> My Cart{" "}
+            </span>
+            <span>
+              <i className="bx bx-chevron-right"></i>
+            </span>
+          </ButtonAccount>
+        </Link>
+        <Link to={"/transaction"}>
+          <ButtonAccount variant="bg-button w-full flex justify-between">
+            <span>
+              {" "}
+              <i className="bx bxs-package"></i> My Orders
             </span>
             <span>
               <i className="bx bx-chevron-right"></i>
