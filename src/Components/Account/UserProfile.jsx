@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ButtonAccount from "./Button/ButtonAccount";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import user from "/Assets/Account/user.png";
 
 import {
@@ -8,17 +8,42 @@ import {
   getUsernameFromLocalStorage,
   removeEmailFromLocalStorage,
   removePasswordFromLocalStorage,
-  removeUsernameFromLocalStorage
+  removeUsernameFromLocalStorage,
 } from "../../Utils/userDatas";
+import axiosInstance from "../../API/apiCall";
+import Cookies from "js-cookie";
+import { fetchUsers } from "../../redux/auth/userActions";
+import { useDispatch, useSelector } from "react-redux";
+import { selectUserData } from "../../redux/auth/userSelector";
+import { toast } from "react-toastify";
 
 const UserProfile = () => {
-  const userEmail = getEmailFromLocalStorage();
-  const userUsername = getUsernameFromLocalStorage();
+  // const userEmail = getEmailFromLocalStorage();
+  // const userUsername = getUsernameFromLocalStorage();
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const data = useSelector(selectUserData);
+  const token = Cookies.get("X-TOKEN");
+  console.log(data);
+
+  useEffect(() => {
+    dispatch(fetchUsers(token));
+  }, [dispatch, token]);
 
   const handleLogout = () => {
-    removeEmailFromLocalStorage();
-    removePasswordFromLocalStorage();
-    removeUsernameFromLocalStorage()
+    Cookies.remove("X-TOKEN");
+
+    toast.success("Logout Success", {
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+    navigate("/login");
   };
 
   return (
@@ -29,10 +54,10 @@ const UserProfile = () => {
           <img className="w-[120px]" src={user} alt="" />
         </div>
         <h2 className="font-medium text-xl text-button flex justify-center">
-          {userUsername}
+          {data?.name}
         </h2>
         <h3 className="font-medium text-sm text-button mb-4 flex justify-center">
-          {userEmail}
+          {data?.email}
         </h3>
         <h1 className="text-2xl font-semibold mb-2 text-button">Account</h1>
         <Link to={"/account/my-profile"}>
@@ -45,7 +70,7 @@ const UserProfile = () => {
             </span>
           </ButtonAccount>
         </Link>
-        <Link to={'/cart-page'}>
+        <Link to={"/cart-page"}>
           <ButtonAccount variant="bg-button w-full flex justify-between">
             <span>
               {" "}
@@ -57,14 +82,12 @@ const UserProfile = () => {
           </ButtonAccount>
         </Link>
         <div className="flex justify-center items-center gap-2">
-          <Link to={"/login"}>
-            <button
-              onClick={handleLogout}
-              className="px-3 py-2 bg-button text-white rounded-lg hover:brightness-110"
-            >
-              Logout
-            </button>
-          </Link>
+          <button
+            onClick={handleLogout}
+            className="px-3 py-2 bg-button text-white rounded-lg hover:brightness-110"
+          >
+            Logout
+          </button>
           <Link to={"/"}>
             <button className="px-3 py-2 bg-button text-white rounded-lg hover:brightness-110">
               Home

@@ -1,77 +1,122 @@
 import React, { useRef, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   saveCredentialsToLocalStorage,
   getEmailFromLocalStorage,
   getPasswordFromLocalStorage,
   getUsernameFromLocalStorage,
 } from "../Utils/userDatas";
+import { useState } from "react";
+import axiosInstance from "../API/apiCall";
+import { toast } from "react-toastify";
+import Cookies from "js-cookie";
 
 const FormLogin = () => {
-  const emailInputRef = useRef(null);
-  const passwordInputRef = useRef(null);
-  const usernameInputRef = useRef(null)
+  const navigate = useNavigate();
 
-  const handleSubmit = () => {
-    const emailValue = emailInputRef.current.value;
-    const passwordValue = passwordInputRef.current.value;
-    const usernameValue = usernameInputRef.current.value;
+  const [form, setForm] = useState({
+    email: "",
+    password: "",
+  });
+  console.log(form);
 
-    saveCredentialsToLocalStorage(emailValue, passwordValue, usernameValue);
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  useEffect(() => {
-    const storedEmail = getEmailFromLocalStorage();
-    const storedPassword = getPasswordFromLocalStorage();
-    const storedUsername = getUsernameFromLocalStorage();
+  const handleSubmit = async () => {
+    const payload = {
+      email: form.email,
+      password: form.password,
+    };
 
-    if (storedEmail) {
-      emailInputRef.current.value = storedEmail;
-    }
+    const res = await axiosInstance.login(payload);
+    // console.log(res);
 
-    if (storedPassword) {
-      passwordInputRef.current.value = storedPassword;
+    if (res?.error === false) {
+      toast.success(res.message, {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+      navigate("/");
+      Cookies.set("X-TOKEN", res.token, { expires: 2 });
+    } else {
+      const msg = res.message || "Internal Server Error";
+      toast.error(msg, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
     }
+    // const emailValue = emailInputRef.current.value;
+    // const passwordValue = passwordInputRef.current.value;
+    // const usernameValue = usernameInputRef.current.value;
+    // saveCredentialsToLocalStorage(emailValue, passwordValue, usernameValue);
+  };
 
-    if (storedPassword) {
-      usernameInputRef.current.value = storedUsername;
-    }
-  }, []);
+  // useEffect(() => {
+  //   // const storedEmail = getEmailFromLocalStorage();
+  //   // const storedPassword = getPasswordFromLocalStorage();
+  //   // const storedUsername = getUsernameFromLocalStorage();
+  //   // if (storedEmail) {
+  //   //   emailInputRef.current.value = storedEmail;
+  //   // }
+  //   // if (storedPassword) {
+  //   //   passwordInputRef.current.value = storedPassword;
+  //   // }
+  //   // if (storedPassword) {
+  //   //   usernameInputRef.current.value = storedUsername;
+  //   // }
+  // }, []);
 
   return (
-    <form className="flex flex-col gap-2" action="">
-      <input
+    <>
+      <div className="flex flex-col gap-2">
+        {/* <input
         className="px-2 py-2"
         ref={usernameInputRef}
         type="username"
         placeholder="Enter your username"
         name="username"
-      />
-      <input
-        className="px-2 py-2"
-        ref={emailInputRef}
-        type="email"
-        placeholder="example@mail.com"
-        name="email"
-      />
-      <input
-        className="px-2 py-2"
-        ref={passwordInputRef}
-        type="password"
-        placeholder="*******"
-        name="password"
-      />
-      <div className="flex justify-center items-center">
-        <Link to={"/account"}>
+      /> */}
+        <input
+          className="px-2 py-2"
+          type="email"
+          placeholder="example@mail.com"
+          name="email"
+          value={form.email}
+          onChange={handleChange}
+        />
+        <input
+          className="px-2 py-2"
+          type="password"
+          placeholder="*******"
+          name="password"
+          value={form.password}
+          onChange={handleChange}
+        />
+
+        <div className="flex justify-center items-center">
           <button
             className="w-[280px] px-3 py-2 bg-button rounded-lg hover:brightness-110 cursor-pointer text-white font-Poppins"
             onClick={handleSubmit}
           >
             Login
           </button>
-        </Link>
+        </div>
       </div>
-    </form>
+    </>
   );
 };
 
