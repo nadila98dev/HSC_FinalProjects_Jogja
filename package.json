@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.9.7",
     "axios": "^1.5.0",
     "boxicons": "^2.1.4",
     "clipboard-copy": "^4.0.1",
@@ -20,6 +21,7 @@
     "react-icons": "^4.10.1",
     "react-leaflet": "^4.2.1",
     "react-multi-carousel": "^2.8.4",
+    "react-redux": "^8.1.3",
     "react-responsive": "^9.0.2",
     "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.15.0",
