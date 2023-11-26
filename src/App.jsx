@@ -91,11 +91,15 @@ const IdentityProfile = lazy(() =>
 );
 
 import "./App.css";
+
 import UsersRoute from "./Middlewares/UsersRoute";
 import PrivateRoute from "./Middlewares/PrivateRoute";
-const CartPage = lazy(() => import("./Pages/CartPage"));
 
+const CartPage = lazy(() => import("./Pages/CartPage"));
 const LoadingPage = lazy(() => import("./Pages/LoadingPage"));
+
+import Transaction from "./Pages/Transaction/Transaction";
+import DetailTransaction from "./Pages/Transaction/DetailTransaction";
 
 function App() {
   return (
@@ -252,14 +256,6 @@ function App() {
           />
 
           {/* ========= Cart =========== */}
-          {/* <Route
-            path="/cart-page/"
-            element={
-              <Suspense fallback={<LoadingPage />}>
-                <CartPage />
-              </Suspense>
-            }
-          ></Route> */}
 
           {/* ============ Auth ============ */}
           <Route path="/" element={<UsersRoute />}>
@@ -311,6 +307,44 @@ function App() {
               }
             ></Route>
           </Route>
+
+          {/* ></Route> */}
+
+          {/* ============ Auth ============ */}
+          <Route
+            path="/account"
+            element={
+              <Suspense fallback={<LoadingPage />}>
+                <AccountPage />
+              </Suspense>
+            }
+          ></Route>
+          <Route
+            path="/account/my-profile"
+            element={
+              <Suspense fallback={<LoadingPage />}>
+                <IdentityProfile />
+              </Suspense>
+            }
+          ></Route>
+
+          {/* ============== Transaction ============== */}
+          <Route
+            path="/transaction"
+            element={
+              <Suspense fallback={<LoadingPage />}>
+                <Transaction />
+              </Suspense>
+            }
+          ></Route>
+          <Route
+            path="/transaction/detail"
+            element={
+              <Suspense fallback={<LoadingPage />}>
+                <DetailTransaction />
+              </Suspense>
+            }
+          ></Route>
         </Routes>
       </Router>
     </>

@@ -31,6 +31,7 @@ const UserProfile = () => {
   }, [dispatch, token]);
 
   const handleLogout = () => {
+
     Cookies.remove("X-TOKEN");
 
     toast.success("Logout Success", {
@@ -44,6 +45,7 @@ const UserProfile = () => {
       theme: "light",
     });
     navigate("/login");
+
   };
 
   return (
@@ -59,7 +61,6 @@ const UserProfile = () => {
         <h3 className="font-medium text-sm text-button mb-4 flex justify-center">
           {data?.email}
         </h3>
-        <h1 className="text-2xl font-semibold mb-2 text-button">Account</h1>
         <Link to={"/account/my-profile"}>
           <ButtonAccount variant="bg-button w-full flex justify-between items-center">
             <span>
@@ -75,6 +76,17 @@ const UserProfile = () => {
             <span>
               {" "}
               <i className="bx bx-cart"></i> My Cart{" "}
+            </span>
+            <span>
+              <i className="bx bx-chevron-right"></i>
+            </span>
+          </ButtonAccount>
+        </Link>
+        <Link to={"/transaction"}>
+          <ButtonAccount variant="bg-button w-full flex justify-between">
+            <span>
+              {" "}
+              <i className="bx bxs-package"></i> My Orders
             </span>
             <span>
               <i className="bx bx-chevron-right"></i>
