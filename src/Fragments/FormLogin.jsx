@@ -31,9 +31,8 @@ const FormLogin = () => {
     };
 
     const res = await axiosInstance.login(payload);
-    // console.log(res);
 
-    if (res?.error === false) {
+    if (res?.success === true) {
       toast.success(res.message, {
         position: "top-right",
         autoClose: 2000,
@@ -59,26 +58,7 @@ const FormLogin = () => {
         theme: "light",
       });
     }
-    // const emailValue = emailInputRef.current.value;
-    // const passwordValue = passwordInputRef.current.value;
-    // const usernameValue = usernameInputRef.current.value;
-    // saveCredentialsToLocalStorage(emailValue, passwordValue, usernameValue);
   };
-
-  // useEffect(() => {
-  //   // const storedEmail = getEmailFromLocalStorage();
-  //   // const storedPassword = getPasswordFromLocalStorage();
-  //   // const storedUsername = getUsernameFromLocalStorage();
-  //   // if (storedEmail) {
-  //   //   emailInputRef.current.value = storedEmail;
-  //   // }
-  //   // if (storedPassword) {
-  //   //   passwordInputRef.current.value = storedPassword;
-  //   // }
-  //   // if (storedPassword) {
-  //   //   usernameInputRef.current.value = storedUsername;
-  //   // }
-  // }, []);
 
   return (
     <>
@@ -90,22 +70,24 @@ const FormLogin = () => {
         placeholder="Enter your username"
         name="username"
       /> */}
-        <input
-          className="px-2 py-2"
-          type="email"
-          placeholder="example@mail.com"
-          name="email"
-          value={form.email}
-          onChange={handleChange}
-        />
-        <input
-          className="px-2 py-2"
-          type="password"
-          placeholder="*******"
-          name="password"
-          value={form.password}
-          onChange={handleChange}
-        />
+        <form>
+          <input
+            className="px-2 py-2"
+            type="email"
+            placeholder="example@mail.com"
+            name="email"
+            value={form.email}
+            onChange={handleChange}
+          />
+          <input
+            className="px-2 py-2"
+            type="password"
+            placeholder="*******"
+            name="password"
+            value={form.password}
+            onChange={handleChange}
+          />
+        </form>
 
         <div className="flex justify-center items-center">
           <button
