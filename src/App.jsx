@@ -95,13 +95,11 @@ import "./App.css";
 import UsersRoute from "./Middlewares/UsersRoute";
 import PrivateRoute from "./Middlewares/PrivateRoute";
 
-=======
 const CartPage = lazy(() => import("./Pages/CartPage"));
 const LoadingPage = lazy(() => import("./Pages/LoadingPage"));
 
 import Transaction from "./Pages/Transaction/Transaction";
 import DetailTransaction from "./Pages/Transaction/DetailTransaction";
-
 
 function App() {
   return (
@@ -259,8 +257,6 @@ function App() {
 
           {/* ========= Cart =========== */}
 
-      
-
           {/* ============ Auth ============ */}
           <Route path="/" element={<UsersRoute />}>
             <Route
@@ -312,7 +308,7 @@ function App() {
             ></Route>
           </Route>
 
-          ></Route>
+          {/* ></Route> */}
 
           {/* ============ Auth ============ */}
           <Route
@@ -349,7 +345,6 @@ function App() {
               </Suspense>
             }
           ></Route>
-
         </Routes>
       </Router>
     </>
