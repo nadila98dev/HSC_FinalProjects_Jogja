@@ -33,6 +33,7 @@ export default {
       button: '#1D764A',
       button2: '#DBEEFE',
       font1: '#FFF',
+      danger: "#ff0000"
     },
 
     fontFamily: {
