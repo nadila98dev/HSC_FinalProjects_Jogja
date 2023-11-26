@@ -91,11 +91,17 @@ const IdentityProfile = lazy(() =>
 );
 
 import "./App.css";
+
+import UsersRoute from "./Middlewares/UsersRoute";
+import PrivateRoute from "./Middlewares/PrivateRoute";
+
+=======
 const CartPage = lazy(() => import("./Pages/CartPage"));
 const LoadingPage = lazy(() => import("./Pages/LoadingPage"));
 
 import Transaction from "./Pages/Transaction/Transaction";
 import DetailTransaction from "./Pages/Transaction/DetailTransaction";
+
 
 function App() {
   return (
@@ -112,8 +118,7 @@ function App() {
             }
           ></Route>
           <Route path="/menu-jogja" element={<MenuJogja />}></Route>
-          <Route path="/saved-page" element={<SavedPageJogja />}></Route>
-          <Route path="/search-page" element={<SearchPage />}></Route>
+
           {/* ========= Practical Tips Page =========== */}
           <Route
             path="/practical-tips-page"
@@ -253,26 +258,63 @@ function App() {
           />
 
           {/* ========= Cart =========== */}
+
+      
+
+          {/* ============ Auth ============ */}
+          <Route path="/" element={<UsersRoute />}>
+            <Route
+              path="/login"
+              element={
+                <Suspense fallback={<LoadingPage />}>
+                  <LoginPage />
+                </Suspense>
+              }
+            ></Route>
+            <Route path="/register" element={<RegisterPage />}></Route>
+          </Route>
+          <Route path="/loading" element={<LoadingPage />}></Route>
           <Route
-            path="/cart-page/"
+            path="/"
             element={
-              <Suspense fallback={<LoadingPage />}>
-                <CartPage />
-              </Suspense>
+              <>
+                <PrivateRoute />
+              </>
             }
+          >
+            <Route path="/saved-page" element={<SavedPageJogja />}></Route>
+            <Route path="/search-page" element={<SearchPage />}></Route>
+            <Route
+              path="/account"
+              element={
+                <Suspense fallback={<LoadingPage />}>
+                  <AccountPage />
+                </Suspense>
+              }
+            ></Route>
+
+            {/* ========= Cart =========== */}
+            <Route
+              path="/cart-page"
+              element={
+                <Suspense fallback={<LoadingPage />}>
+                  <CartPage />
+                </Suspense>
+              }
+            ></Route>
+            <Route
+              path="/account/my-profile"
+              element={
+                <Suspense fallback={<LoadingPage />}>
+                  <IdentityProfile />
+                </Suspense>
+              }
+            ></Route>
+          </Route>
+
           ></Route>
 
           {/* ============ Auth ============ */}
-          <Route
-            path="/login"
-            element={
-              <Suspense fallback={<LoadingPage />}>
-                <LoginPage />
-              </Suspense>
-            }
-          ></Route>
-          <Route path="/register" element={<RegisterPage />}></Route>
-          <Route path="/loading" element={<LoadingPage />}></Route>
           <Route
             path="/account"
             element={
@@ -307,6 +349,7 @@ function App() {
               </Suspense>
             }
           ></Route>
+
         </Routes>
       </Router>
     </>
