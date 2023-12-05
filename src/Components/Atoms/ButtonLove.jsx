@@ -1,25 +1,33 @@
-import React, { useState , useEffect } from "react";
-import { addProductToLocalStorage , removeProductFromLocalStorage } from "../../Utils/Products";
-import { setIsSolidToLocalStorage , getIsSolidFromLocalStorage } from '../../Utils/activatedButton'
+import React, { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
-const ButtonLove = ({ id }) => {
+const ButtonLove = ({ itemId }) => {
   const [isSolid, setIsSolid] = useState(false);
+  const navigate = useNavigate();
 
-  useEffect(() => {
-    // Ambil nilai isSolid dari localStorage saat komponen dimuat
-    const storedIsSolid = getIsSolidFromLocalStorage(id);
-    if (storedIsSolid !== null) {
-      setIsSolid(storedIsSolid);
+  const toggleIcon = async () => {
+    try {
+      const response = isSolid
+        ? await axios.delete("http://localhost:3000/api/v1/saved", {
+            data: { itemId: itemId },
+          })
+        : await axios.post("http://localhost:3000/api/v1/saved", {
+            itemId: itemId,
+          });
+
+      if (response.status === 200 || response.status === 201) {
+        setIsSolid(!isSolid);
+      }
+    } catch (error) {
+      if (error.response && error.response.status === 401) {
+        navigate("/login");
+      } else {
+        console.error("Error:", error);
+      }
     }
-  }, [id]);
-
-  const toggleIcon = () => {
-    setIsSolid((prevIsSolid) => !prevIsSolid);
-    const product = { id, isSolid: !isSolid };
-
-    isSolid ? removeProductFromLocalStorage(id) : addProductToLocalStorage(product);
-    setIsSolidToLocalStorage(id, !isSolid);
   };
+
   return (
     <div>
       <button

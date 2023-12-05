@@ -69,7 +69,7 @@ const FormRegister = () => {
       <Form>
         <Label>Full Name</Label>
         <Field
-          clasName="w-full p-2 border border-base rounded-md "
+          className="w-full p-2 border border-base rounded-md"
           type="text"
           placeholder="insert your full name"
           name="name"

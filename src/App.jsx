@@ -1,6 +1,9 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import React, { lazy, Suspense } from "react";
 
+// ============ ErrorBoundaries
+import ErrorBoundary from "./Components/Error/ErrorBoundary";
+
 // ============ Utils
 import ScrollToTop from "./Utils/ScrollToTop";
 
@@ -110,9 +113,11 @@ function App() {
           <Route
             path="/"
             element={
-              <Suspense fallback={<LoadingPage />}>
-                <Jogja />
-              </Suspense>
+              <ErrorBoundary>
+                <Suspense fallback={<LoadingPage />}>
+                  <Jogja />
+                </Suspense>
+              </ErrorBoundary>
             }
           ></Route>
           <Route path="/menu-jogja" element={<MenuJogja />}></Route>
@@ -338,7 +343,7 @@ function App() {
             }
           ></Route>
           <Route
-            path="/transaction/detail"
+            path="/transaction/detail/:orderId"
             element={
               <Suspense fallback={<LoadingPage />}>
                 <DetailTransaction />
