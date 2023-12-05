@@ -1,10 +1,11 @@
 import React from "react";
 import ReuseNav from "../../Components/ReuseableNav/ReuseNav";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import DetailOrder from "../../Components/Transaction/DetailOrder";
 
 const DetailTransaction = () => {
   const navigateToOrderPage = useNavigate();
+  const { orderId } = useParams();
   return (
     <div>
       <ReuseNav />
@@ -27,7 +28,7 @@ const DetailTransaction = () => {
           </div>
         </div>
       </div>
-      <DetailOrder />
+      <DetailOrder orderId={orderId} />
     </div>
   );
 };

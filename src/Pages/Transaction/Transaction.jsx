@@ -1,10 +1,30 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import ReuseNav from "../../Components/ReuseableNav/ReuseNav";
 import { useNavigate } from "react-router-dom";
 import History from "../../Components/Transaction/History";
+import axios from "axios";
 
 const Transaction = () => {
   const navigateToAccountPage = useNavigate();
+  const navigate = useNavigate();
+  const [orders, setOrders] = useState([]);
+
+  useEffect(() => {
+    fetchOrderHistory();
+  }, []);
+
+  const fetchOrderHistory = async () => {
+    try {
+      const response = await axios.get("http://localhost:3000/api/v1/orders");
+      setOrders(response.data.data);
+    } catch (error) {
+      if (error.response && error.response.status === 401) {
+        navigate("/login");
+      } else {
+        console.error("Error fetching order history:", error);
+      }
+    }
+  };
 
   return (
     <>
@@ -37,12 +57,9 @@ const Transaction = () => {
           My Orders
         </p>
         <div className="flex flex-col gap-4 md:grid md:grid-cols-2 mt-4 lg:grid-cols-3">
-          <History />
-          <History />
-          <History />
-          <History />
-          <History />
-          <History />
+          {orders.map((order) => (
+            <History key={order.id} order={order} />
+          ))}
         </div>
       </div>
     </>
