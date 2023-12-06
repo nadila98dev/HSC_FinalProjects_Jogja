@@ -1,23 +1,33 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { setSavedStatus } from "../../redux/saved/savedSlice";
 
 const ButtonLove = ({ itemId }) => {
   const [isSolid, setIsSolid] = useState(false);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const savedStatus = useSelector((state) => state.saved.savedStatus);
+
+  useEffect(() => {
+    setIsSolid(savedStatus[itemId] || false);
+  }, [savedStatus, itemId]);
 
   const toggleIcon = async () => {
     try {
-      const response = isSolid
-        ? await axios.delete("http://localhost:3000/api/v1/saved", {
-            data: { itemId: itemId },
-          })
-        : await axios.post("http://localhost:3000/api/v1/saved", {
-            itemId: itemId,
-          });
-
-      if (response.status === 200 || response.status === 201) {
-        setIsSolid(!isSolid);
+      if (isSolid) {
+        await axios.delete("http://localhost:3000/api/v1/saved", {
+          data: { itemId: itemId },
+        });
+        setIsSolid(false);
+        dispatch(setSavedStatus(itemId, false));
+      } else {
+        await axios.post("http://localhost:3000/api/v1/saved", {
+          itemId: itemId,
+        });
+        setIsSolid(true);
+        dispatch(setSavedStatus(itemId, true));
       }
     } catch (error) {
       if (error.response && error.response.status === 401) {

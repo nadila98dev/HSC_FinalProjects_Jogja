@@ -3,7 +3,7 @@ import FavItems from "./FavItems";
 import NothingItem from "./NothingItem";
 import axios from "axios";
 
-const SavedList = () => {
+const SavedList = ({ userId }) => {
   const [savedItemsExist, setSavedItemsExist] = useState(false);
   const [savedItems, setSavedItems] = useState([]);
   const [error, setError] = useState(null);
@@ -13,8 +13,9 @@ const SavedList = () => {
       .get(`http://localhost:3000/api/v1/saved/${userId}`)
       .then((response) => {
         if (response.data.success) {
-          setSavedItems(response.data.data);
-          setSavedItemsExist(true);
+          const items = response.data.data;
+          setSavedItems(items);
+          setSavedItemsExist(items.length > 0);
         } else {
           setSavedItemsExist(false);
         }
@@ -23,7 +24,7 @@ const SavedList = () => {
         console.error("Error fetching saved items:", error);
         setError("Failed to fetch saved items. Please try again later.");
       });
-  }, []);
+  }, [userId]);
 
   return (
     <div>
