@@ -1,5 +1,6 @@
 import React from "react";
 import ActivatedButtonLove from "../Atoms/ActivatedButtonLove";
+import axios from "axios";
 
 const FavItems = ({ savedItems, setSavedItems }) => {
   const handleRemoveItem = async (userId, itemId) => {
@@ -13,7 +14,7 @@ const FavItems = ({ savedItems, setSavedItems }) => {
 
       if (response.status === 200 || response.status === 204) {
         const updatedSavedItems = savedItems.filter(
-          (item) => item.itemId !== itemId && item.userId !== userId
+          (item) => !(item.itemId === itemId && item.userId === userId)
         );
 
         setSavedItems(updatedSavedItems);
@@ -22,6 +23,7 @@ const FavItems = ({ savedItems, setSavedItems }) => {
       console.error("Error:", error);
     }
   };
+
   return (
     <div
       id="added-list"
