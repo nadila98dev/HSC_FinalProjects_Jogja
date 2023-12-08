@@ -20,7 +20,7 @@ const Popup = ({ onClose }) => {
   return (
     <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center backdrop-blur-md z-50 font-Poppins">
       <div className="bg-white p-4 rounded-md flex flex-col drop-shadow-lg ">
-        <p>Enter your phone number:</p>
+        <p className="text-[#000000]">Enter your phone number:</p>
         <input
           type="text"
           value={newPhoneNumber}
