@@ -12,10 +12,10 @@ const Popup = ({ onClose, onApply }) => {
 
   const handleApply = async () => {
     try {
-      const formData = new FormData();
-      formData.append("avatar", selectedFile);
+      const imageData = new FormData();
+      imageData.append("avatar", selectedFile);
 
-      await axios.put(`${config.base_url}/account/update-avatar`, formData, {
+      await axios.post(`${config.base_url}/account/update-avatar`, imageData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
@@ -63,11 +63,13 @@ const Avatar = ({ avatar }) => {
     setIsPopupOpen(false);
   };
 
+  const avatarPic = avatar ? `${config.image_url}/${avatar}` : defaultavatar;
+
   return (
     <div className="flex justify-center items-center mb-4">
       <img
-        className="w-[120px] cursor-pointer"
-        src={avatar ? avatar : defaultavatar}
+        className="w-[120px] h-[120px] rounded-full cursor-pointer"
+        src={avatarPic}
         alt="user"
       />
       <div
