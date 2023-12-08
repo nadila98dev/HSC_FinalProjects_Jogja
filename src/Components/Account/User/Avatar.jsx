@@ -31,6 +31,7 @@ const Popup = ({ onClose, onApply }) => {
   return (
     <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center backdrop-blur-md z-50 font-Poppins">
       <div className="bg-white p-4 rounded-md flex flex-col justify-center items-center drop-shadow-lg">
+        <p className="text-[#000000]">Upload your avatar</p>
         <input type="file" onChange={handleFileChange} />
         <div className="flex mt-2 gap-3">
           <button
