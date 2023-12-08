@@ -29,19 +29,19 @@ const Popup = ({ onClose, onApply }) => {
   };
 
   return (
-    <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center bg-black bg-opacity-50 z-50 font-Poppins">
-      <div className="bg-white p-4 rounded-md flex flex-col justify-center items-center">
+    <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center backdrop-blur-md z-50 font-Poppins">
+      <div className="bg-white p-4 rounded-md flex flex-col justify-center items-center drop-shadow-lg">
         <input type="file" onChange={handleFileChange} />
         <div className="flex mt-2 gap-3">
           <button
-            className="mr-2 px-4 py-2 bg-button text-white rounded-md"
+            className="mr-2 px-4 py-2 bg-button text-white rounded-md hover:brightness-110"
             onClick={handleApply}
             disabled={!selectedFile}
           >
             Apply
           </button>
           <button
-            className="px-4 py-2 bg-button text-white rounded-md"
+            className="px-4 py-2 bg-button text-white rounded-md hover:brightness-110"
             onClick={onClose}
           >
             Close
