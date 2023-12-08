@@ -1,17 +1,43 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import keris from "/Assets/souvenir/keris1.png";
 
-const History = () => {
+const History = ({ order }) => {
+  if (!order) {
+    return <div>No order data available</div>;
+  }
+
+  const renderOrderImage = (items) => {
+    return items.map((item, index) => (
+      <img
+        key={index}
+        className="rounded-lg w-[200px]"
+        src={item.image}
+        alt={item.name}
+      />
+    ));
+  };
+
+  const getStatusIcon = (status) => {
+    switch (status) {
+      case "SUCCESS":
+        return "bx bx-check-circle";
+      case "PENDING":
+        return "bx bx-time";
+      case "FAILED":
+        return "bx bx-x-circle";
+      default:
+        return "bx bx-question-mark";
+    }
+  };
   return (
     <div className="font-Poppins">
       <div className="rounded-xl shadow-xl bg-white">
         <div className="text-[14px] p-4 border-b rounded-t-xl flex justify-between items-center">
           <div>
-            <p>10 November 2023</p>
-            <p>Total: Rp. 150000</p>
+            <p>{order.detetimePayment}</p>
+            <p>Total: Rp. {order.totalCartPrice}</p>
           </div>
-          <Link to={"/transaction/detail"}>
+          <Link to={`/transaction/detail/${order.id}`}>
             <div className="flex items-center gap-2 text-button cursor-pointer">
               <p>Detail</p>
               <i className="bx bxs-right-arrow"></i>
@@ -19,13 +45,14 @@ const History = () => {
           </Link>
         </div>
         <div className="p-4 rounded-b-xl">
-          <div className="text-lightgreen flex gap-2 items-center ">
-            <i className="bx bx-check"></i>
-            <p>Delivered</p>
+          <div className="flex gap-2 items-center text-[14px]">
+            <i className={`${getStatusIcon(order.statusPayment)}`}></i>
+            <p>{order.statusOrder}</p>
           </div>
           <div className="mt-2 flex flex-col gap-2">
-            <img className="rounded-lg w-[125px]" src={keris} alt="" />
-            <p className="text-gray text-[12px]">1 item has been delivered</p>
+            <div className="grid sm:grid-cols-2 gap-4 justify-items-center">
+              {renderOrderImage(order.cartData)}
+            </div>
           </div>
         </div>
       </div>
