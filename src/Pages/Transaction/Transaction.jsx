@@ -3,6 +3,7 @@ import ReuseNav from "../../Components/ReuseableNav/ReuseNav";
 import { useNavigate } from "react-router-dom";
 import History from "../../Components/Transaction/History";
 import axios from "axios";
+import { config } from "../../config";
 
 const Transaction = () => {
   const navigateToAccountPage = useNavigate();
@@ -15,7 +16,7 @@ const Transaction = () => {
 
   const fetchOrderHistory = async () => {
     try {
-      const response = await axios.get("http://localhost:3000/api/v1/orders");
+      const response = await axios.get(`${config.base_url}/orders`);
       setOrders(response.data.data);
     } catch (error) {
       if (error.response && error.response.status === 401) {

@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setSavedStatus } from "../../redux/saved/savedSlice";
+import { config } from "../../config";
 
 const ButtonLove = ({ itemId }) => {
   const [isSolid, setIsSolid] = useState(false);
@@ -17,13 +18,13 @@ const ButtonLove = ({ itemId }) => {
   const toggleIcon = async () => {
     try {
       if (isSolid) {
-        await axios.delete("http://localhost:3000/api/v1/saved", {
+        await axios.delete(`${config.base_url}/saved`, {
           data: { itemId: itemId },
         });
         setIsSolid(false);
         dispatch(setSavedStatus(itemId, false));
       } else {
-        await axios.post("http://localhost:3000/api/v1/saved", {
+        await axios.post(`${config.base_url}/saved`, {
           itemId: itemId,
         });
         setIsSolid(true);

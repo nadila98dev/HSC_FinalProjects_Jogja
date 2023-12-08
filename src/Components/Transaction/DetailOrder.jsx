@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { config } from "../../config";
 
 const DetailOrder = ({ orderId }) => {
   const [orderDetails, setOrderDetails] = useState(null);
@@ -9,7 +10,7 @@ const DetailOrder = ({ orderId }) => {
     const fetchOrderDetails = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3000/api/v1/orders/${orderId}`
+          `${config.base_url}/orders/${orderId}`
         );
         setOrderDetails(response.data.orderDetails);
       } catch (error) {
