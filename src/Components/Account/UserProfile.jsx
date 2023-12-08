@@ -3,13 +3,6 @@ import ButtonAccount from "./Button/ButtonAccount";
 import { Link, useNavigate } from "react-router-dom";
 import user from "/Assets/Account/user.png";
 
-import {
-  getEmailFromLocalStorage,
-  getUsernameFromLocalStorage,
-  removeEmailFromLocalStorage,
-  removePasswordFromLocalStorage,
-  removeUsernameFromLocalStorage,
-} from "../../Utils/userDatas";
 import axiosInstance from "../../API/apiCall";
 import Cookies from "js-cookie";
 import { fetchUsers } from "../../redux/auth/userActions";
@@ -31,7 +24,6 @@ const UserProfile = () => {
   }, [dispatch, token]);
 
   const handleLogout = () => {
-
     Cookies.remove("X-TOKEN");
 
     toast.success("Logout Success", {
@@ -45,7 +37,6 @@ const UserProfile = () => {
       theme: "light",
     });
     navigate("/login");
-
   };
 
   return (

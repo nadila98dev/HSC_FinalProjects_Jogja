@@ -1,16 +1,14 @@
 import React from "react";
 import ActivatedButtonLove from "../Atoms/ActivatedButtonLove";
 import axios from "axios";
+import { config } from "../../config";
 
 const FavItems = ({ savedItems, setSavedItems }) => {
   const handleRemoveItem = async (userId, itemId) => {
     try {
-      const response = await axios.delete(
-        `http://localhost:3000/api/v1/saved`,
-        {
-          data: { userId, itemId },
-        }
-      );
+      const response = await axios.delete(`${config.base_url}/saved`, {
+        data: { userId, itemId },
+      });
 
       if (response.status === 200 || response.status === 204) {
         const updatedSavedItems = savedItems.filter(

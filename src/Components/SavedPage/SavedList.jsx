@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import FavItems from "./FavItems";
 import NothingItem from "./NothingItem";
 import axios from "axios";
+import { config } from "../../config";
 
 const SavedList = ({ userId }) => {
   const [savedItemsExist, setSavedItemsExist] = useState(false);
@@ -10,7 +11,7 @@ const SavedList = ({ userId }) => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3000/api/v1/saved/${userId}`)
+      .get(`${config.base_url}/saved/${userId}`)
       .then((response) => {
         if (response.data.success) {
           const items = response.data.data;

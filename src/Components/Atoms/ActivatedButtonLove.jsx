@@ -2,17 +2,15 @@ import React from "react";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { setSavedStatus } from "../../redux/saved/savedSlice";
+import { config } from "../../config";
 
 const ActivatedButtonLove = ({ userId, itemId, onRemove }) => {
   const dispatch = useDispatch();
   const handleRemoveClick = async () => {
     try {
-      const response = await axios.delete(
-        "http://localhost:3000/api/v1/saved",
-        {
-          data: { userId, itemId },
-        }
-      );
+      const response = await axios.delete(`${config.base_url}/saved`, {
+        data: { userId, itemId },
+      });
 
       if (response.status === 200 || response.status === 204) {
         dispatch(setSavedStatus(itemId, false));
