@@ -1,8 +1,6 @@
 import React from "react";
-import { getEmailFromLocalStorage } from "../../../Utils/userDatas";
 
 const Email = ({ email }) => {
-  // const userEmail = getEmailFromLocalStorage();
   return (
     <div className="flex flex-col">
       <div className="px-3 py-2 bg-button rounded-md flex justify-between items-center">

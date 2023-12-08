@@ -1,25 +1,44 @@
-import React, { useState , useEffect } from "react";
-import { addProductToLocalStorage , removeProductFromLocalStorage } from "../../Utils/Products";
-import { setIsSolidToLocalStorage , getIsSolidFromLocalStorage } from '../../Utils/activatedButton'
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { setSavedStatus } from "../../redux/saved/savedSlice";
+import { config } from "../../config";
 
-const ButtonLove = ({ id }) => {
+const ButtonLove = ({ itemId }) => {
   const [isSolid, setIsSolid] = useState(false);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const savedStatus = useSelector((state) => state.saved.savedStatus);
 
   useEffect(() => {
-    // Ambil nilai isSolid dari localStorage saat komponen dimuat
-    const storedIsSolid = getIsSolidFromLocalStorage(id);
-    if (storedIsSolid !== null) {
-      setIsSolid(storedIsSolid);
+    setIsSolid(savedStatus[itemId] || false);
+  }, [savedStatus, itemId]);
+
+  const toggleIcon = async () => {
+    try {
+      if (isSolid) {
+        await axios.delete(`${config.base_url}/saved`, {
+          data: { itemId: itemId },
+        });
+        setIsSolid(false);
+        dispatch(setSavedStatus(itemId, false));
+      } else {
+        await axios.post(`${config.base_url}/saved`, {
+          itemId: itemId,
+        });
+        setIsSolid(true);
+        dispatch(setSavedStatus(itemId, true));
+      }
+    } catch (error) {
+      if (error.response && error.response.status === 401) {
+        navigate("/login");
+      } else {
+        console.error("Error:", error);
+      }
     }
-  }, [id]);
-
-  const toggleIcon = () => {
-    setIsSolid((prevIsSolid) => !prevIsSolid);
-    const product = { id, isSolid: !isSolid };
-
-    isSolid ? removeProductFromLocalStorage(id) : addProductToLocalStorage(product);
-    setIsSolidToLocalStorage(id, !isSolid);
   };
+
   return (
     <div>
       <button

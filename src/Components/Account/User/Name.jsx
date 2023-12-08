@@ -1,8 +1,6 @@
-import React, { useState } from "react";
-import { getUsernameFromLocalStorage } from "../../../Utils/userDatas";
+import React from "react";
 
 const Name = ({ name }) => {
-  // const username = getUsernameFromLocalStorage();
   return (
     <div className="flex flex-col">
       <div className="px-3 py-2 bg-button rounded-md flex justify-between items-center">
