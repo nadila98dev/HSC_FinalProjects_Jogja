@@ -1,23 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import axios from "axios";
-import { useDispatch } from "react-redux";
-import { setSavedStatus } from "../../redux/saved/savedSlice";
 import { config } from "../../config";
+import Cookies from "js-cookie";
 
 const ActivatedButtonLove = ({ userId, itemId, onRemove }) => {
-  const dispatch = useDispatch();
+  const token = Cookies.get("X-TOKEN");
   const handleRemoveClick = async () => {
     try {
       const response = await axios.delete(`${config.base_url}/saved`, {
-        data: { userId, itemId },
+        data: { itemId },
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
       });
-
-      if (response.status === 200 || response.status === 204) {
-        dispatch(setSavedStatus(itemId, false));
-        if (typeof onRemove === "function") {
-          onRemove();
-        }
-      }
+      window.location.reload();
     } catch (error) {
       console.error("Error:", error);
     }

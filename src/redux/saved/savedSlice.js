@@ -3,12 +3,13 @@ import { createSlice } from "@reduxjs/toolkit";
 const savedSlice = createSlice({
   name: "saved",
   initialState: {
-    savedStatus: {},
+    savedStatus: [],
   },
   reducers: {
     setSavedStatus(state, action) {
-      const { itemId, isSolid } = action.payload;
-      state.savedStatus[itemId] = isSolid;
+      // const { itemId, isSolid } = action.payload;
+      // state.savedStatus[itemId] = isSolid;
+      state.savedStatus = action.payload
     },
   },
 });
