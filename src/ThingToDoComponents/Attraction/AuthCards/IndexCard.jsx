@@ -15,14 +15,9 @@ const IndexCard = () => {
       // console.log('API Response:', response);
       setAttractions(response.data);
     } catch (error) {
-      console.error('Error in callApi:', error);
+      console.error("Error in callApi:", error);
     }
   };
-  
-
-  useEffect(() => {
-    callApi();
-  }, []);
   return (
     <div className="flex flex-col justify-center items-center w-full bg-background1 px-5 mt-5 pb-10">
       <div id="section_card" className="container3 cursor-pointer">

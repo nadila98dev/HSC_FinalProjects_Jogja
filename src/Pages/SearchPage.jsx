@@ -7,56 +7,20 @@ import Footer from "../Components/Footer/Footer";
 import BotButton from "../Components/Landing/Landing-bot/BotButton";
 import ListedSearch from "../Components/Search/ListedSearch";
 import axiosInstance from "../API/apiCall";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchItems } from "../redux/items/itemsSelectors";
+import { config } from "../config";
 
 const SearchPage = () => {
-
   const [text, setText] = useState("");
-  const [items, setItems] = useState([]);
-  const [category, setCategory] = useState([]);
 
-  const shouldDisplayList = text.trim() !== "";
+  const dispatch = useDispatch();
+  const itemss = useSelector((state) => state.items.data);
 
   // Menggunakan useEffect untuk memanggil API saat teks berubah
   useEffect(() => {
-    callApi();
-    callApiCategory();
-  }, [text]);
-
-  const callApi = async () => {
-    try {
-      // Panggil API dengan kata kunci pencarian (text)
-      const response = await axiosInstance.allitems(text);
-      setItems(response);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  const callApiCategory = async () => {
-    try {
-      const response = await axiosInstance.category();
-      setCategory(response);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  // Fungsi untuk memfilter data berdasarkan teks pencarian
-  function filterItemsByName() {
-    const filtered = items.filter((item) =>
-      item.name.toLowerCase().includes(text.toLowerCase())
-    );
-    return filtered;
-  }
-
-  const filteredItems = filterItemsByName();
-  const numberItemAvailable = filteredItems.length;
-
-  function filterCategory(categoryId) {
-    const categorySlug = category.find((res) => res.id === categoryId);
-    const data = categorySlug ? categorySlug.slug : "";
-    return data;
-  }
+    dispatch(fetchItems(text));
+  }, [dispatch, text]);
 
   return (
     <div>
@@ -76,7 +40,7 @@ const SearchPage = () => {
           </form>
         </div>
         {/* Search Result */}
-        {shouldDisplayList ? (
+        {/* {shouldDisplayList ? (
           <div>
             {numberItemAvailable > 0 ? (
               <div className="w-[80vw] mx-auto mt-5">
@@ -90,34 +54,39 @@ const SearchPage = () => {
               <div className="w-[80vw] mx-auto mt-5">
                 <p>No search results with keyword "{text}"</p>
               </div>
-            )}
-            {numberItemAvailable > 0
-              ? filteredItems.map((item) => {
-                  const categorySlug = filterCategory(item.category_id); // Inisialisasi categorySlug di sini
-                  return (
-                    <div
-                      key={item.id}
-                      className="w-screen h-fit flex flex-col justify-center items-center p-5 gap-5 lg:py-10 lg:px-20"
-                    >
-                      <Link to={`/things-to-do/${categorySlug}/${item.slug}`}>
-                        <div className='w-full h-fit cursor-pointer justify-center flex flex-col lg:flex-row'>
-                          <div className='  overflow-hidden rounded-lg lg:h-[200px] lg:w-[300px]'>
-                              <img className='rounded-lg hover:scale-105 duration-500 object-cover md:h-[300px] md:w-full lg:h-[200px] lg:w-[300px] xl:object-center ' 
-                              src={item ? item?.src : "/Assets/foods/apem.jpg"}
-                              alt="" />
-                          </div>
-                          <div className='p-3 lg:w-2/3 lg:ml-5'>
-                              <h3 className='text-[22px]'>{item.name}</h3>
-                              <p className='line-clamp-2'>{item.description}</p>
-                          </div>
+            )} */}
+        {itemss
+          ? itemss.map((item) => {
+              return (
+                <div
+                  key={item.id}
+                  className="w-screen h-fit flex flex-col justify-center items-center p-5 gap-5 lg:py-10 lg:px-20"
+                >
+                  <Link to={`/things-to-do/${item.category.slug}/${item.slug}`}>
+                    <div className="w-full h-fit cursor-pointer justify-center flex flex-col lg:flex-row">
+                      <div className="  overflow-hidden rounded-lg lg:h-[200px] lg:w-[300px]">
+                        <img
+                          className="rounded-lg hover:scale-105 duration-500 object-cover md:h-[300px] md:w-full lg:h-[200px] lg:w-[300px] xl:object-center "
+                          src={
+                            item
+                              ? `${config.host_url}/${item?.image}`
+                              : "/Assets/foods/apem.jpg"
+                          }
+                          alt=""
+                        />
                       </div>
-                      </Link>
+                      <div className="p-3 lg:w-2/3 lg:ml-5">
+                        <h3 className="text-[22px]">{item.name}</h3>
+                        <p className="line-clamp-2">{item.description}</p>
+                      </div>
                     </div>
-                  );
-                })
-              : null}
-          </div>
-        ) : null}
+                  </Link>
+                </div>
+              );
+            })
+          : null}
+        {/* </div> */}
+        {/* ) : null} */}
         <ListedSearch />
       </div>
 

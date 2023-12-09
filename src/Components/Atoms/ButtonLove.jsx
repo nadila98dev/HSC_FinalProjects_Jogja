@@ -5,20 +5,20 @@ import Cookies from "js-cookie";
 import { toast } from "react-toastify";
 import { useSelector } from "react-redux";
 
-const ButtonLove = ({ itemId }) => {
+const ButtonLove = ({ id }) => {
   const [isSolid, setIsSolid] = useState(false);
   const savedStatus = useSelector((state) => state.saved.savedStatus);
 
   useEffect(() => {
-    setIsSolid(savedStatus.some((item) => item.item.id === itemId));
-  }, [savedStatus, itemId]);
+    setIsSolid(savedStatus.some((item) => item.item.id === id));
+  }, [savedStatus, id]);
 
   const toggleIcon = async () => {
     const token = Cookies.get("X-TOKEN");
     try {
       if (isSolid) {
         await axios.delete(`${config.base_url}/saved`, {
-          data: { itemId: itemId },
+          data: { itemId: id },
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -28,7 +28,7 @@ const ButtonLove = ({ itemId }) => {
         await axios.post(
           `${config.base_url}/saved`,
           {
-            itemId: itemId,
+            itemId: id,
           },
           {
             headers: {

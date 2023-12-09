@@ -1,18 +1,21 @@
-import { createAsyncThunk, createEntityAdapter } from '@reduxjs/toolkit';
-import axios from 'axios';
-import { config } from '../../config';
+import { createSlice } from '@reduxjs/toolkit';
 
-
-const apiUrl = config.api_url;
-
-export const getItems = createAsyncThunk('/items', async () => {
-  const response = await axios.get(apiUrl);
-  return response.data;
+const itemSlice = createSlice({
+  name: 'items',
+  initialState: {
+    data: [],
+  },
+  reducers: {
+    fetchItemsSuccess: (state, action) => {
+      state.loading = false;
+      state.data = action.payload.data;
+      state.error = null;
+    },
+  },
 });
 
-const itemsEntity = createEntityAdapter({
-  selectId: (item) => item.id,
-});
+export const {
+  fetchItemsSuccess
+} = itemSlice.actions;
 
-export const itemSelector = itemsEntity.getSelectors((state) => state.item);
-export default itemsEntity.reducer;
+export default itemSlice.reducer;
