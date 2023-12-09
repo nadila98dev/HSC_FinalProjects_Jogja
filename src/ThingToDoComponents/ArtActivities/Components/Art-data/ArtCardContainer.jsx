@@ -1,24 +1,35 @@
 import React, { useEffect, useState } from "react";
 import ArtCard from "../Art-activities/ArtCard";
 
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 import "./artCardContainer.css";
 
 // import artActivitiesData from "/src/Database/artActivitiesData.json";
 import axiosInstance from "../../../../API/apiCall";
 import { config } from "../../../../config";
-
+import { useDispatch, useSelector } from "react-redux";
+import { setSavedActions } from "../../../../redux/saved/savedActions";
+import Cookies from "js-cookie";
 const ArtCardContainer = () => {
+  const slug = useParams();
+
+  console.log(slug);
   const [art, setArt] = useState([]);
   const callApi = async () => {
-    const response = await axiosInstance.items(1)
-    setArt(response.data)
+    const response = await axiosInstance.items(1);
+    setArt(response.data);
   };
+  const dispatch = useDispatch();
+  const savedStatus = useSelector((state) => state.saved.savedStatus);
+  console.log(savedStatus);
+  const token = Cookies.get("X-TOKEN");
+  // console.log(filter);
 
   useEffect(() => {
     callApi();
-  }, []);
+    dispatch(setSavedActions(token));
+  }, [dispatch]);
 
   return (
     <div className="w-screen h-fil bg-white font-Poppins ">
@@ -55,18 +66,18 @@ const ArtCardContainer = () => {
       </div>
       <div className="flex flex-col justify-center items-center w-full bg-background1 px-5 mt-5">
         <div id="section_card" className="container3 cursor-pointer pb-10">
-        {art.map((item, index) => (
-          <ArtCard 
-          key={index}
-            item={item.slug}
-            image={`${config.host_url}/${item?.image}`}
-            name={item.name}
-            description={item.description}
-            id={item.id}
-          />
-        ))}
-
-
+          {art.map((item, index) => {
+            return (
+              <ArtCard
+                key={index}
+                item={item.slug}
+                image={`${config.host_url}/${item?.image}`}
+                name={item.name}
+                description={item.description}
+                id={item.id}
+              />
+            );
+          })}
         </div>
       </div>
       <div className="grid md:grid-cols-2 max-w-[1240px]  px-10 lg:px-[80px] gap-5">

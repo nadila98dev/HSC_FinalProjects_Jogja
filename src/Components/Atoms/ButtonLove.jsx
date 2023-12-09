@@ -1,38 +1,55 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { setSavedStatus } from "../../redux/saved/savedSlice";
 import { config } from "../../config";
+import Cookies from "js-cookie";
+import { toast } from "react-toastify";
+import { useSelector } from "react-redux";
 
 const ButtonLove = ({ itemId }) => {
   const [isSolid, setIsSolid] = useState(false);
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
   const savedStatus = useSelector((state) => state.saved.savedStatus);
 
   useEffect(() => {
-    setIsSolid(savedStatus[itemId] || false);
+    setIsSolid(savedStatus.some((item) => item.item.id === itemId));
   }, [savedStatus, itemId]);
 
   const toggleIcon = async () => {
+    const token = Cookies.get("X-TOKEN");
     try {
       if (isSolid) {
         await axios.delete(`${config.base_url}/saved`, {
           data: { itemId: itemId },
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
         });
         setIsSolid(false);
-        dispatch(setSavedStatus(itemId, false));
       } else {
-        await axios.post(`${config.base_url}/saved`, {
-          itemId: itemId,
-        });
+        await axios.post(
+          `${config.base_url}/saved`,
+          {
+            itemId: itemId,
+          },
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
         setIsSolid(true);
-        dispatch(setSavedStatus(itemId, true));
       }
     } catch (error) {
       if (error.response && error.response.status === 401) {
-        navigate("/login");
+        toast.error("Internal Server Error", {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
       } else {
         console.error("Error:", error);
       }

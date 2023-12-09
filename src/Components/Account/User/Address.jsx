@@ -16,6 +16,7 @@ const Popup = ({ onClose }) => {
       console.error("Error updating address:", error);
     }
   };
+  console.log(newAddress);
 
   return (
     <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center backdrop-blur-md z-50 font-Poppins">
@@ -23,7 +24,7 @@ const Popup = ({ onClose }) => {
         <p className="text-[#000000]">Enter your address:</p>
         <input
           type="text"
-          value={newAddress}
+          // value={newAddress}
           onChange={(e) => setNewAddress(e.target.value)}
           className="border border-button rounded-md px-2 py-1 mt-2 w-full"
         />
