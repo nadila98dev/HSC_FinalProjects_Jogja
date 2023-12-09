@@ -19,8 +19,8 @@ const DetailFood = () => {
   const { id } = useParams();
 
   const callApi = async () => {
-    const response = await axiosInstance.itemById(id)
-    setDetail(response.data)
+    const response = await axiosInstance.itemById(id);
+    setDetail(response.data[0]);
   };
   useEffect(() => {
     callApi();
@@ -64,7 +64,9 @@ const DetailFood = () => {
             </div>
 
             <div className="mb-10">
-              <h1 className="mb-5 font-bold text-4xl font-Lora">{detail.name}</h1>
+              <h1 className="mb-5 font-bold text-4xl font-Lora">
+                {detail.name}
+              </h1>
               <p className="mt-2 text-[18px] text-justify">
                 {" "}
                 {detail.description}

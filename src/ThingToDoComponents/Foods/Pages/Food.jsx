@@ -5,20 +5,25 @@ import Footer from "../../../Components/Footer/Footer";
 import FoodCard from "../Components/FoodCard";
 import axiosInstance from "../../../API/apiCall";
 import { config } from "../../../config";
-
+import Cookies from "js-cookie";
+import { setSavedActions } from "../../../redux/saved/savedActions";
+import { useDispatch } from "react-redux";
 
 const Food = () => {
   const [foods, setFoods] = useState([]);
 
   const callApi = async () => {
-    const response = await axiosInstance.items(4)
-    setFoods(response.data)
+    const response = await axiosInstance.items(4);
+    setFoods(response.data);
   };
+
+  const dispatch = useDispatch();
+  const token = Cookies.get("X-TOKEN");
 
   useEffect(() => {
     callApi();
-  }, []);
-
+    dispatch(setSavedActions(token));
+  }, [dispatch]);
 
   return (
     <div className="flex flex-col min-h-screen ">
@@ -74,7 +79,7 @@ const Food = () => {
               title={food.name}
               src={`${config.host_url}/${food?.image}`}
               description={food.description}
-              id = {food.id}
+              id={food.id}
             />
           ))}
         </section>

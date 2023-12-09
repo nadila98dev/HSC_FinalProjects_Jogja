@@ -20,7 +20,6 @@ import { AiOutlineHeart } from "react-icons/ai";
 import { config } from "../../../../config";
 
 function HotelCarousel({ items }) {
-  
   return (
     <div className="flex flex-col justify-center items-center mb-10">
       <div className="container2 w-[95vw] h-[500px] flex flex-col justify-center items-center">
@@ -61,7 +60,7 @@ function HotelCarousel({ items }) {
                   key={index}
                   className="text-left shadow-lg h-[450px] bg-[#E8F4FE] rounded-xl card"
                 >
-                  <Link to={`/things-to-do/hotel-jogja/${hotel.id}`}>
+                  <Link to={`/things-to-do/hotel-jogja/${hotel.slug}`}>
                     <img
                       className="w-[240px] h-[320px] object-cover rounded-t-lg absolute hotel-image"
                       src={`${config.host_url}/${hotel.image}`}
@@ -69,7 +68,7 @@ function HotelCarousel({ items }) {
                     />
                   </Link>
                   <div className="relative top-[193px] w-fit bg-button2 rounded-tr-lg overflow-hidden">
-                    <ButtonLove id={hotel.id}/>
+                    <ButtonLove id={hotel.id} />
                   </div>
 
                   <div className="shadow-xl p-4 space-y-4 relative bg-white w-[180px] h-[180px] rounded-r-lg top-48">

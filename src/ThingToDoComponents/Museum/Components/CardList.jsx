@@ -25,7 +25,7 @@ function CardList({ ...props }) {
         <h3>{title}</h3>
         <p className="text-[14px]">{address}</p>
       </div>
-      <Link to={`/things-to-do/museum-jogja/${id}`}>
+      <Link to={`/things-to-do/museum-jogja/${item}`}>
         <Button />
       </Link>
     </div>

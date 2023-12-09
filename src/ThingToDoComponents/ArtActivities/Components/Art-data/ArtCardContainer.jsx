@@ -8,7 +8,7 @@ import "./artCardContainer.css";
 // import artActivitiesData from "/src/Database/artActivitiesData.json";
 import axiosInstance from "../../../../API/apiCall";
 import { config } from "../../../../config";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { setSavedActions } from "../../../../redux/saved/savedActions";
 import Cookies from "js-cookie";
 const ArtCardContainer = () => {
@@ -21,8 +21,6 @@ const ArtCardContainer = () => {
     setArt(response.data);
   };
   const dispatch = useDispatch();
-  const savedStatus = useSelector((state) => state.saved.savedStatus);
-  console.log(savedStatus);
   const token = Cookies.get("X-TOKEN");
 
   useEffect(() => {

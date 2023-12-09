@@ -15,8 +15,8 @@ const DetailAttraction = () => {
   const { id } = useParams();
   // console.log();
   const callApi = async () => {
-    const response = await axiosInstance.itemById(id)
-    setDetail(response.data)
+    const response = await axiosInstance.itemById(id);
+    setDetail(response.data[0]);
   };
 
   useEffect(() => {
@@ -29,7 +29,9 @@ const DetailAttraction = () => {
       <div className="w-screen h[80px] flex justify-end items-center pt-4 gap-3 sm:pr-5">
         <div
           className="flex gap-2 items-center bg-button2 rounded-xl w-[270px] cursor-pointer drop-shadow-md bottom-14"
-          onClick={() => navigationToAttractionPage("/things-to-do/attraction-jogja")}
+          onClick={() =>
+            navigationToAttractionPage("/things-to-do/attraction-jogja")
+          }
         >
           <button
             id="botButton"
@@ -38,11 +40,15 @@ const DetailAttraction = () => {
             <i className="bx bx-x"></i>
           </button>
           <p className="font-Poppins">Back to Attraction Page</p>
-        </div>  
+        </div>
       </div>
       <div className="flex flex-col md:flex-row mt-5 bg-background1">
         <div className="object-cover object-center flex min-w-fit lg:w-1/2 xl:items-end">
-          <img className="w-full md:w-[50vw] max-w-[720px] lg:h-[500px]" src={`${config.host_url}/${detail.image}`} alt={detail.name} />
+          <img
+            className="w-full md:w-[50vw] max-w-[720px] lg:h-[500px]"
+            src={`${config.host_url}/${detail.image}`}
+            alt={detail.name}
+          />
         </div>
         <div className="flex-col justify-start md:items-start w-full py-8">
           <div className="flex flex-row px-4 sm:px-6 md:px-8 justify-between space-x-4">
@@ -68,4 +74,4 @@ const DetailAttraction = () => {
   );
 };
 
-export default DetailAttraction
+export default DetailAttraction;

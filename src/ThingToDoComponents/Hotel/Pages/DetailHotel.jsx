@@ -6,7 +6,6 @@ import ReuseNav from "/src/Components/ReuseableNav/ReuseNav";
 import Footer from "/src/Components/Footer/Footer";
 import ShareButton from "../../../Components/Atoms/ShareButton";
 
-
 import axiosInstance from "../../../API/apiCall";
 import { config } from "../../../config";
 
@@ -14,10 +13,12 @@ const DetailHotel = () => {
   const navigateToHotelPageJogja = useNavigate();
   const [detail, setDetail] = useState({});
   const { id } = useParams();
+  console.log(id);
 
   const callApi = async () => {
-    const response = await axiosInstance.itemById(id)
-    setDetail(response.data)
+    const response = await axiosInstance.itemById(id);
+    console.log("res", response);
+    setDetail(response.data[0]);
   };
   useEffect(() => {
     callApi();
@@ -45,7 +46,7 @@ const DetailHotel = () => {
         </div>
       </div>
       <div className="drop-shadow-xl">
-        <img src={`${config.host_url}/${detail.image}`} className="" />
+        <img src={`${config.host_url}/${detail?.image}`} className="" />
       </div>
       <div>
         <div className="bg-[#F1F8FF] pb-5 pt-10 flex flex-col justify-center items-center h-fit">
@@ -58,7 +59,7 @@ const DetailHotel = () => {
           <div className="lg:flex lg:gap-5 lg:w-screen lg:justify-center">
             <div>
               <div className="mt-8 text-2xl font-medium font-Lora flex justify-start px-10">
-                <h1>{detail.name}</h1>
+                <h1>{detail?.name}</h1>
               </div>
               <div className="mt-3 px-10 text-[12px] text-justify font-normal font-Poppins md:w-[75vw] lg:w-[25rem] xl:w-[40rem] lg:text-[14px] lg:mt-6">
                 <p>

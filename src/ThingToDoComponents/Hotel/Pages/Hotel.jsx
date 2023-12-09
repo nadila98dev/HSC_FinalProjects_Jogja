@@ -5,16 +5,23 @@ import MapHotel from "../Components/MapHotel";
 
 import Gambar6 from "/Assets/hotel/gambar6.jpg";
 import axiosInstance from "../../../API/apiCall";
+import { useDispatch } from "react-redux";
+import { setSavedActions } from "../../../redux/saved/savedActions";
+import Cookies from "js-cookie";
 
 const Hotel = () => {
   const [hotels, setHotels] = useState([]);
   const callApi = async () => {
-    const response = await axiosInstance.items(5)
-    setHotels(response.data)
+    const response = await axiosInstance.items(5);
+    setHotels(response.data);
   };
+  const dispatch = useDispatch();
+  const token = Cookies.get("X-TOKEN");
+
   useEffect(() => {
     callApi();
-  }, []);
+    dispatch(setSavedActions(token));
+  }, [dispatch]);
   return (
     <div className="flex flex-col justify-center items-center">
       <div>

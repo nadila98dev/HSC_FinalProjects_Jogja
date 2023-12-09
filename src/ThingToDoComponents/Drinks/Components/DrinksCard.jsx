@@ -21,7 +21,7 @@ const DrinksCard = ({ item, src, title, description, id }) => {
         <h3>{title}</h3>
         <p className="text-[14px] line-clamp-3">{description}</p>
       </div>
-      <Link to={`/things-to-do/drinks-jogja/${id}`}>
+      <Link to={`/things-to-do/drinks-jogja/${item}`}>
         <DrinksButton />
       </Link>
     </div>

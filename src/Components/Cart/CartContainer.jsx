@@ -4,6 +4,9 @@ import PopupPayment from "../PopUp/PopupPayment";
 import Cookies from "js-cookie";
 import axios from "axios";
 import { config } from "../../config";
+import { getCartItems } from "../../Utils/Carts";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchCart } from "../../redux/cart/cartActions";
 
 // import { getCartItems } from "../../Utils/Carts";
 
@@ -14,11 +17,16 @@ const CartContainer = () => {
   const [subtotal, setSubtotal] = useState(0);
   const [total, setTotal] = useState(0);
 
+  const dispatch = useDispatch();
+  const cartAll = useSelector((state) => state.cart.data);
+  const cart = cartAll.data;
+
   const shippingFee = 10000;
   useEffect(() => {
     const cartItems = getCartItems();
     setCartData(cartItems);
-  }, []);
+    dispatch(fetchCart());
+  }, [dispatch]);
 
   const calculateSubtotal = useCallback(() => {
     return cartData.reduce(
@@ -53,23 +61,24 @@ const CartContainer = () => {
     const token = Cookies.get("X-TOKEN");
 
     try {
-      const response = await axios.post(`${config.base_url}/orders`, {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: Bearer`${token}`,
-        },
-      });
+      const response = await axios.post(
+        `${config.base_url}/orders`,
+        {},
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      const requestData = response.data;
+      window.snap.pay(requestData.linkPayment);
     } catch (error) {}
-
-    const requestData = await response.data;
-    window.snap.embed(requestData.linkPayment, {
-      embedId: "snap-container",
-    });
   };
 
-  //snap midtrans
+  // snap midtrans
   useEffect(() => {
-    const snapScript = "https://app.stg.midtrans.com/snap/snap.js";
+    const snapScript = "https://app.sandbox.midtrans.com/snap/snap.js";
     const clientKey = import.meta.env.VITE_MIDTRANS_CLIENT_KEY;
     const script = document.createElement("script");
     script.src = snapScript;
@@ -94,14 +103,14 @@ const CartContainer = () => {
       <div className="mx-auto mt-4 border-t border-gray-300 w-[96%]"></div>
       <div className="mt-5 flex justify-center items-center flex-col lg:grid lg:grid-cols-2 lg:justify-start lg:items-start">
         <div className="flex flex-col px-5">
-          <CartCard cartData={cartData} setCartData={setCartData} />
+          <CartCard cartData={cart} setCartData={setCartData} />
         </div>
         <div className="flex flex-col pt-9 w-full sm:w-[90%]  px-5 sm:px-10 shadow-lg">
           <h3 className="font-bold">Pricing & Shipping Fee</h3>
           <hr className="w-full border-gray-100 mt-4" />
           <div className="flex flex-wrap justify-between mt-5">
             <p>Subtotal</p>
-            <p>{formatCurrency(subtotal)}</p>
+            <p>{formatCurrency(cartAll.totalCartPrice)}</p>
           </div>
           <div className="flex flex-wrap justify-between mt-5">
             <p>Shipping Fee</p>
@@ -141,7 +150,7 @@ const CartContainer = () => {
           )}
           <div className="flex flex-wrap justify-between mt-5 mb-5 font-bold">
             <p>Total</p>
-            <p>{formatCurrency(total)}</p>
+            <p>{formatCurrency(cartAll.totalCartPrice)}</p>
           </div>
           <button
             onClick={handleCheckoutClick}
@@ -157,7 +166,10 @@ const CartContainer = () => {
           )}
         </div>
       </div>
-      <div id="snap-container"></div>
+      <div
+        className="z-10 absolute justify-center items-center"
+        id="snap-container"
+      ></div>
     </section>
   );
 };

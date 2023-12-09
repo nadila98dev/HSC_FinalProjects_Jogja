@@ -7,7 +7,10 @@ import BotButton from "../../../Components/Landing/Landing-bot/BotButton";
 import DrinksCard from "../Components/DrinksCard";
 import axiosInstance from "../../../API/apiCall";
 import { config } from "../../../config";
+import Cookies from "js-cookie";
+import { setSavedActions } from "../../../redux/saved/savedActions";
 // import DrinksData from "/src/Database/drinksData.json";
+import { useDispatch } from "react-redux";
 
 const Drinks = () => {
   const [drinks, setDrinks] = useState([]);
@@ -16,13 +19,17 @@ const Drinks = () => {
       const response = await axiosInstance.items(3);
       setDrinks(response.data);
     } catch (error) {
-      console.error('Error in callApi:', error);
+      console.error("Error in callApi:", error);
     }
   };
 
+  const dispatch = useDispatch();
+  const token = Cookies.get("X-TOKEN");
+
   useEffect(() => {
     callApi();
-  }, []);
+    dispatch(setSavedActions(token));
+  }, [dispatch]);
   return (
     <div className="flex flex-col min-h-screen ">
       <div className='w-screen h-screen flex flex-col items-center bg-[url("/Assets/drinks/background-drink-page.png")] bg-cover bg-no-repeat bg-center bg-fixed'>

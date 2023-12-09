@@ -30,8 +30,8 @@ export default function DetailMuseum() {
   const [popupMessage, setPopupMessage] = useState("");
 
   const callApi = async () => {
-    const response = await axiosInstance.itemById(id)
-    setDetail(response.data)
+    const response = await axiosInstance.itemById(id);
+    setDetail(response.data[0]);
   };
 
   useEffect(() => {
@@ -39,25 +39,26 @@ export default function DetailMuseum() {
   }, [id]);
 
   const handleAddClick = () => {
-    const newItem = {
-      id: detail.id,
-      src: detail.src,
-      name: detail.name,
-      price: detail.price,
-      quantity: detail.quantity
-    }
-    addToCart(newItem);
-    const message = `The ticket for ${newItem.name} has been added to the cart.`;
-    setPopupMessage(message);
+    // const newItem = {
+    //   id: detail.id,
+    //   src: detail.src,
+    //   name: detail.name,
+    //   price: detail.price,
+    //   quantity: detail.quantity,
+    // };
+    // addToCart(newItem);
+    // const message = `The ticket for ${newItem.name} has been added to the cart.`;
+    // setPopupMessage(message);
     setShowPopup(true);
-  }
+  };
 
   return (
     <div className="flex flex-col min-h-screen pb-5">
       <ReuseNav />
       <div
         className="w-screen h-[80px] flex justify-end items-center pr-4 gap-3
-            sm:pr-5">
+            sm:pr-5"
+      >
         <div
           className="flex gap-2 items-center bg-button2 rounded-xl w-[270px] cursor-pointer drop-shadow-md bottom-14"
           onClick={() => navigateToMuseumPage("/things-to-do/museum-jogja")}
@@ -79,9 +80,7 @@ export default function DetailMuseum() {
           <section className="px-5 md:w-[75%] lg:w-full ">
             <div className="flex flex-1  justify-between items-center mb-5">
               <div>
-                <span className="font-Poppins">
-                  Museum
-                </span>
+                <span className="font-Poppins">Museum</span>
               </div>
               <ShareButton />
             </div>
@@ -95,18 +94,19 @@ export default function DetailMuseum() {
                 {detail?.description}
               </p>
               <span className=" md:text-2xl font-semibold">
-                  Ticket Price: Rp. {detail?.price}
-                </span>
+                Ticket Price: Rp. {detail?.price}
+              </span>
               <div className="mt-5">
-                <AddToCartButton id={detail.id}  onClick={handleAddClick}/>
+                <AddToCartButton id={detail.id} onClick={handleAddClick} />
               </div>
               <Popup
-                  message={popupMessage}
-                  onClose={() => {
-                    setShowPopup(false);
-                  }}
-                  showPopup={showPopup}
-                />
+                message={popupMessage}
+                id={detail.id}
+                onClose={() => {
+                  setShowPopup(false);
+                }}
+                showPopup={showPopup}
+              />
             </div>
           </section>
         </div>
