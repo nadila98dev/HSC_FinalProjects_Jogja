@@ -1,5 +1,8 @@
 import axios from "axios";
 import { config } from "../config";
+import Cookies from "js-cookie";
+
+const cookies =Cookies.get('X-TOKEN')
 
 const axiosInstance = {
   signup: async (payload) =>
@@ -16,6 +19,13 @@ const axiosInstance = {
     await axios
       .get(`${config.base_url}/auth/detail`, {
         headers: { Authorization: `Bearer ${token}` },
+      })
+      .then((res) => res.data)
+      .catch((err) => err.response.data),
+  getSaved: async (token) =>
+    await axios
+      .get(`${config.base_url}/saved`, {
+        headers: { Authorization: `Bearer ${cookies}` },
       })
       .then((res) => res.data)
       .catch((err) => err.response.data),
@@ -47,35 +57,34 @@ const axiosInstance = {
       .then((res) => res.data.category)
       .catch((err) => console.log(err)),
   items: async (id) =>
-      await axios
-        .get(`${config.base_url}/items`, {
-          params: {
-            categoryId: id,
-          },
-        })
-        .then((res) => res.data)
-        .catch((err) => {
-          console.log(err);
-        }),
-         detailItems : async (id) => {
-          try {
-            const response = await axios.get(`${config.base_url}/items/${id}`);
-            return response.data;
-          } catch (error) {
-            console.error(`Failed to fetch item details: ${error.message}`);
-            throw error;
-          }
+    await axios
+      .get(`${config.base_url}/items`, {
+        params: {
+          categoryId: id,
         },
-      itemById: async (id) => {
-        try {
-          const response = await axios.get(`${config.base_url}/items/${id}`);
-          return response.data;
-        } catch (error) {
-          console.error(`Failed to fetch item by ID: ${error.message}`);
-          throw error;
-        }
-      }
-      
+      })
+      .then((res) => res.data)
+      .catch((err) => {
+        console.log(err);
+      }),
+  detailItems: async (id) => {
+    try {
+      const response = await axios.get(`${config.base_url}/items/${id}`);
+      return response.data;
+    } catch (error) {
+      console.error(`Failed to fetch item details: ${error.message}`);
+      throw error;
+    }
+  },
+  itemById: async (id) => {
+    try {
+      const response = await axios.get(`${config.base_url}/items/${id}`);
+      return response.data;
+    } catch (error) {
+      console.error(`Failed to fetch item by ID: ${error.message}`);
+      throw error;
+    }
+  },
 };
 
 export default axiosInstance;
