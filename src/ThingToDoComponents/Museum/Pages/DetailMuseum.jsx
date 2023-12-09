@@ -14,10 +14,11 @@ import "swiper/css/pagination";
 // import required modules
 import { json, useParams } from "react-router-dom";
 import ImgSweper from "../Components/Atoms/ImgSweper";
-import axiosInstance from "../../../API/apiMuseum";
+import axiosInstance from "../../../API/apiCall";
 
 import { useNavigate } from "react-router-dom";
 import { addToCart } from "../../../Utils/Carts";
+import { config } from "../../../config";
 
 export default function DetailMuseum() {
   // Route
@@ -29,16 +30,13 @@ export default function DetailMuseum() {
   const [popupMessage, setPopupMessage] = useState("");
 
   const callApi = async () => {
-    axiosInstance.detail(id).then((res) => {
-      const data = res[0];
-
-      setDetail(data);
-    });
+    const response = await axiosInstance.itemById(id)
+    setDetail(response.data)
   };
 
   useEffect(() => {
     callApi();
-  }, []);
+  }, [id]);
 
   const handleAddClick = () => {
     const newItem = {
@@ -75,7 +73,7 @@ export default function DetailMuseum() {
       </div>
       <div className="lg:flex">
         <div className="lg:flex lg:items-center lg:justify-center">
-          <ImgSweper image={detail?.src} />
+          <ImgSweper image={`${config.host_url}/${detail.image}`} />
         </div>
         <div className="w-screen h-fit bg-[#F1F8FF] py-5 px-5 lg:h-[500px] lg:w-[50vw] justify-center items-center flex">
           <section className="px-5 md:w-[75%] lg:w-full ">

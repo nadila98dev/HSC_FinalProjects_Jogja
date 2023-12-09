@@ -20,7 +20,7 @@ const FoodCard = ({item , src , title , description , id}) => {
                 <h3>{title}</h3>
                 <p className='text-[14px] line-clamp-3'>{description}</p>
             </div>
-            <Link to={`/things-to-do/food-jogja/${item}`}> 
+            <Link to={`/things-to-do/food-jogja/${id}`}> 
                 <FoodButton />
             </Link>
     </div>
