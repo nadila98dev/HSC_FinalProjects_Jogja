@@ -9,9 +9,8 @@ import axiosInstance from "../../../API/apiCall";
 const Hotel = () => {
   const [hotels, setHotels] = useState([]);
   const callApi = async () => {
-    axiosInstance.items(5).then((res) => {
-      setHotels(res);
-    });
+    const response = await axiosInstance.items(5)
+    setHotels(response.data)
   };
   useEffect(() => {
     callApi();

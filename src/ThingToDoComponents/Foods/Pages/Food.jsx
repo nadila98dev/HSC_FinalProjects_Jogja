@@ -4,15 +4,15 @@ import Footer from "../../../Components/Footer/Footer";
 
 import FoodCard from "../Components/FoodCard";
 import axiosInstance from "../../../API/apiCall";
+import { config } from "../../../config";
 
 
 const Food = () => {
   const [foods, setFoods] = useState([]);
 
   const callApi = async () => {
-    axiosInstance.items(4).then((res) => {
-      setFoods(res);
-    });
+    const response = await axiosInstance.items(4)
+    setFoods(response.data)
   };
 
   useEffect(() => {
@@ -72,7 +72,7 @@ const Food = () => {
               key={index}
               item={food.slug}
               title={food.name}
-              src={food.src}
+              src={`${config.host_url}/${food?.image}`}
               description={food.description}
               id = {food.id}
             />

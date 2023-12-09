@@ -6,15 +6,20 @@ import BotButton from "../../../Components/Landing/Landing-bot/BotButton";
 
 import DrinksCard from "../Components/DrinksCard";
 import axiosInstance from "../../../API/apiCall";
+import { config } from "../../../config";
 // import DrinksData from "/src/Database/drinksData.json";
 
 const Drinks = () => {
   const [drinks, setDrinks] = useState([]);
   const callApi = async () => {
-    axiosInstance.items(3).then((res) => {
-      setDrinks(res);
-    });
+    try {
+      const response = await axiosInstance.items(3);
+      setDrinks(response.data);
+    } catch (error) {
+      console.error('Error in callApi:', error);
+    }
   };
+
   useEffect(() => {
     callApi();
   }, []);
@@ -72,7 +77,7 @@ const Drinks = () => {
               key={index}
               item={drinks.slug}
               title={drinks.name}
-              src={drinks.src}
+              src={`${config.host_url}/${drinks?.image}`}
               description={drinks.description}
               id={drinks.id}
             />

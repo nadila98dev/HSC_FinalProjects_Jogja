@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 // import axiosDrinks from "../../../API/apiDrinks";
 import axiosInstance from "../../../API/apiCall";
+import { config } from "../../../config";
 
 const DetailDrinks = () => {
   //Route
@@ -15,13 +16,12 @@ const DetailDrinks = () => {
   const [detail, setDetail] = useState({});
   const { id } = useParams();
   const callApi = async () => {
-    axiosInstance.detail(id).then((res) => {
-      setDetail(res[0]);
-    });
+    const response = await axiosInstance.itemById(id)
+    setDetail(response.data)
   };
   useEffect(() => {
     callApi();
-  }, []);
+  }, [id]);
   return (
     <div className="flex flex-col min-h-screen pb-5">
       <ReuseNav />
@@ -46,7 +46,7 @@ const DetailDrinks = () => {
       <div className="lg:flex">
         <div className="lg:flex lg:items-center lg:justify-center mb-4">
           <img
-            src={detail.src}
+            src={`${config.host_url}/${detail.image}`}
             alt=""
             className="w-full lg:w-[50vw] lg:h-[500px] object-cover drop-shadow-xl"
           />
