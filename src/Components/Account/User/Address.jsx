@@ -1,15 +1,23 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { config } from "../../../config";
+import Cookies from "js-cookie";
 
 const Popup = ({ onClose }) => {
   const [newAddress, setNewAddress] = useState("");
 
   const handleApply = async () => {
+    const token = Cookies.get("X-TOKEN");
     try {
-      await axios.put(`${config.base_url}/account/update-address`, {
-        address: newAddress,
-      });
+      await axios.put(
+        `${config.base_url}/account/update-address`,
+        { address: newAddress },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
       onClose();
       window.location.reload();
     } catch (error) {
@@ -25,7 +33,7 @@ const Popup = ({ onClose }) => {
           type="text"
           value={newAddress}
           onChange={(e) => setNewAddress(e.target.value)}
-          className="border border-button rounded-md px-2 py-1 mt-2 w-full"
+          className="border border-button rounded-md px-2 py-1 mt-2 w-full text-[#000000]"
         />
         <div className="flex justify-center items-center mt-2 gap-3">
           <button

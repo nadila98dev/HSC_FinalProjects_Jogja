@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import defaultavatar from "/Assets/Account/user.png";
 import { config } from "../../../config";
+import Cookies from "js-cookie";
 
 const Popup = ({ onClose, onApply }) => {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -11,6 +12,7 @@ const Popup = ({ onClose, onApply }) => {
   };
 
   const handleApply = async () => {
+    const token = Cookies.get("X-TOKEN");
     try {
       const imageData = new FormData();
       imageData.append("avatar", selectedFile);
@@ -18,6 +20,7 @@ const Popup = ({ onClose, onApply }) => {
       await axios.post(`${config.base_url}/account/update-avatar`, imageData, {
         headers: {
           "Content-Type": "multipart/form-data",
+          Authorization: `Bearer ${token}`,
         },
       });
 
@@ -64,7 +67,7 @@ const Avatar = ({ avatar }) => {
     setIsPopupOpen(false);
   };
 
-  const avatarPic = avatar ? `${config.image_url}/${avatar}` : defaultavatar;
+  const avatarPic = avatar ? `${config.host_url}/${avatar}` : defaultavatar;
 
   return (
     <div className="flex justify-center items-center mb-4">
