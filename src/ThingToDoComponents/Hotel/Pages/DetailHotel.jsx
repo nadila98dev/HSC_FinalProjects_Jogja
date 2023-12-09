@@ -8,21 +8,20 @@ import ShareButton from "../../../Components/Atoms/ShareButton";
 
 
 import axiosInstance from "../../../API/apiCall";
+import { config } from "../../../config";
 
 const DetailHotel = () => {
   const navigateToHotelPageJogja = useNavigate();
   const [detail, setDetail] = useState({});
-  const { slug } = useParams();
+  const { id } = useParams();
 
   const callApi = async () => {
-    axiosInstance.detail(slug).then((res) => {
-      const data = res[0];
-      setDetail(data);
-    });
+    const response = await axiosInstance.itemById(id)
+    setDetail(response.data)
   };
   useEffect(() => {
     callApi();
-  }, []);
+  }, [id]);
 
   return (
     <div>
@@ -46,7 +45,7 @@ const DetailHotel = () => {
         </div>
       </div>
       <div className="drop-shadow-xl">
-        <img src={detail.src} className="" />
+        <img src={`${config.host_url}/${detail.image}`} className="" />
       </div>
       <div>
         <div className="bg-[#F1F8FF] pb-5 pt-10 flex flex-col justify-center items-center h-fit">

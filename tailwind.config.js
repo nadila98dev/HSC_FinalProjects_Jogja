@@ -23,13 +23,19 @@ export default {
     },
 
     colors: {
-      background1: "#F1F8FF",
-      white: "#FFFFFF",
-      button: "#1D764A",
-      button2: "#DBEEFE",
-      font1: "#FFF",
+
+
+      // === Punya Nizar
+      background1 :'#F1F8FF',
+      white: '#FFFFFF',
+      button: '#1D764A',
+      button2: '#DBEEFE',
+      font1: '#FFF',
       lightgreen: "#32CD32",
       gray: "#808080",
+
+      // tambahan punya arif
+      danger: "#ff0000"
     },
 
     fontFamily: {

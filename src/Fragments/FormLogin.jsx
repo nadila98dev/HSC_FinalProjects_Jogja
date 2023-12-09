@@ -1,77 +1,110 @@
 import React, { useRef, useEffect } from "react";
-import { Link } from "react-router-dom";
-import {
-  saveCredentialsToLocalStorage,
-  getEmailFromLocalStorage,
-  getPasswordFromLocalStorage,
-  getUsernameFromLocalStorage,
-} from "../Utils/userDatas";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import axiosInstance from "../API/apiCall";
+import { toast } from "react-toastify";
+import Cookies from "js-cookie";
+import InputForm from "../Components/Atoms/Input/Index";
+import { Formik, Field, Form, ErrorMessage } from "formik";
+import * as Yup from "yup";
+import Label from "../Components/Atoms/Input/Label";
 
 const FormLogin = () => {
-  const emailInputRef = useRef(null);
-  const passwordInputRef = useRef(null);
-  const usernameInputRef = useRef(null)
+  const navigate = useNavigate();
 
-  const handleSubmit = () => {
-    const emailValue = emailInputRef.current.value;
-    const passwordValue = passwordInputRef.current.value;
-    const usernameValue = usernameInputRef.current.value;
+  const LoginFormSchema = Yup.object().shape({
+    email: Yup.string()
+      .email("Invalid email address")
+      .required("Email is required"),
+    password: Yup.string().required("Password is required"),
+  });
 
-    saveCredentialsToLocalStorage(emailValue, passwordValue, usernameValue);
+  const initialValues = {
+    email: "",
+    password: "",
   };
 
-  useEffect(() => {
-    const storedEmail = getEmailFromLocalStorage();
-    const storedPassword = getPasswordFromLocalStorage();
-    const storedUsername = getUsernameFromLocalStorage();
+  const handleSubmit = async (values) => {
+    const payload = {
+      email: values.email,
+      password: values.password,
+    };
 
-    if (storedEmail) {
-      emailInputRef.current.value = storedEmail;
-    }
+    const res = await axiosInstance.login(payload);
 
-    if (storedPassword) {
-      passwordInputRef.current.value = storedPassword;
+    if (res?.success === true) {
+      toast.success(res.message, {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+      navigate("/");
+      Cookies.set("X-TOKEN", res.token, { expires: 2 });
+    } else {
+      const msg = res.message || "Internal Server Error";
+      toast.error(msg, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
     }
-
-    if (storedPassword) {
-      usernameInputRef.current.value = storedUsername;
-    }
-  }, []);
+  };
 
   return (
-    <form className="flex flex-col gap-2" action="">
-      <input
-        className="px-2 py-2"
-        ref={usernameInputRef}
-        type="username"
-        placeholder="Enter your username"
-        name="username"
-      />
-      <input
-        className="px-2 py-2"
-        ref={emailInputRef}
-        type="email"
-        placeholder="example@mail.com"
-        name="email"
-      />
-      <input
-        className="px-2 py-2"
-        ref={passwordInputRef}
-        type="password"
-        placeholder="*******"
-        name="password"
-      />
-      <div className="flex justify-center items-center">
-        <Link to={"/account"}>
-          <button
-            className="w-[280px] px-3 py-2 bg-button rounded-lg hover:brightness-110 cursor-pointer text-white font-Poppins"
-            onClick={handleSubmit}
-          >
-            Login
-          </button>
-        </Link>
+    <>
+      <div className="flex flex-col gap-2">
+        <Formik
+          initialValues={initialValues}
+          validationSchema={LoginFormSchema}
+          onSubmit={handleSubmit}
+        >
+          <Form>
+            <div className="flex flex-col gap-2">
+              <Label>Email</Label>
+              <Field
+                className="w-full p-2 border border-base rounded-md -mt-2"
+                type="email"
+                placeholder="example@mail.com"
+                name="email"
+              />
+              <ErrorMessage
+                name="email"
+                render={(msg) => <div className="text-danger">{msg}</div>}
+              />
+              <Label>Password</Label>
+              <Field
+                label="Password"
+                className="w-full p-2 border border-base rounded-md -mt-2"
+                type="password"
+                placeholder="*******"
+                name="password"
+              />
+              <ErrorMessage
+                name="password"
+                render={(msg) => <div className="text-danger">{msg}</div>}
+              />
+
+              <button
+                type="submit"
+                className="w-[280px] px-3 py-2 bg-button rounded-lg hover:brightness-110 cursor-pointer text-white font-Poppins"
+              >
+                Login
+              </button>
+            </div>
+          </Form>
+        </Formik>
       </div>
-    </form>
+    </>
   );
 };
 

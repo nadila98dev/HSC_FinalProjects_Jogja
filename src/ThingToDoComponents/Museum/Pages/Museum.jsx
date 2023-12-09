@@ -4,13 +4,13 @@ import Navbar from "../../../Components/Landing/Navbar/Navbar";
 // import axios from 'axios'
 
 import axiosInstance from "/src/API/apiCall.js";
+import { config } from "../../../config";
 
 export default function Museum() {
   const [museum, setMuseum] = useState([]);
   const callApi = async () => {
-    axiosInstance.items(6).then((res) => {
-      setMuseum(res);
-    });
+    const response = await axiosInstance.items(6)
+    setMuseum(response.data)
   };
   useEffect(() => {
     callApi();
@@ -72,7 +72,7 @@ export default function Museum() {
                     id={item.id}
                     item={item.slug}
                     title={item?.name}
-                    src={item?.src}
+                    src={`${config.host_url}/${item?.image}`}
                     address={item?.address}
                   />
                 );

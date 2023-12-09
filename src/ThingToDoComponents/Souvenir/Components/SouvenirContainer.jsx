@@ -4,13 +4,13 @@ import SouvenirCard from "./SouvenirCard";
 // import axiosSouvenir from '/src/API/apiMuseum.js'
 import SouvenirData from "/src/Database/souvenirData.json";
 import axiosInstance from "../../../API/apiCall";
+import { config } from "../../../config";
 
 const SouvenirContainer = () => {
   const [souvenir, setSouvenir] = useState([]);
   const callApi = async () => {
-    axiosInstance.items(7).then((res) => {
-      setSouvenir(res);
-    });
+    const response = await axiosInstance.items(9)
+    setSouvenir(response.data)
   };
   useEffect(() => {
     callApi();
@@ -22,7 +22,7 @@ const SouvenirContainer = () => {
         <SouvenirCard
           key={index}
           item={item.slug}
-          pic={item.src}
+          pic={`${config.host_url}/${item?.image}`}
           title={item.name}
           price={item.price}
           id={item.id}

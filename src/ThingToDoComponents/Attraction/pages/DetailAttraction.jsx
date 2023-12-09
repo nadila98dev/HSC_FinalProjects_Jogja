@@ -7,6 +7,7 @@ import AttractionContact from "../Component/AttractionContact";
 import BotButton from "../../../Components/Landing/Landing-bot/BotButton";
 import ShareButton from "../../../Components/Atoms/ShareButton";
 import axiosInstance from "../../../API/apiCall";
+import { config } from "../../../config";
 
 const DetailAttraction = () => {
   const navigationToAttractionPage = useNavigate();
@@ -14,14 +15,13 @@ const DetailAttraction = () => {
   const { id } = useParams();
   // console.log();
   const callApi = async () => {
-    axiosInstance.detail(id).then((res) => {
-      setDetail(res[0]);
-    });
+    const response = await axiosInstance.itemById(id)
+    setDetail(response.data)
   };
 
   useEffect(() => {
     callApi();
-  }, []);
+  }, [id]);
 
   return (
     <div className="flex flex-col min-h-screen pb-5 justify-center items-center">
@@ -42,7 +42,7 @@ const DetailAttraction = () => {
       </div>
       <div className="flex flex-col md:flex-row mt-5 bg-background1">
         <div className="object-cover object-center flex min-w-fit lg:w-1/2 xl:items-end">
-          <img className="w-full md:w-[50vw] max-w-[720px] lg:h-[500px]" src={detail.src} alt={detail.name} />
+          <img className="w-full md:w-[50vw] max-w-[720px] lg:h-[500px]" src={`${config.host_url}/${detail.image}`} alt={detail.name} />
         </div>
         <div className="flex-col justify-start md:items-start w-full py-8">
           <div className="flex flex-row px-4 sm:px-6 md:px-8 justify-between space-x-4">
