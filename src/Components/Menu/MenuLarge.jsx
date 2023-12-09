@@ -1,9 +1,10 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { useNavigate } from 'react-router-dom'
 import {
   getEmailFromLocalStorage,
   getPasswordFromLocalStorage,
 } from '../../Utils/userDatas';
+import axios from "axios";
 
 
 import './menularge.css'
@@ -15,6 +16,23 @@ import photo3 from '/Assets/menu/menu-jogja-photo3.png'
 import photo4 from '/Assets/menu/menu-jogja-photo4.png'
 
 function MenuLarge() {
+  const fetchCategory = async () => {
+    try{
+      const data = await axios.get("http://localhost:5000/api/v1/categories")
+
+      setCategory(data.data.data)
+    }
+    catch(error) {
+      console.error(error)
+    }
+  }
+  useEffect(() => {
+    
+    fetchCategory()
+  }, [])
+  
+  const [category, setCategory] = useState([]);
+  console.log(JSON.stringify(category,null,2));
 
   const navigateToMainPage = useNavigate ()
   const navigateToJogjaPage = useNavigate ()
@@ -27,20 +45,7 @@ function MenuLarge() {
   
 
   // =========== things-to-do
-  // museum
-  const navigateToMuseumPageJogja = useNavigate()
-  // hotel
-  const navigateToHotelPageJogja = useNavigate ()
-  // Art Activities
-  const navigateToArtActivitiesPageJogja = useNavigate ()
-  // Attraction
-  const navigateToAttractionPageJogja = useNavigate()
-  // Souvenir
-  const navigateToSouvenirPageJogja = useNavigate()
-  // Food 
-  const navigateToFoodPageJogja = useNavigate()
-  // Drinks
-  const navigateToDrinksPageJogja = useNavigate()
+  const navigateToPageJogja = useNavigate()
 
   // ============= Personal
   const navigateToCartPageJogja = useNavigate()
@@ -127,42 +132,13 @@ const handleCartClick = () => {
             <>
               {
                 <div className='font-Poppins gap-8 flex flex-col text-xl' >
-                  <div onClick={() => navigateToAttractionPageJogja('/things-to-do/attraction-jogja')} 
+                  {category.map((item) => (
+                  <div key={item.id} onClick={() => navigateToPageJogja(`/things-to-do/${item.slug}`)} 
                   className='flex justify-between items-center menu__text cursor-pointer'>
-                    <p>Attraction</p>
+                    <p>{item.name}</p>
                     <i className='bx bx-right-arrow-alt text-button text-2xl font-bold'></i>
                   </div>
-                  <div onClick={() => navigateToArtActivitiesPageJogja('/things-to-do/art-activities-jogja')}
-                   className='flex justify-between items-center menu__text cursor-pointer'>
-                    <p>Art Activities</p>
-                    <i className='bx bx-right-arrow-alt text-button text-2xl font-bold'></i>
-                  </div>
-                  <div className='flex justify-between items-center menu__text cursor-pointer'
-                    onClick={() => navigateToMuseumPageJogja ('/things-to-do/museum-jogja')}
-                  >
-                    <p>Museum</p>
-                  <i className='bx bx-right-arrow-alt text-button text-2xl font-bold'></i>
-                  </div>
-                  <div onClick={() => navigateToFoodPageJogja('/things-to-do/food-jogja')}
-                   className='flex justify-between items-center menu__text cursor-pointer'>
-                    <p>Foods</p>
-                    <i className='bx bx-right-arrow-alt text-button text-2xl font-bold'></i>
-                  </div>
-                  <div onClick={() => navigateToDrinksPageJogja('/things-to-do/drinks-jogja')} className='flex justify-between items-center menu__text cursor-pointer'>
-                    <p>Drinks</p>
-                    <i className='bx bx-right-arrow-alt text-button text-2xl font-bold'></i>
-                  </div>
-                  <div className='flex justify-between items-center menu__text cursor-pointer'
-                    onClick={() => navigateToHotelPageJogja ('/things-to-do/hotel-jogja')}
-                  >
-                    <p>Hotels</p>
-                    <i className='bx bx-right-arrow-alt text-button text-2xl font-bold'></i>
-                  </div>
-                  <div onClick={() => navigateToSouvenirPageJogja ('/things-to-do/souvenir-jogja')} 
-                  className='flex justify-between items-center menu__text cursor-pointer'>
-                    <p>Souvenir</p>
-                    <i className='bx bx-right-arrow-alt text-button text-2xl font-bold'></i>
-                  </div>
+                  ))}
                 </div>
               }
             </>
