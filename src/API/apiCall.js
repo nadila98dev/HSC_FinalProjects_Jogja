@@ -47,29 +47,35 @@ const axiosInstance = {
       .then((res) => res.data.category)
       .catch((err) => console.log(err)),
   items: async (id) =>
-    await axios
-      .get("/db.json")
-      .then((res) => res.data.items.filter((item) => item.category_id === id))
-      .catch((err) => {
-        console.log(err);
-      }),
-  detail: async (slug) =>
-    await axios
-      .get("/db.json")
-      .then((res) => res.data.items.filter((item) => item.slug == slug))
-      .catch((err) => {
-        console.log(err);
-      }),
-  itemById: async (id) =>
-    await axios
-      .get("/db.json")
-      .then((res) => {
-        const item = res.data.items.find((item) => item.id === id);
-        return item || null;
-      })
-      .catch((err) => {
-        console.log(err);
-      }),
+      await axios
+        .get(`${config.base_url}/items`, {
+          params: {
+            categoryId: id,
+          },
+        })
+        .then((res) => res.data)
+        .catch((err) => {
+          console.log(err);
+        }),
+         detailItems : async (id) => {
+          try {
+            const response = await axios.get(`${config.base_url}/items/${id}`);
+            return response.data;
+          } catch (error) {
+            console.error(`Failed to fetch item details: ${error.message}`);
+            throw error;
+          }
+        },
+      itemById: async (id) => {
+        try {
+          const response = await axios.get(`${config.base_url}/items/${id}`);
+          return response.data;
+        } catch (error) {
+          console.error(`Failed to fetch item by ID: ${error.message}`);
+          throw error;
+        }
+      }
+      
 };
 
 export default axiosInstance;

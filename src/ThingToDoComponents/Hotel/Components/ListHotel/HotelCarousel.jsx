@@ -17,8 +17,10 @@ import "swiper/css/free-mode";
 
 import { AiFillStar } from "react-icons/ai";
 import { AiOutlineHeart } from "react-icons/ai";
+import { config } from "../../../../config";
 
 function HotelCarousel({ items }) {
+  
   return (
     <div className="flex flex-col justify-center items-center mb-10">
       <div className="container2 w-[95vw] h-[500px] flex flex-col justify-center items-center">
@@ -59,10 +61,10 @@ function HotelCarousel({ items }) {
                   key={index}
                   className="text-left shadow-lg h-[450px] bg-[#E8F4FE] rounded-xl card"
                 >
-                  <Link to={`/things-to-do/hotel-jogja/${hotel.slug}`}>
+                  <Link to={`/things-to-do/hotel-jogja/${hotel.id}`}>
                     <img
                       className="w-[240px] h-[320px] object-cover rounded-t-lg absolute hotel-image"
-                      src={hotel.src}
+                      src={`${config.host_url}/${hotel.image}`}
                       alt={hotel.name}
                     />
                   </Link>

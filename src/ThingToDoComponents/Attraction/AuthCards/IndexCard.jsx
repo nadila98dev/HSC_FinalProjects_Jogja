@@ -5,14 +5,21 @@ import "./CardContainer.css";
 // untuk card
 import CardSection from "./CardsSection";
 import axiosInstance from "../../../API/apiCall";
+import { config } from "../../../config";
 
 const IndexCard = () => {
   const [attractions, setAttractions] = useState([]);
   const callApi = async () => {
-    axiosInstance.items(2).then((res) => {
-      setAttractions(res);
-    });
+    try {
+      const response = await axiosInstance.items(2); // Pass categoryId as a parameter
+      // console.log('API Response:', response);
+      setAttractions(response.data);
+    } catch (error) {
+      console.error('Error in callApi:', error);
+    }
   };
+  
+
   useEffect(() => {
     callApi();
   }, []);
@@ -23,7 +30,7 @@ const IndexCard = () => {
           <CardSection
             key={i}
             item={card.slug}
-            imageSrc={card.src}
+            imageSrc={`${config.host_url}/${card?.image}`}
             title={card.name}
             description={card.description}
             id={card.id}
