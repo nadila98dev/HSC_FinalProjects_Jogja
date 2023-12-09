@@ -8,7 +8,7 @@ import axios from "axios";
 
 const DetailTransaction = () => {
   const navigateToOrderPage = useNavigate();
-  const [orderDetails, setOrderDetails] = useState(null);
+  const [orderDetails, setOrderDetails] = useState([]);
 
   useEffect(() => {
     const token = Cookies.get("X-TOKEN");
