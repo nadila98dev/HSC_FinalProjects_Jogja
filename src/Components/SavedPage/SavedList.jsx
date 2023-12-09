@@ -3,39 +3,21 @@ import FavItems from "./FavItems";
 import NothingItem from "./NothingItem";
 import axios from "axios";
 import { config } from "../../config";
+import { useDispatch, useSelector } from "react-redux";
+import { setSavedActions } from "../../redux/saved/savedActions";
 
 const SavedList = ({ userId }) => {
-  const [savedItemsExist, setSavedItemsExist] = useState(false);
-  const [savedItems, setSavedItems] = useState([]);
-  const [error, setError] = useState(null);
+  const dispatch = useDispatch();
+  const savedStatus = useSelector((state) => state.saved.savedStatus);
+  console.log("tes", savedStatus);
 
   useEffect(() => {
-    axios
-      .get(`${config.base_url}/saved/${userId}`)
-      .then((response) => {
-        if (response.data.success) {
-          const items = response.data.data;
-          setSavedItems(items);
-          setSavedItemsExist(items.length > 0);
-        } else {
-          setSavedItemsExist(false);
-        }
-      })
-      .catch((error) => {
-        console.error("Error fetching saved items:", error);
-        setError("Failed to fetch saved items. Please try again later.");
-      });
-  }, [userId]);
+    dispatch(setSavedActions());
+  }, [dispatch]);
 
   return (
     <div>
-      {error ? (
-        <div>Error: {error}</div>
-      ) : savedItemsExist ? (
-        <FavItems savedItems={savedItems} />
-      ) : (
-        <NothingItem />
-      )}
+      {savedStatus ? <FavItems savedItems={savedStatus} /> : <NothingItem />}
     </div>
   );
 };

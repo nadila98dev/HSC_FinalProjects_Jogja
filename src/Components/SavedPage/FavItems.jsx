@@ -1,27 +1,8 @@
 import React from "react";
 import ActivatedButtonLove from "../Atoms/ActivatedButtonLove";
-import axios from "axios";
 import { config } from "../../config";
 
-const FavItems = ({ savedItems, setSavedItems }) => {
-  const handleRemoveItem = async (userId, itemId) => {
-    try {
-      const response = await axios.delete(`${config.base_url}/saved`, {
-        data: { userId, itemId },
-      });
-
-      if (response.status === 200 || response.status === 204) {
-        const updatedSavedItems = savedItems.filter(
-          (item) => !(item.itemId === itemId && item.userId === userId)
-        );
-
-        setSavedItems(updatedSavedItems);
-      }
-    } catch (error) {
-      console.error("Error:", error);
-    }
-  };
-
+const FavItems = ({ savedItems }) => {
   return (
     <div
       id="added-list"
@@ -35,16 +16,14 @@ const FavItems = ({ savedItems, setSavedItems }) => {
           <div className="overflow-hidden rounded-lg lg:h-[200px] lg:w-[300px]">
             <img
               className="rounded-lg hover:scale-105 duration-500 object-cover md:h-[300px] md:w-full lg:h-[200px] lg:w-[300px] xl:object-center"
-              src={favoriteItem.item.image}
+              src={`${config.host_url}/${favoriteItem.item.image}`}
               alt={favoriteItem.item.name}
             />
             <div className="relative flex justify-end bottom-12 xl:bottom-16 h-0">
               <ActivatedButtonLove
-                userId={favoriteItem.userId}
-                itemId={favoriteItem.itemId}
-                onRemove={() =>
-                  handleRemoveItem(favoriteItem.userId, favoriteItem.itemId)
-                }
+                userId={favoriteItem?.userId}
+                itemId={favoriteItem.item.id}
+                // onRemove={handleRemoveItem(favoriteItem.item.id)}
               />
             </div>
           </div>

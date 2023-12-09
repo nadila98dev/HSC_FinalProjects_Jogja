@@ -25,7 +25,7 @@ const axiosInstance = {
   getSaved: async (token) =>
     await axios
       .get(`${config.base_url}/saved`, {
-        headers: { Authorization: `Bearer ${token}` },
+        headers: { Authorization: `Bearer ${cookies}` },
       })
       .then((res) => res.data)
       .catch((err) => err.response.data),

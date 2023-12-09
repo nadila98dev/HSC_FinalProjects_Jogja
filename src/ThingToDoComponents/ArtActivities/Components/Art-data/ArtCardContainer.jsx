@@ -24,7 +24,6 @@ const ArtCardContainer = () => {
   const savedStatus = useSelector((state) => state.saved.savedStatus);
   console.log(savedStatus);
   const token = Cookies.get("X-TOKEN");
-  // console.log(filter);
 
   useEffect(() => {
     callApi();
