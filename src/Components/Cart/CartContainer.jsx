@@ -18,6 +18,7 @@ const CartContainer = () => {
   const [total, setTotal] = useState(0);
 
 
+
   const dispatch = useDispatch();
   const cartAll = useSelector((state) => state.cart.data);
   const cart = cartAll.data;
@@ -29,6 +30,7 @@ const CartContainer = () => {
     setCartData(cartItems);
     dispatch(fetchCart());
   }, [dispatch]);
+
 
   const calculateSubtotal = useCallback(() => {
     return cartData.reduce(
