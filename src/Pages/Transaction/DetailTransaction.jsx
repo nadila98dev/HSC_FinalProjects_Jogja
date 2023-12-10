@@ -1,11 +1,31 @@
 import React from "react";
 import ReuseNav from "../../Components/ReuseableNav/ReuseNav";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import DetailOrder from "../../Components/Transaction/DetailOrder";
+import { config } from "../../config";
+import Cookies from "js-cookie";
+import axios from "axios";
 
 const DetailTransaction = () => {
   const navigateToOrderPage = useNavigate();
-  const { orderId } = useParams();
+  const [orderDetails, setOrderDetails] = useState([]);
+
+  const fetchOrderDetails = async () => {
+    const token = Cookies.get("X-TOKEN");
+    try {
+      const response = await axios.get(`${config.base_url}/orders/${orderId}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      setOrderDetails(response.data.orderDetails);
+    } catch (error) {
+      console.error("Error fetching order details:", error);
+    }
+  };
+  useEffect(() => {
+    fetchOrderDetails();
+  }, []);
   return (
     <div>
       <ReuseNav />
@@ -28,7 +48,7 @@ const DetailTransaction = () => {
           </div>
         </div>
       </div>
-      <DetailOrder orderId={orderId} />
+      <DetailOrder orderDetails={orderDetails} />
     </div>
   );
 };

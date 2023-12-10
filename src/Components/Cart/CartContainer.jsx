@@ -14,7 +14,6 @@ const CartContainer = () => {
   const [subtotal, setSubtotal] = useState(0);
   const [total, setTotal] = useState(0);
 
-  const shippingFee = 10000;
   useEffect(() => {
     const cartItems = getCartItems();
     setCartData(cartItems);
@@ -102,10 +101,6 @@ const CartContainer = () => {
           <div className="flex flex-wrap justify-between mt-5">
             <p>Subtotal</p>
             <p>{formatCurrency(subtotal)}</p>
-          </div>
-          <div className="flex flex-wrap justify-between mt-5">
-            <p>Shipping Fee</p>
-            <p>{formatCurrency(shippingFee)}</p>
           </div>
           <div className="flex justify-center items-center my-5">
             <button
