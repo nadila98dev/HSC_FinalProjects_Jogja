@@ -1,9 +1,9 @@
-import React, { useEffect, useState, useCallback } from "react";
-import CartCard from "./CartCard/CartCard";
-import PopupPayment from "../PopUp/PopupPayment";
-import Cookies from "js-cookie";
-import axios from "axios";
-import { config } from "../../config";
+import React, { useEffect, useState, useCallback } from 'react';
+import CartCard from './CartCard/CartCard';
+import PopupPayment from '../PopUp/PopupPayment';
+import Cookies from 'js-cookie';
+import axios from 'axios';
+import { config } from '../../config';
 
 // import { getCartItems } from "../../Utils/Carts";
 
@@ -14,7 +14,24 @@ const CartContainer = () => {
   const [subtotal, setSubtotal] = useState(0);
   const [total, setTotal] = useState(0);
 
+<<<<<<< main
+  const shippingFee = 10000;
+  const fetchCartData = async () => {
+    try {
+      const token = Cookies.get('X-Token');
+      const response = await axios.get('http://localhost:3000/api/v1/cart/', {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      setCartData(response.data.data);
+    } catch (error) {}
+  };
+  useEffect(() => {
+    const cartItems = getCartItems();
+    setCartData(cartItems);
+  }, []);
+=======
 
+>>>>>>> main
 
   const calculateSubtotal = useCallback(() => {
     return cartData.reduce(
@@ -33,9 +50,9 @@ const CartContainer = () => {
   }, [cartData, calculateSubtotal, shippingFee]);
 
   const formatCurrency = (amount) => {
-    return new Intl.NumberFormat("id-ID", {
-      style: "currency",
-      currency: "IDR",
+    return new Intl.NumberFormat('id-ID', {
+      style: 'currency',
+      currency: 'IDR',
     }).format(amount);
   };
 
@@ -46,12 +63,12 @@ const CartContainer = () => {
   //midtrans
 
   const handleCheckoutClick = async () => {
-    const token = Cookies.get("X-TOKEN");
+    const token = Cookies.get('X-TOKEN');
 
     try {
       const response = await axios.post(`${config.base_url}/orders`, {
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
           Authorization: Bearer`${token}`,
         },
       });
@@ -59,17 +76,17 @@ const CartContainer = () => {
 
     const requestData = await response.data;
     window.snap.embed(requestData.linkPayment, {
-      embedId: "snap-container",
+      embedId: 'snap-container',
     });
   };
 
   //snap midtrans
   useEffect(() => {
-    const snapScript = "https://app.stg.midtrans.com/snap/snap.js";
+    const snapScript = 'https://app.stg.midtrans.com/snap/snap.js';
     const clientKey = import.meta.env.VITE_MIDTRANS_CLIENT_KEY;
-    const script = document.createElement("script");
+    const script = document.createElement('script');
     script.src = snapScript;
-    script.setAttribute("data-client-key", clientKey);
+    script.setAttribute('data-client-key', clientKey);
     script.async = true;
 
     document.body.appendChild(script);
