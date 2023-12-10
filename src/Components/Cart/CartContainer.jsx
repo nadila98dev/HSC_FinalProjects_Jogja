@@ -14,10 +14,7 @@ const CartContainer = () => {
   const [subtotal, setSubtotal] = useState(0);
   const [total, setTotal] = useState(0);
 
-  // useEffect(() => {
-  //   const cartItems = getCartItems();
-  //   setCartData(cartItems);
-  // }, []);
+
 
   const calculateSubtotal = useCallback(() => {
     return cartData.reduce(
