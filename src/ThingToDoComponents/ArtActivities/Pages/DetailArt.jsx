@@ -12,11 +12,11 @@ import { config } from "../../../config";
 const DetailArt = () => {
   const navigationToArtActivitiesPage = useNavigate();
   const [detail, setDetail] = useState([]);
-  const { id } = useParams(); 
+  const { id } = useParams();
 
   const callApi = async () => {
     try {
-      const response = await axiosInstance.itemById(id); 
+      const response = await axiosInstance.itemById(id);
       console.log("API Response:", response.data);
       setDetail(response.data);
     } catch (error) {
@@ -25,11 +25,8 @@ const DetailArt = () => {
   };
 
   useEffect(() => {
-    console.log("Id:", id);
     callApi();
   }, [id]);
-
-
 
   return (
     <div className="flex flex-col min-h-screen pb-5">
@@ -52,13 +49,15 @@ const DetailArt = () => {
       </div>
       <div className="grid md:grid-cols-2 m-auto ">
         <div className="object-cover grid-cols-4 shrink-0 lg:grid-cols-12 min-w-fit">
-        <img className="w-full h-full max-h-[540px]" src={`${config.host_url}/${detail.image}`} alt="Souvenir" />
+          <img
+            className="w-full h-full max-h-[540px]"
+            src={`${config.host_url}/${detail.image}`}
+            alt="Souvenir"
+          />
         </div>
         <div className="flex-col justify-start md:items-start w-full py-8 pt-20 bg-background1">
           <div className="flex flex-row px-4 sm:px-6 md:px-8 justify-between space-x-4">
-          <span className="font-Poppins">
-                  Art Activities
-                </span>        
+            <span className="font-Poppins">Art Activities</span>
             <ShareButton />
           </div>
           <div className="max-w-7x1 nx-auto px-4 sm:px-6 md:px-8">

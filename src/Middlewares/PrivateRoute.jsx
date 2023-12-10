@@ -4,7 +4,6 @@ import { Navigate, Outlet } from "react-router-dom";
 
 export default function PrivateRoute({ children }) {
   let token = Cookies.get("X-TOKEN");
-  console.log(token);
 
   if (!token) return <Navigate to="/login" replace={true} />;
 

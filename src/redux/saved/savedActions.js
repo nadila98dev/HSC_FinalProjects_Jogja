@@ -7,6 +7,5 @@ export const setSavedActions = () => async (dispatch) => {
   // type: SET_SAVED_STATUS,
   // payload: { itemId, isSolid }
   const res = await axiosInstance.getSaved()
-  // console.log('data',res.data)
   dispatch(setSavedStatus(res.data));
 };

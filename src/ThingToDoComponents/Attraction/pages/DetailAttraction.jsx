@@ -13,7 +13,6 @@ const DetailAttraction = () => {
   const navigationToAttractionPage = useNavigate();
   const [detail, setDetail] = useState([]);
   const { id } = useParams();
-  // console.log();
   const callApi = async () => {
     const response = await axiosInstance.itemById(id);
     setDetail(response.data[0]);

@@ -10,6 +10,5 @@ export const fetchItems = (keyword) => async (dispatch) => {
       keyword: keyword
     }
   })
-  console.log(res)
   dispatch(fetchItemsSuccess(res.data));
 };

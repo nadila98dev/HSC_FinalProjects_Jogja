@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 import RemoveButton from "../../Atoms/RemoveButton";
 import { config } from "../../../config";
@@ -20,48 +19,45 @@ const CartCard = ({ cartData, setCartData }) => {
   const incrementQuantity = async (itemId, qty) => {
     await axiosInstance.addCart(itemId, qty + 1);
     dispatch(fetchCart());
-
-
-// const CartCard = ({ cartData, setCartData }) => {
-//   const [quantity, setQuantity] = useState(1);
-//   const handleDelete = (itemId) => {
-//     const deleteitem = (cartData) =>
-//       cartData.filter((item) => item.id !== itemId);
-//     // Update the state to remove the deleted item
-//     setCartData(deleteitem);
-//   };
-
-//   const decrementQuantity = (itemId) => {
-//     const updateCartData = cartData.map((item) => {
-//       if (item.id === itemId && item.quantity > 1) {
-//         return {
-//           ...item,
-//           quantity: item.quantity - 1,
-//         };
-//       }
-//       return item;
-//     });
-//     setCartData(updateCartData);
-//   };
-
-//   const incrementQuantity = (itemId) => {
-//     const updateCartData = cartData.map((item) => {
-//       if (item.id === itemId) {
-//         return {
-//           ...item,
-//           quantity: item.quantity + 1,
-//         };
-//       }
-//       return item;
-//     });
-//     setCartData(updateCartData);
-
   };
+  // const CartCard = ({ cartData, setCartData }) => {
+  //   const [quantity, setQuantity] = useState(1);
+  //   const handleDelete = (itemId) => {
+  //     const deleteitem = (cartData) =>
+  //       cartData.filter((item) => item.id !== itemId);
+  //     // Update the state to remove the deleted item
+  //     setCartData(deleteitem);
+  //   };
+
+  //   const decrementQuantity = (itemId) => {
+  //     const updateCartData = cartData.map((item) => {
+  //       if (item.id === itemId && item.quantity > 1) {
+  //         return {
+  //           ...item,
+  //           quantity: item.quantity - 1,
+  //         };
+  //       }
+  //       return item;
+  //     });
+  //     setCartData(updateCartData);
+  //   };
+
+  //   const incrementQuantity = (itemId) => {
+  //     const updateCartData = cartData.map((item) => {
+  //       if (item.id === itemId) {
+  //         return {
+  //           ...item,
+  //           quantity: item.quantity + 1,
+  //         };
+  //       }
+  //       return item;
+  //     });
+  //     setCartData(updateCartData);
 
   const formatCurrency = (amount) => {
-    return new Intl.NumberFormat('id-ID', {
-      style: 'currency',
-      currency: 'IDR',
+    return new Intl.NumberFormat("id-ID", {
+      style: "currency",
+      currency: "IDR",
     }).format(amount);
   };
 
@@ -71,7 +67,6 @@ const CartCard = ({ cartData, setCartData }) => {
 
   return (
     <div>
-
       {cartData &&
         cartData.map((item) => (
           <div key={item.id} className="flex px-2 mt-1 md:px-10 shadow-lg">
@@ -123,7 +118,7 @@ const CartCard = ({ cartData, setCartData }) => {
                     </span>
                   </div>
 
-//       {cartData.map((item) => (
+                  {/*  
 //         <div key={item.id} className="flex px-2 mt-1 md:px-10 shadow-lg">
 //           <div className="mx-auto mt-5">
 //             <div className="flex justify-between w-auto">
@@ -170,15 +165,12 @@ const CartCard = ({ cartData, setCartData }) => {
 //                     {' '}
 //                     +{' '}
 //                   </span>
-
+*/}
                 </div>
               </div>
             </div>
           </div>
-
-        </div>
-      ))}
-
+        ))}
     </div>
   );
 };

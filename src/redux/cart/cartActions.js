@@ -8,6 +8,5 @@ const token = Cookies.get('X-TOKEN')
 
 export const fetchCart = () => async (dispatch) => {
   const res = await axios.get(`${config.base_url}/cart`,{headers:{Authorization: `Bearer ${token}`}})
-  console.log(res)
   dispatch(fetchCartSuccess(res.data));
 };
