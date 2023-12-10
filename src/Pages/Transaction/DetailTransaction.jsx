@@ -10,25 +10,20 @@ const DetailTransaction = () => {
   const navigateToOrderPage = useNavigate();
   const [orderDetails, setOrderDetails] = useState([]);
 
-  useEffect(() => {
+  const fetchOrderDetails = async () => {
     const token = Cookies.get("X-TOKEN");
-
-    const fetchOrderDetails = async () => {
-      try {
-        const response = await axios.get(
-          `${config.base_url}/orders/${orderId}`,
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
-        setOrderDetails(response.data.orderDetails);
-      } catch (error) {
-        console.error("Error fetching order details:", error);
-      }
-    };
-
+    try {
+      const response = await axios.get(`${config.base_url}/orders/${orderId}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      setOrderDetails(response.data.orderDetails);
+    } catch (error) {
+      console.error("Error fetching order details:", error);
+    }
+  };
+  useEffect(() => {
     fetchOrderDetails();
   }, []);
   return (
