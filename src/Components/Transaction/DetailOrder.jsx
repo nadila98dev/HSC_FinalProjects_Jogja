@@ -1,26 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
-import { config } from "../../config";
 
-const DetailOrder = ({ orderId }) => {
-  const [orderDetails, setOrderDetails] = useState(null);
-
-  useEffect(() => {
-    const fetchOrderDetails = async () => {
-      try {
-        const response = await axios.get(
-          `${config.base_url}/orders/${orderId}`
-        );
-        setOrderDetails(response.data.orderDetails);
-      } catch (error) {
-        console.error("Error fetching order details:", error);
-      }
-    };
-
-    fetchOrderDetails();
-  }, [orderId]);
-
+const DetailOrder = ({ orderDetails }) => {
   if (!orderDetails) {
     return <div>No order data available</div>;
   }
