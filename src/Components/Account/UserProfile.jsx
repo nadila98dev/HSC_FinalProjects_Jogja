@@ -17,7 +17,6 @@ const UserProfile = () => {
   const dispatch = useDispatch();
   const data = useSelector(selectUserData);
   const token = Cookies.get("X-TOKEN");
-  console.log(data);
 
   useEffect(() => {
     dispatch(fetchUsers(token));

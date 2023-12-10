@@ -1,15 +1,15 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ReuseNav from "../../Components/ReuseableNav/ReuseNav";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import DetailOrder from "../../Components/Transaction/DetailOrder";
 import { config } from "../../config";
 import Cookies from "js-cookie";
 import axios from "axios";
 
 const DetailTransaction = () => {
+  const { orderId } = useParams();
   const navigateToOrderPage = useNavigate();
   const [orderDetails, setOrderDetails] = useState([]);
-
   const fetchOrderDetails = async () => {
     const token = Cookies.get("X-TOKEN");
     try {
@@ -18,7 +18,7 @@ const DetailTransaction = () => {
           Authorization: `Bearer ${token}`,
         },
       });
-      setOrderDetails(response.data.orderDetails);
+      setOrderDetails(response.data.data);
     } catch (error) {
       console.error("Error fetching order details:", error);
     }

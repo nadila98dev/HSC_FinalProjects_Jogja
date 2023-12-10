@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -14,7 +13,6 @@ import {
 // } from '../../Utils/userDatas';
 // import axios from "axios";
 
-
 import "./menularge.css";
 import blackLogo from "/src/assets/wonderful-jogja-logo-black-2.svg";
 
@@ -24,28 +22,26 @@ import photo3 from "/Assets/menu/menu-jogja-photo3.png";
 import photo4 from "/Assets/menu/menu-jogja-photo4.png";
 
 function MenuLarge() {
-
   const navigateToMainPage = useNavigate();
   const navigateToJogjaPage = useNavigate();
 
-//   const fetchCategory = async () => {
-//     try{
-//       const data = await axios.get("http://localhost:5000/api/v1/categories")
+  //   const fetchCategory = async () => {
+  //     try{
+  //       const data = await axios.get("http://localhost:5000/api/v1/categories")
 
-//       setCategory(data.data.data)
-//     }
-//     catch(error) {
-//       console.error(error)
-//     }
-//   }
-//   useEffect(() => {
-    
-//     fetchCategory()
-//   }, [])
-  
-//   const [category, setCategory] = useState([]);
-//   console.log(JSON.stringify(category,null,2));
+  //       setCategory(data.data.data)
+  //     }
+  //     catch(error) {
+  //       console.error(error)
+  //     }
+  //   }
+  //   useEffect(() => {
 
+  //     fetchCategory()
+  //   }, [])
+
+  //   const [category, setCategory] = useState([]);
+  //   console.log(JSON.stringify(category,null,2));
 
   // practical-page
   const navigateToPracticalTipsPage = useNavigate();
@@ -70,8 +66,7 @@ function MenuLarge() {
   // Drinks
   const navigateToDrinksPageJogja = useNavigate();
 
-//   const navigateToPageJogja = useNavigate()
-
+  //   const navigateToPageJogja = useNavigate()
 
   // ============= Personal
   const navigateToCartPageJogja = useNavigate();
@@ -156,7 +151,6 @@ function MenuLarge() {
           {activeSubMenu === "thingsToDo" && (
             <>
               {
-
                 <div className="font-Poppins gap-8 flex flex-col text-xl">
                   <div
                     onClick={() =>
@@ -226,16 +220,7 @@ function MenuLarge() {
                   >
                     <p>Souvenir</p>
                     <i className="bx bx-right-arrow-alt text-button text-2xl font-bold"></i>
-
-//                 <div className='font-Poppins gap-8 flex flex-col text-xl' >
-//                   {category.map((item) => (
-//                   <div key={item.id} onClick={() => navigateToPageJogja(`/things-to-do/${item.slug}`)} 
-//                   className='flex justify-between items-center menu__text cursor-pointer'>
-//                     <p>{item.name}</p>
-//                     <i className='bx bx-right-arrow-alt text-button text-2xl font-bold'></i>
-
                   </div>
-                  ))}
                 </div>
               }
             </>

@@ -6,10 +6,8 @@ export const fetchUsers = (token) => async (dispatch) => {
     dispatch(startFetchingUser());
 
     const res = await axiosInstance.detailUser(token);
-    console.log(res)
     dispatch(fetchUserSuccess(res.data));
   } catch (error) {
-    console.log(error)
     dispatch(fetchUserFailure(error));
   }
 };

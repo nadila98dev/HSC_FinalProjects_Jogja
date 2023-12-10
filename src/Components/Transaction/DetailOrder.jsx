@@ -1,10 +1,29 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import axiosInstance from "../../API/apiCall";
+import { config } from "../../config";
 
 const DetailOrder = ({ orderDetails }) => {
-  if (!orderDetails) {
-    return <div>No order data available</div>;
-  }
+  console.log(orderDetails);
+  // if (!orderDetails) {
+  //   return <div>No order data available</div>;
+  // }
+  const [detail, setDetail] = useState();
+  const getDetail = async (itemId) => {
+    const res = await axiosInstance.detailItems(itemId);
+    return res.data;
+  };
+
+  useEffect(() => {
+    const fetchDetails = async () => {
+      const details = await Promise.all(
+        orderDetails?.cartData?.map((item) => getDetail(item.item.id))
+      );
+      setDetail(details);
+    };
+
+    fetchDetails();
+  }, [orderDetails?.cartData]);
   return (
     <>
       <div className="px-4 bg-background1 pb-6 font-Poppins">
@@ -14,19 +33,19 @@ const DetailOrder = ({ orderDetails }) => {
         <div className="mt-4 p-4 text-[14px] rounded-xl bg-white shadow-xl">
           <div className="flex gap-[54px] sm:gap-20">
             <p className="text-gray">Order no</p>
-            <p>: {orderDetails.trxId}</p>
+            <p>: {orderDetails?.trxId}</p>
           </div>
           <div className="flex gap-10 sm:gap-[66px]">
             <p className="text-gray">Order date</p>
-            <p>: {orderDetails.detetimePayment}</p>
+            <p>: {orderDetails?.detetimePayment}</p>
           </div>
           <div className="flex gap-1 sm:gap-[30px]">
             <p className="text-gray">Order Summary</p>
-            <p>: {orderDetails.cartData.length} items</p>
+            <p>: {orderDetails.cartData?.length} items</p>
           </div>
           <div className="mt-2">
-            <p>Total: Rp. {orderDetails.totalCartPrice}</p>
-            <p>{orderDetails.statusOrder}</p>
+            <p>Total: Rp. {orderDetails?.totalCartPrice}</p>
+            <p>{orderDetails?.statusOrder}</p>
           </div>
         </div>
         <div className="flex flex-col md:grid md:grid-cols-2 md:gap-4">
@@ -57,22 +76,24 @@ const DetailOrder = ({ orderDetails }) => {
                 </p>
               </div>
               <div className="mt-4 grid gap-4 grid-cols-2">
-                {orderDetails.cartData.map((item, index) => (
-                  <div key={index} className="flex gap-4">
-                    <div>
-                      <img
-                        className="rounded-md w-[100px] h-[70px]"
-                        src={item.image}
-                        alt={item.name}
-                      />
+                {orderDetails?.cartData?.map((item, index) => {
+                  return (
+                    <div key={index} className="flex gap-4">
+                      <div>
+                        <img
+                          className="rounded-md w-[100px] h-[70px]"
+                          src={`${config.host_url}/${detail?.[index]?.image}`}
+                          alt={item?.name}
+                        />
+                      </div>
+                      <div className="text-[12px]">
+                        <p>
+                          <b>{item?.name}</b>
+                        </p>
+                      </div>
                     </div>
-                    <div className="text-[12px]">
-                      <p>
-                        <b>{item.name}</b>
-                      </p>
-                    </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
           </div>
@@ -82,9 +103,9 @@ const DetailOrder = ({ orderDetails }) => {
               <p>Delivery Address</p>
             </div>
             <div className="pl-[30px] mt-4 flex flex-col gap-2 text-[14px]">
-              <p>{orderDetails.user.name}</p>
-              <p>{orderDetails.user.address}</p>
-              <p>{orderDetails.user.phone}</p>
+              <p>{orderDetails?.user?.name}</p>
+              <p>{orderDetails?.user?.address}</p>
+              <p>{orderDetails?.user?.phone}</p>
             </div>
           </div>
         </div>

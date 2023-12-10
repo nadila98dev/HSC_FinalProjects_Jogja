@@ -5,7 +5,8 @@ import ButtonLove from "../../../Components/Atoms/ButtonLove";
 import { Link } from "react-router-dom";
 // untuk card
 
-const CarouselCard = ({ imageSrc, title, item }) => {
+const CarouselCard = ({ image, title, item }) => {
+  console.log("image", image);
   return (
     // pecah card disini
     <Link to={`/things-to-do/attraction-jogja/${item}`}>
@@ -13,7 +14,7 @@ const CarouselCard = ({ imageSrc, title, item }) => {
         <div className="bg-white rounded-xl shadow-lg overflow-hidden relative">
           <div className="rounded-lg ml-5 mr-5 mt-6">
             <img
-              src={imageSrc}
+              src={image}
               alt={title}
               className="h-[280px] w-full object-cover object-center rounded-lg"
             />

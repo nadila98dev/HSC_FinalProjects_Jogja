@@ -20,7 +20,6 @@ const DetailSouvenir = () => {
   const navigateToSouvenirPage = useNavigate();
   const [detail, setDetail] = useState({});
   const { id } = useParams();
-  console.log(id);
 
   const [showPopup, setShowPopup] = useState(false);
   const [popupMessage, setPopupMessage] = useState("");

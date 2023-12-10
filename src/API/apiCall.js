@@ -112,7 +112,6 @@ const axiosInstance = {
           keyword: id
         }
       });
-      console.log(response)
       return response.data;
     } catch (error) {
       console.error(`Failed to fetch item by ID: ${error.message}`);

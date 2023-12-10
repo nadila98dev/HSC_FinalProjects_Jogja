@@ -13,7 +13,6 @@ const DetailHotel = () => {
   const navigateToHotelPageJogja = useNavigate();
   const [detail, setDetail] = useState({});
   const { id } = useParams();
-  console.log(id);
 
   const callApi = async () => {
     const response = await axiosInstance.itemById(id);

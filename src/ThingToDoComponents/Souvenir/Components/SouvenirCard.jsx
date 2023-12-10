@@ -6,8 +6,6 @@ import ButtonLove from "../../../Components/Atoms/ButtonLove";
 import { config } from "../../../config";
 
 const SouvenirCard = ({ item, pic, title, desc, price, id }) => {
-  console.log(pic);
-
   return (
     <div className="w-full p-4">
       <div className="bg-white rounded-lg">

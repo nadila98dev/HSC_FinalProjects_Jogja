@@ -12,19 +12,16 @@ import "./Carousel.css";
 import axiosInstance from "../../../API/apiCall";
 import { config } from "../../../config";
 
-
 const IndexCarousel = () => {
   const [attractions, setAttractions] = useState([]);
   const callApi = async () => {
     try {
-      const response = await axiosInstance.items(2); // Pass categoryId as a parameter
-      console.log('API Response:', response);
+      const response = await axiosInstance.items(2);
       setAttractions(response.data);
     } catch (error) {
-      console.error('Error in callApi:', error);
+      console.error("Error in callApi:", error);
     }
   };
-  
 
   useEffect(() => {
     callApi();
@@ -77,6 +74,6 @@ const IndexCarousel = () => {
       )}
     </div>
   );
-          }
+};
 
 export default IndexCarousel;
