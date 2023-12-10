@@ -76,9 +76,43 @@ const axiosInstance = {
       throw error;
     }
   },
+  addCart: async (id, qty) => {
+    try {
+      const response = await axios.post(`${config.base_url}/cart`,{
+        itemsId: id,
+        quantity: qty
+      },{
+        headers: {
+          Authorization: `Bearer ${cookies}`
+        }
+      });
+      return response.data;
+    } catch (error) {
+      console.log(`Failed to fetch item details: ${error.message}`);
+      throw error;
+    }
+  },
+  removeCart: async (id) => {
+    try {
+      const response = await axios.delete(`${config.base_url}/cart/${id}`,{
+        headers: {
+          Authorization: `Bearer ${cookies}`
+        }
+      });
+      return response.data;
+    } catch (error) {
+      console.log(`Failed to fetch item details: ${error.message}`);
+      throw error;
+    }
+  },
   itemById: async (id) => {
     try {
-      const response = await axios.get(`${config.base_url}/items/${id}`);
+      const response = await axios.get(`${config.base_url}/items`,{
+        params:{
+          keyword: id
+        }
+      });
+      console.log(response)
       return response.data;
     } catch (error) {
       console.error(`Failed to fetch item by ID: ${error.message}`);

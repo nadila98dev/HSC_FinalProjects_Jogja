@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import History from "../../Components/Transaction/History";
 import axios from "axios";
 import { config } from "../../config";
+import Cookies from "js-cookie";
 
 const Transaction = () => {
   const navigateToAccountPage = useNavigate();
@@ -15,8 +16,13 @@ const Transaction = () => {
   }, []);
 
   const fetchOrderHistory = async () => {
+    const token = Cookies.get("X-TOKEN");
     try {
-      const response = await axios.get(`${config.base_url}/orders`);
+      const response = await axios.get(`${config.base_url}/orders`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
       setOrders(response.data.data);
     } catch (error) {
       if (error.response && error.response.status === 401) {

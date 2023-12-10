@@ -19,7 +19,7 @@ const Popup = ({ onClose }) => {
         }
       );
       onClose();
-      window.location.reload();
+      // window.location.reload();
     } catch (error) {
       console.error("Error updating address:", error);
     }

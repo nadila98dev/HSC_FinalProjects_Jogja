@@ -16,7 +16,7 @@ const ArtCard = ({ item, image, name, description, id }) => {
           />
         </Link>
         <div className="flex justify-end h-0 relative bottom-12 xl:bottom-[52px]">
-          <ButtonLove itemId={id} />
+          <ButtonLove id={id} />
         </div>
       </div>
       <div className="flex flex-col pl-2 pt-2">

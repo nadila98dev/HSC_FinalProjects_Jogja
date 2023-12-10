@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useEffect } from "react";
 
 // ============ ErrorBoundaries
 import ErrorBoundary from "./Components/Error/ErrorBoundary";
@@ -164,7 +164,7 @@ function App() {
             }
           ></Route>
           <Route
-            path="/things-to-do/hotel-jogja/:slug"
+            path="/things-to-do/hotel-jogja/:id"
             element={
               <Suspense fallback={<LoadingPage />}>
                 <DetailHotel />

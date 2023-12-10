@@ -16,8 +16,8 @@ const DetailDrinks = () => {
   const [detail, setDetail] = useState({});
   const { id } = useParams();
   const callApi = async () => {
-    const response = await axiosInstance.itemById(id)
-    setDetail(response.data)
+    const response = await axiosInstance.itemById(id);
+    setDetail(response.data[0]);
   };
   useEffect(() => {
     callApi();

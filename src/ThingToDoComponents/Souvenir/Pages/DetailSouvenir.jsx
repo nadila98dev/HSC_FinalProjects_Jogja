@@ -14,24 +14,26 @@ import Popup from "../../../Components/PopUp/Popup";
 
 import axiosInstance from "../../../API/apiCall";
 import { addToCart } from "../../../Utils/Carts";
+import { config } from "../../../config";
 
 const DetailSouvenir = () => {
   const navigateToSouvenirPage = useNavigate();
   const [detail, setDetail] = useState({});
   const { id } = useParams();
+  console.log(id);
 
   const [showPopup, setShowPopup] = useState(false);
   const [popupMessage, setPopupMessage] = useState("");
 
   const callApi = async () => {
-    axiosInstance.detail(id).then((res) => {
-      const data = res[0];
-      setDetail(data);
-    });
+    const response = await axiosInstance.itemById(id);
+    setDetail(response.data[0]);
   };
+
+  console.log(detail);
   useEffect(() => {
     callApi();
-  }, []);
+  }, [id]);
 
   const handleAddClick = () => {
     const newItem = {
@@ -39,8 +41,8 @@ const DetailSouvenir = () => {
       src: detail.src,
       name: detail.name,
       price: detail.price,
-      quantity: detail.quantity
-    }
+      quantity: detail.quantity,
+    };
     addToCart(newItem);
     const message = `The ticket for ${newItem.name} has been added to the cart.`;
     setPopupMessage(message);
@@ -68,7 +70,7 @@ const DetailSouvenir = () => {
         <div className="object-cover grid-cols-4 shrink-0 lg:grid-cols-12 min-w-fit flex justify-end items-end">
           <img
             className="w-full lg:w-[700px] lg:h-[400px]"
-            src={detail.src}
+            src={`${config.host_url}/${detail.image}`}
             alt="Souvenir"
           />
         </div>
@@ -87,10 +89,11 @@ const DetailSouvenir = () => {
             <h3 className="mt-4 text-2xl">Rp. {detail.price}</h3>
           </div>
           <div className="mt-4 max-w-7x1 nx-auto px-4 sm:px-6 md:px-8">
-              <AddToCartButton id={detail.id} onClick={handleAddClick} />
+            <AddToCartButton id={detail.id} onClick={handleAddClick} />
           </div>
           <Popup
             message={popupMessage}
+            id={detail.id}
             onClose={() => {
               setShowPopup(false);
             }}

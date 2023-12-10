@@ -5,16 +5,23 @@ import Navbar from "../../../Components/Landing/Navbar/Navbar";
 
 import axiosInstance from "/src/API/apiCall.js";
 import { config } from "../../../config";
+import Cookies from "js-cookie";
+import { setSavedActions } from "../../../redux/saved/savedActions";
+import { useDispatch } from "react-redux";
 
 export default function Museum() {
   const [museum, setMuseum] = useState([]);
   const callApi = async () => {
-    const response = await axiosInstance.items(6)
-    setMuseum(response.data)
+    const response = await axiosInstance.items(6);
+    setMuseum(response.data);
   };
+  const dispatch = useDispatch();
+  const token = Cookies.get("X-TOKEN");
+
   useEffect(() => {
     callApi();
-  }, []);
+    dispatch(setSavedActions(token));
+  }, [dispatch]);
   return (
     <div className="flex flex-col min-h-screen ">
       <div className="bg-[#f1f8ff]  h-full flex flex-col justify-center mx-auto">
